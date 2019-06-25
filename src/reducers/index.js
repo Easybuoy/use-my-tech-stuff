@@ -14,19 +14,19 @@ export const reducer = (state = initialState, action) => {
     case FETCHING_START:
       return {
         ...state,
-        fetchingItems: true,
-        error: ''
+        error: '',
+        isFetchingItems: true
       };
     case FETCHING_SUCCESS:
       return {
         ...state,
-        fetchingItems: false,
-        items: [...state.items, ...action.payload]
+        isFetchingItems: false,
+        items: [state.items, ...action.payload]
       };
     case FETCHING_FAILURE:
       return {
         ...state,
-        fetchingItems: false,
+        isFetchingItems: false,
         error: action.payload
       };
     default:
