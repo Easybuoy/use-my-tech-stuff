@@ -32,7 +32,10 @@ export const getItems = () => dispatch => {
 export const registerUser = user => dispatch => {
   dispatch({ type: REGISTERING_USER_START });
   return axios
-    .post('https://usemytechstuffbe.herokuapp.com/api/auth/register', user)
+    .post(
+      'https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/auth/register',
+      user
+    )
     .then(res => {
       console.log('from registerUser', res);
       dispatch({ type: REGISTERING_USER_SUCCESS, payload: res });
