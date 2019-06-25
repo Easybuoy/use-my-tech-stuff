@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PrivateRoute from './PrivateRoute';
-
+import decode from 'jwt-decode';
 import { getUsers } from '../actions/index';
 
 class Dashboard extends React.Component {
@@ -16,17 +16,17 @@ class Dashboard extends React.Component {
     this.props.getUsers();
   }
 
+  getToken = e => {
+    let banana = localStorage.getItem('token');
+    let decoded = decode(banana);
+    console.log(decoded);
+  };
+
   render() {
     return (
       <div className='dashboard-container'>
         <h1>private dashboard</h1>
-        {this.props.users.map(user => (
-          <div className='user-card' key={user.id}>
-            <h6 className='user-id'>User ID {user.id}</h6>
-            <p>Username {user.username}</p>
-            <p className='item-price'>User email {user.email}</p>
-          </div>
-        ))}
+        <button onClick={this.getToken}>get token</button>
       </div>
     );
   }
