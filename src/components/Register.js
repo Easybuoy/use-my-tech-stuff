@@ -6,13 +6,16 @@ import { registerUser } from '../actions';
 
 class Register extends Component {
   state = {
-    users: []
+    user: [],
+    username: '',
+    password: '',
+    email: ''
   };
 
   handleChange = e => {
     this.setState({
-      users: {
-        ...this.state.users,
+      user: {
+        ...this.state.user,
         [e.target.name]: e.target.value
       }
     });
@@ -20,7 +23,7 @@ class Register extends Component {
 
   registerUser = e => {
     e.preventDefault();
-    this.props.registerUser(this.state.users).then(res => {
+    this.props.registerUser(this.state.user).then(res => {
       if (res) {
         this.props.history.push('/');
       }
@@ -28,7 +31,7 @@ class Register extends Component {
   };
 
   render() {
-    console.log('Register.js', this.props);
+    console.log('Props in Register.js', this.props);
     return (
       <div className='register-container'>
         <h1>Register an Account</h1>
@@ -36,21 +39,21 @@ class Register extends Component {
           <input
             type='email'
             name='email'
-            value={this.state.users.email}
+            value={this.state.user.email}
             onChange={this.handleChange}
             placeholder='email address'
           />
           <input
             type='text'
             name='username'
-            value={this.state.users.username}
+            value={this.state.user.username}
             onChange={this.handleChange}
             placeholder='username'
           />
           <input
             type='password'
             name='password'
-            value={this.state.users.password}
+            value={this.state.user.password}
             onChange={this.handleChange}
             placeholder='password'
           />
