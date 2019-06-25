@@ -8,13 +8,12 @@ import { getUsers, getItems } from '../actions/index';
 
 class Dashboard extends React.Component {
   state = {
-    users: [],
-    items: [],
     userId: 0
   };
 
   componentDidMount() {
     this.props.getUsers();
+    this.props.getItems();
   }
 
   getToken = () => {
