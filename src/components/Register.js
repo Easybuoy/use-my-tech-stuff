@@ -24,7 +24,7 @@ class Register extends Component {
   registerUser = e => {
     e.preventDefault();
     this.props.registerUser(this.state.user).then(() => {
-      this.props.history.push('/');
+      this.props.history.push('/dashboard');
     });
   };
 
