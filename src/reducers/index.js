@@ -13,7 +13,7 @@ import {
 const initialState = {
   error: '',
   items: [],
-  users: [],
+  user: [],
   isFetchingItems: false,
   isLoggingIn: false,
   isRegistering: false,
@@ -53,7 +53,7 @@ export const reducer = (state = initialState, action) => {
         ...state,
         error: '',
         isRegistering: false,
-        users: [...state.users, action.payload]
+        user: action.payload
       };
     case REGISTERING_USER_FAILURE:
       return {
