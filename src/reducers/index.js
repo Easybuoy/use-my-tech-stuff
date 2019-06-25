@@ -1,12 +1,16 @@
 import {
   FETCHING_ITEMS_START,
   FETCHING_ITEMS_SUCCESS,
-  FETCHING_ITEMS_FAILURE
+  FETCHING_ITEMS_FAILURE,
+  REGISTERING_USER_START,
+  REGISTERING_USER_SUCCESS,
+  REGISTERING_USER_FAILURE
 } from '../actions';
 
 const initialState = {
   error: '',
   items: [],
+  users: [],
   isFetchingItems: false,
   isLoggingIn: false,
   isRegistering: false,
@@ -32,6 +36,26 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetchingItems: false,
+        error: action.payload
+      };
+
+    case REGISTERING_USER_START:
+      return {
+        ...state,
+        error: '',
+        isRegistering: true
+      };
+    case REGISTERING_USER_SUCCESS:
+      return {
+        ...state,
+        error: '',
+        isRegistering: false,
+        items: [...state.users, action.payload]
+      };
+    case REGISTERING_USER_FAILURE:
+      return {
+        ...state,
+        isRegistering: false,
         error: action.payload
       };
     default:
