@@ -92,6 +92,30 @@ const CategoryDetail = styled.div`
         align-items: center;
         padding: 0;
         color: #1cae9e;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+  .card-body {
+    h4 {
+      font-size: 2rem;
+    }
+
+    h6 {
+      font-size: 1.3rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
+    .price {
+      display: flex;
+      p {
+        margin: 0 0.2rem;
+      }
+      .price-value {
+        color: #1cae9e;
       }
     }
   }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import { capitalizeFistCharacter } from "../../util";
 import { getItemsByCategories } from "../../actions";
 import { CategoryHeader } from "../../styles/Styles";
 import Category from "./Category";
@@ -25,7 +26,12 @@ class CategoriesList extends Component {
     if (this.state.category_id) {
       return (
         <div className="container-fluid">
-          <h4>{this.state.category_id}</h4>
+          <h4
+            className="font-weight-bold"
+            style={{ fontFamily: '"Ubuntu", sans-serif' }}
+          >
+            {capitalizeFistCharacter(this.state.category_id)}
+          </h4>
           <div className="card-deck mb-5">
             {this.props.categoryItems.map(item => (
               <CategoryDetail key={item.id} item={item} />
