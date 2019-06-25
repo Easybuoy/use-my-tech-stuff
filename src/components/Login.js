@@ -2,6 +2,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+// components
+
 // actions
 import { userLogin } from '../actions';
 
@@ -24,10 +26,9 @@ class Login extends React.Component {
 
   login = e => {
     e.preventDefault();
-    this.props.userLogin(this.state.credentials).then(res => {
-      if (res) {
-        this.props.history.push('/dashboard');
-      }
+    console.log(`login props`, this.props);
+    this.props.userLogin(this.state.credentials).then(() => {
+      this.props.history.push('/dashboard');
     });
   };
 

@@ -15,9 +15,11 @@ export const USER_LOGIN_START = 'USER_LOGIN_START';
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
 export const USER_LOGIN_FAILURE = 'USER_LOGIN_FAILURE';
 
-// export functions
-export const login = creds => dispatch => {};
+export const FETCHING_USERS_START = 'FETCHING_USERS_START';
+export const FETCHING_USERS_SUCCESS = 'FETCHING_USERS_SUCCESS';
+export const FETCHING_USERS_FAILURE = 'FETCHING_USERS_FAILURE';
 
+// export functions
 export const getItems = () => dispatch => {
   dispatch({ type: FETCHING_ITEMS_START });
   return axios
@@ -51,7 +53,7 @@ export const registerUser = user => dispatch => {
       console.log(err);
       dispatch({
         type: REGISTERING_USER_FAILURE,
-        payload: err
+        payload: err.response
       });
     });
 };
@@ -73,6 +75,24 @@ export const userLogin = creds => dispatch => {
       dispatch({
         type: USER_LOGIN_FAILURE,
         payload: err.response.data.message
+      });
+    });
+};
+
+export const getUsers = () => dispatch => {
+  dispatch({ type: FETCHING_USERS_START });
+  return axiosWithAuth()
+    .get(
+      'https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/users'
+    )
+    .then(res => {
+      console.log(`getUsers`, res);
+      dispatch({ type: FETCHING_USERS_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({
+        type: FETCHING_USERS_FAILURE,
+        payload: err.response.data.error
       });
     });
 };

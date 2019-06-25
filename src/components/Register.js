@@ -23,10 +23,8 @@ class Register extends Component {
 
   registerUser = e => {
     e.preventDefault();
-    this.props.registerUser(this.state.user).then(res => {
-      if (res) {
-        this.props.history.push('/');
-      }
+    this.props.registerUser(this.state.user).then(() => {
+      this.props.history.push('/dashboard');
     });
   };
 
@@ -63,8 +61,9 @@ class Register extends Component {
     );
   }
 }
+
 const mapStateToProps = state => ({
-  users: state.users,
+  user: state.user,
   isRegistering: state.isRegistering,
   error: state.error
 });

@@ -7,14 +7,19 @@ import {
   REGISTERING_USER_FAILURE,
   USER_LOGIN_START,
   USER_LOGIN_SUCCESS,
-  USER_LOGIN_FAILURE
+  USER_LOGIN_FAILURE,
+  FETCHING_USERS_START,
+  FETCHING_USERS_SUCCESS,
+  FETCHING_USERS_FAILURE
 } from '../actions';
 
 const initialState = {
   error: '',
   items: [],
   users: [],
+  userId: 0,
   isFetchingItems: false,
+  isFetchingUsers: false,
   isLoggingIn: false,
   isRegistering: false,
   isUpdatingItem: false
@@ -53,7 +58,7 @@ export const reducer = (state = initialState, action) => {
         ...state,
         error: '',
         isRegistering: false,
-        users: [...state.users, action.payload]
+        users: action.payload
       };
     case REGISTERING_USER_FAILURE:
       return {
@@ -77,6 +82,26 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggingIn: false,
+        error: action.payload
+      };
+    case FETCHING_USERS_START:
+      return {
+        ...state,
+        error: '',
+        isFetchingUsers: true,
+        users: state.users
+      };
+    case FETCHING_USERS_SUCCESS:
+      return {
+        ...state,
+        error: '',
+        isFetchingUsers: false,
+        users: [state.users, ...action.payload]
+      };
+    case FETCHING_USERS_FAILURE:
+      return {
+        ...state,
+        isFetchingUsers: false,
         error: action.payload
       };
     default:
