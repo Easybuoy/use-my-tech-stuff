@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
+import { getItemsByCategories } from "../../actions";
 import { CategoryHeader } from "../../styles/Styles";
 import Category from "./Category";
+import CategoryDetail from "./CategoryDetail";
 
-export default class CategoriesList extends Component {
+class CategoriesList extends Component {
   state = {
     category_id: null
   };
@@ -14,10 +17,24 @@ export default class CategoriesList extends Component {
       const { category_id } = this.props.match.params;
 
       this.setState({ category_id });
+      this.props.getItemsByCategories(category_id);
     }
   }
 
   render() {
+    if (this.state.category_id) {
+      return (
+        <div className="container-fluid">
+          <h4>{this.state.category_id}</h4>
+          <div className="card-deck mb-5">
+            {this.props.categoryItems.map(item => (
+              <CategoryDetail key={item.id} item={item} />
+            ))}
+          </div>
+        </div>
+      );
+    }
+
     return (
       <>
         <CategoryHeader>
@@ -77,3 +94,12 @@ export default class CategoriesList extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  categoryItems: state.categoryItems
+});
+
+export default connect(
+  mapStateToProps,
+  { getItemsByCategories }
+)(CategoriesList);

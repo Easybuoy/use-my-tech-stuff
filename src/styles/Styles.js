@@ -53,4 +53,13 @@ const Button = styled.button`
   border: none;
 `;
 
-export { Category, CategoryHeader, Button };
+const CategoryDetail = styled.div`
+  font-family: "Ubuntu", sans-serif;
+
+  .card,
+  .card .view img {
+    border-radius: 0;
+  }
+`;
+
+export { Category, CategoryHeader, Button, CategoryDetail };
