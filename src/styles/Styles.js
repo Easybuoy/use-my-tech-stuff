@@ -79,10 +79,19 @@ const CategoryDetail = styled.div`
       color: #ffffff;
       display: flex;
       flex-wrap: wrap;
-      i {
+      .message {
         display: flex;
         justify-content: flex-end;
         width: 100%;
+        padding-bottom: 2rem;
+      }
+
+      .ratings {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        padding: 0;
+        color: #1cae9e;
       }
     }
   }

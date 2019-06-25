@@ -1,5 +1,8 @@
 import React from "react";
 import { CategoryDetail as StyledCategoryDetail } from "../../styles/Styles";
+
+import favouriteImage from "../../assets/img/iconfinder_star_-21.jpg";
+
 export default function CategoryDetail(props) {
   const { name, image_url, price } = props.item;
   let image = "https://mdbootstrap.com/img/Photos/Others/images/16.jpg";
@@ -15,11 +18,20 @@ export default function CategoryDetail(props) {
           }}
         >
           <a href="#!">
-          {/* <div className="mask rgba-white-slight" /> */}
-          <div className="category-detail-content">
-            <i className="far fa-envelope fa-3x pr-2 mt-2" />
-            <h3>Meeee</h3>
-          </div>
+            {/* <div className="mask rgba-white-slight" /> */}
+            <div className="category-detail-content">
+              <div className="message">
+                <i className="far fa-envelope fa-3x pr-2 mt-2 message" />
+              </div>
+
+              <div className="ratings">
+                <i class="fas fa-star fa-2x"></i>
+                <i class="fas fa-star fa-2x"></i>
+                <i class="far fa-star fa-2x" />
+                <i class="far fa-star fa-2x" />
+                <i class="far fa-star fa-2x" />
+              </div>
+            </div>
           </a>
         </div>
 
