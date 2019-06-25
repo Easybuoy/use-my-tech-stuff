@@ -37,6 +37,7 @@ export const getItems = () => dispatch => {
 
 export const registerUser = user => dispatch => {
   dispatch({ type: REGISTERING_USER_START });
+  console.log(user);
   return axios
     .post(
       'https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/auth/register',
@@ -64,13 +65,14 @@ export const userLogin = creds => dispatch => {
     )
     .then(res => {
       console.log('from loginUser', res);
+      localStorage.setItem('token', res.data.token);
       dispatch({ type: USER_LOGIN_SUCCESS, payload: res });
     })
     .catch(err => {
       console.log(err);
       dispatch({
         type: USER_LOGIN_FAILURE,
-        payload: err
+        payload: err.response.data.message
       });
     });
 };
