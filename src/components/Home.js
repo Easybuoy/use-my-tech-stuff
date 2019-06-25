@@ -1,5 +1,6 @@
 // dependencies
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import {
   MDBJumbotron,
   MDBBtn,
@@ -12,6 +13,8 @@ import {
   MDBCardBody,
   MDBCardText
 } from 'mdbreact';
+
+import Items from './Items';
 
 function Home() {
   return (
@@ -38,6 +41,10 @@ function Home() {
           </MDBJumbotron>
         </MDBCol>
       </MDBRow>
+      <MDBRow>
+        <Items />
+      </MDBRow>
+      <Route path='/items' component={Items} />
     </MDBContainer>
   );
 }

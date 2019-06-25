@@ -11,13 +11,9 @@
     justify-content: center;
     display: flex;
     .item-card {
-      background: #469ca8;
-      flex-wrap: wrap;
       margin: 1rem;
       padding: 1.5rem;
       width: 300px;
-      border-radius: 7px;
-      box-shadow: 1px 1px 10px #000000;
       .item-name {
         text-transform: capitalize;
       }

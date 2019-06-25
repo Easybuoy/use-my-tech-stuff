@@ -4,6 +4,8 @@ import { MDBRow, MDBCol } from 'mdbreact';
 
 import { getItems } from '../actions';
 
+import './Items.scss';
+
 class Items extends Component {
   componentDidMount() {
     this.props.getItems();

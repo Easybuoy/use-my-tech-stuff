@@ -10,11 +10,6 @@ function Navbar() {
         <MDBNavLink to='/'>Home</MDBNavLink>
       </MDBNavItem>
       <MDBNavItem>
-        <MDBNavLink active to='/items'>
-          Items
-        </MDBNavLink>
-      </MDBNavItem>
-      <MDBNavItem>
         <MDBNavLink active to='/register'>
           Sign Up
         </MDBNavLink>
