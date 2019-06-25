@@ -61,8 +61,9 @@ class Register extends Component {
     );
   }
 }
+
 const mapStateToProps = state => ({
-  users: state.users,
+  user: state.user,
   isRegistering: state.isRegistering,
   error: state.error
 });
