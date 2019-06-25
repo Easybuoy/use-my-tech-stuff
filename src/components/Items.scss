@@ -1,0 +1,17 @@
+.items-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  .cards {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    .item-card {
+      width: 33%;
+      justify-content: center;
+      background: url('https://cdn.pixabay.com/photo/2018/02/17/14/15/pattern-3160023_960_720.jpg');
+      padding: 1rem;
+    }
+  }
+}
