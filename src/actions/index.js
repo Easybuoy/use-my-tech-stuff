@@ -51,7 +51,7 @@ export const registerUser = user => dispatch => {
       console.log(err);
       dispatch({
         type: REGISTERING_USER_FAILURE,
-        payload: err
+        payload: err.response.data.message
       });
     });
 };
