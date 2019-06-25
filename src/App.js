@@ -18,12 +18,10 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
-        <MDBContainer>
-          <Route exact path='/' component={Home} />
-          <Route path='/login' component={Login} />
-          <Route path='/register' component={Register} />
-          <Route path='/items' component={Items} />
-        </MDBContainer>
+        <Route exact path='/' component={Home} />
+        <Route path='/login' component={Login} />
+        <Route path='/register' component={Register} />
+        <Route path='/items' component={Items} />
       </Router>
     );
   }

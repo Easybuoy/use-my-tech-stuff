@@ -1,24 +1,30 @@
 // dependencies
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { MDBRow, MDBCol } from 'mdbreact';
+import { NavLink, BrowserRouter } from 'react-router-dom';
+import { MDBRow, MDBCol, MDBNav, MDBNavItem, MDBNavLink } from 'mdbreact';
 
 function Navbar() {
   return (
-    <MDBRow>
-      <MDBCol size='3'>
-        <NavLink to='/'>Home</NavLink>
-      </MDBCol>
-      <MDBCol size='3'>
-        <NavLink to='/items'>Items</NavLink>
-      </MDBCol>
-      <MDBCol size='3'>
-        <NavLink to='/login'>Log In</NavLink>
-      </MDBCol>
-      <MDBCol size='3'>
-        <NavLink to='/register'>Register</NavLink>
-      </MDBCol>
-    </MDBRow>
+    <MDBNav className='justify-content-around'>
+      <MDBNavItem>
+        <MDBNavLink to='/'>Home</MDBNavLink>
+      </MDBNavItem>
+      <MDBNavItem>
+        <MDBNavLink active to='/items'>
+          Items
+        </MDBNavLink>
+      </MDBNavItem>
+      <MDBNavItem>
+        <MDBNavLink active to='/register'>
+          Sign Up
+        </MDBNavLink>
+      </MDBNavItem>
+      <MDBNavItem>
+        <MDBNavLink active to='/login'>
+          Log In
+        </MDBNavLink>
+      </MDBNavItem>
+    </MDBNav>
   );
 }
 
