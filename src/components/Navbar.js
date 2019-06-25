@@ -5,7 +5,7 @@ import { MDBRow, MDBCol, MDBNav, MDBNavItem, MDBNavLink } from 'mdbreact';
 
 function Navbar() {
   return (
-    <MDBNav className='justify-content-around'>
+    <MDBNav className='justify-content-end'>
       <MDBNavItem>
         <MDBNavLink to='/'>Home</MDBNavLink>
       </MDBNavItem>
