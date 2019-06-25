@@ -55,10 +55,36 @@ const Button = styled.button`
 
 const CategoryDetail = styled.div`
   font-family: "Ubuntu", sans-serif;
-
   .card,
   .card .view img {
     border-radius: 0;
+  }
+
+  .category-detail {
+    height: 250px;
+    width: 100%;
+
+    &:hover {
+      .category-detail-content {
+        opacity: 1;
+      }
+    }
+
+    .category-detail-content {
+      opacity: 0;
+      transition: 0.8s;
+      background: rgba(0, 0, 0, 0.5);
+      height: 100%;
+      width: 100%;
+      color: #ffffff;
+      display: flex;
+      flex-wrap: wrap;
+      i {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+      }
+    }
   }
 `;
 
