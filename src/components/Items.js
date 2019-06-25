@@ -28,7 +28,8 @@ class Items extends Component {
 
 const mapStateToProps = state => ({
   items: state.items,
-  error: state.error
+  error: state.error,
+  isUpdatingItem: false
 });
 
 export default connect(
