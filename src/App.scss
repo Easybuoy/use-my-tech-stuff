@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  .cards {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+    .item-card {
+      background: #469ca8;
+      flex-wrap: wrap;
+      margin: 1rem;
+      padding: 1.5rem;
+      width: 300px;
+      border-radius: 7px;
+      box-shadow: 1px 1px 10px #000000;
+      .item-name {
+        text-transform: capitalize;
+      }
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input {
+      padding: 1rem;
+      margin: 0.5rem;
+      border: 1px solid black;
+      border-radius: 7px;
+      background: white;
+    }
+    button {
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: 7px;
+      padding: 1rem;
+      width: 90%;
+      background: #3c80c2;
+      color: white;
+    }
+  }
+
+  .login-form {
+    width: 100%;
+    margin: 1rem;
+    form {
+      input {
+        width: 50%;
+      }
+      button {
+        width: 50%;
+      }
+    }
+  }
+
+  .register-form {
+    width: 100%;
+    margin: 1rem;
+    form {
+      input {
+        width: 50%;
+      }
+      button {
+        width: 50%;
+      }
+    }
+  }
+}
