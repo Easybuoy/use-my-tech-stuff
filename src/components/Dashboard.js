@@ -2,8 +2,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PrivateRoute from './PrivateRoute';
+import Items from './Items';
 import decode from 'jwt-decode';
-import { getUsers } from '../actions/index';
+import { getUsers, getItems } from '../actions/index';
 
 class Dashboard extends React.Component {
   state = {
@@ -16,13 +17,17 @@ class Dashboard extends React.Component {
     this.props.getUsers();
   }
 
-  getToken = e => {
+  getToken = () => {
     let banana = localStorage.getItem('token');
     let decoded = decode(banana);
     console.log(decoded);
+    this.setState({
+      userId: decoded.subject
+    });
   };
 
   render() {
+    console.log('dashboard props', this.props);
     return (
       <div className='dashboard-container'>
         <h1>private dashboard</h1>
@@ -36,10 +41,11 @@ const mapStateToProps = state => ({
   users: state.users,
   error: state.error,
   userId: state.userId,
+  items: state.items,
   isUpdatingItem: false
 });
 
 export default connect(
   mapStateToProps,
-  { getUsers }
+  { getUsers, getItems }
 )(Dashboard);

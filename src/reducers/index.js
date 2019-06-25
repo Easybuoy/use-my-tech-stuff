@@ -89,14 +89,14 @@ export const reducer = (state = initialState, action) => {
         ...state,
         error: '',
         isFetchingUsers: true,
-        users: state.users
+        users: []
       };
     case FETCHING_USERS_SUCCESS:
       return {
         ...state,
         error: '',
         isFetchingUsers: false,
-        users: [state.users, ...action.payload]
+        users: [...state.users, ...action.payload]
       };
     case FETCHING_USERS_FAILURE:
       return {
