@@ -1,10 +1,7 @@
 // dependencies
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { MDBRow, MDBCol } from 'mdbreact';
+import React from 'react';
 
-const Register = () => {
+function Register() {
   return (
     <div className='register-container'>
       <h1>Register an Account</h1>
@@ -21,6 +18,6 @@ const Register = () => {
       </form>
     </div>
   );
-};
+}
 
 export default Register;

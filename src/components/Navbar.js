@@ -1,6 +1,5 @@
 // dependencies
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { MDBRow, MDBCol } from 'mdbreact';
 

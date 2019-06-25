@@ -5,22 +5,11 @@ import { MDBRow, MDBCol } from 'mdbreact';
 import { getItems } from '../actions';
 
 class Items extends Component {
-  state = {
-    error: null,
-    isFetchingItems: null,
-    items: [],
-    isLoggingIn: false,
-    isRegistering: false,
-    isUpdatingItem: null
-  };
-
   componentDidMount() {
     this.props.getItems();
   }
 
   render() {
-    console.log(`state`, this.state);
-    console.log(`props`, this.props.items);
     return (
       <div className='items-container'>
         <div className='cards'>
@@ -38,7 +27,8 @@ class Items extends Component {
 }
 
 const mapStateToProps = state => ({
-  items: state.items
+  items: state.items,
+  error: state.error
 });
 
 export default connect(

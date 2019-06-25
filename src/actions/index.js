@@ -6,6 +6,8 @@ export const FETCHING_SUCCESS = 'FETCHING_SUCCESS';
 export const FETCHING_FAILURE = 'FETCHING_FAILURE';
 
 // export functions
+export const login = creds => dispatch => {};
+
 export const getItems = () => dispatch => {
   dispatch({ type: FETCHING_START });
   return axios
