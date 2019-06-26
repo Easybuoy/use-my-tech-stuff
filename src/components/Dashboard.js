@@ -31,7 +31,7 @@ class Dashboard extends React.Component {
               return (
                 <div className='test' key={userItem.id}>
                   <h1>{userItem.name}</h1>
-                  <Link to={`/items/${userItem.id}`}>Test</Link>
+                  <Link to={`/item/${userItem.id}`}>{userItem.name}</Link>
                   <p>okay.</p>
                 </div>
               );
