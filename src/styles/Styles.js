@@ -376,7 +376,7 @@ const Item = styled.div`
     }
 
     .item-booking {
-      border: 1px solid blue;
+      /* border: 1px solid blue; */
     }
   }
 
@@ -391,6 +391,22 @@ const Item = styled.div`
   }
 `;
 
+const Input = styled.input`
+  &:focus {
+    border-color: #c015e9;
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
+    box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
+  }
+`;
+
+const BookItemForm = styled.form`
+  border: 5px solid red;
+  p {
+    font-family: "Ubuntu", sans-serif;
+  }
+`;
+
 export {
   Category,
   CategoryHeader,
@@ -400,5 +416,7 @@ export {
   PreLoader,
   Location,
   NotFound,
-  Item
+  Item,
+  Input,
+  BookItemForm
 };

@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 
 import { PreLoader, Item as StyledItem } from "../styles/Styles";
 import { getItemById } from "../actions/";
+import BookItemForm from "./BookItemForm";
 
 class Item extends Component {
   state = {
@@ -58,10 +59,10 @@ class Item extends Component {
             <div className="item-detail">
               <div className="item-detail-header">
                 <div className="item-detail-location">
-                <i className="fas fa-map-marker-alt fa-2x" />
-                <h6 className="text-muted">Downtown LA, 90017</h6>
+                  <i className="fas fa-map-marker-alt fa-2x" />
+                  <h6 className="text-muted">Downtown LA, 90017</h6>
                 </div>
-                
+
                 <div className="item-detail-description">{description}</div>
               </div>
 
@@ -76,7 +77,9 @@ class Item extends Component {
           </div>
 
           <div className="col-lg-6 col-md-6 col-sm-12">
-            <div className="item-booking">Form</div>
+            <div className="item-booking">
+              <BookItemForm />
+            </div>
           </div>
         </div>
 
