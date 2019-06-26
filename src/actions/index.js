@@ -19,6 +19,14 @@ export const FETCHING_USERS_START = 'FETCHING_USERS_START';
 export const FETCHING_USERS_SUCCESS = 'FETCHING_USERS_SUCCESS';
 export const FETCHING_USERS_FAILURE = 'FETCHING_USERS_FAILURE';
 
+export const ADDING_ITEMS_START = 'ADDING_ITEMS_START';
+export const ADDING_ITEMS_SUCCESS = 'ADDING_ITEMS_SUCCESS';
+export const ADDING_ITEMS_FAILURE = 'ADDING_ITEMS_FAILURE';
+
+// export const FILTER_ITEMS_START = 'FILTER_ITEMS_START';
+// export const FILTER_ITEMS_SUCCESS = 'FILTER_ITEMS_SUCCESS';
+// export const FILTER_ITEMS_FAILURE = 'FILTER_ITEMS_FAILURE';
+
 // export functions
 export const getItems = () => dispatch => {
   dispatch({ type: FETCHING_ITEMS_START });
@@ -96,3 +104,7 @@ export const getUsers = () => dispatch => {
       });
     });
 };
+
+// export const filterItems = id => dispatch => {
+//   dispatch({ type: FILTER_ITEMS_START });
+// };
