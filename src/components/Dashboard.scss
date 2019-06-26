@@ -1,0 +1,49 @@
+.dashboard-container {
+  display: flex;
+  width: 100%;
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    .user-card {
+      width: 100%;
+      padding: 1rem;
+      margin: 1rem;
+    }
+    .user-name {
+      font-weight: 500;
+      .highlight {
+        color: #3fdbcf;
+        text-transform: capitalize;
+      }
+      img {
+        border-radius: 50%;
+        width: 70%;
+        display: block;
+      }
+    }
+  }
+  .item-cards-container {
+    display: flex;
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+    .item-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 33%;
+      height: 250px;
+      border: 3px solid black;
+      margin: 1rem;
+    }
+  }
+  button {
+    display: block;
+    background: none;
+  }
+}

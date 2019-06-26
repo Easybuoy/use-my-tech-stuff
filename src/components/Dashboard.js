@@ -1,12 +1,11 @@
 // dependencies
 import React from 'react';
 import { connect } from 'react-redux';
-import PrivateRoute from './PrivateRoute';
-import { login } from '../actions';
-import Items from './Items';
 import { Link } from 'react-router-dom';
 import decode from 'jwt-decode';
 import { getUsers, getItems } from '../actions/index';
+
+import './Dashboard.scss';
 
 class Dashboard extends React.Component {
   state = {
@@ -27,19 +26,35 @@ class Dashboard extends React.Component {
   };
 
   render() {
+    console.log(`users props`, this.props.users);
     return (
       <div className='dashboard-container'>
-        <h1>private dashboard</h1>
-        {this.state.userId}
-        <div className='item'>
+        <div className='user-info'>
+          {this.props.users
+            .filter(user => user.id === this.state.userId)
+            .map(user => {
+              return (
+                <div className='user-card' key={user.id}>
+                  <p className='user-name'>
+                    <img
+                      src='https://www.lensrentals.com/blog/media/2016/02/Cinematic-Headshots-1.jpg'
+                      className='user-profile-img'
+                    />
+                    Hi, <span className='highlight'>{user.username}</span>
+                  </p>
+                  <Link to={`/user/${user.id}`}>Edit Your Profile</Link>
+                </div>
+              );
+            })}
+        </div>
+        <div className='item-cards-container'>
           {this.props.items
             .filter(item => item.users_id === this.state.userId)
             .map(userItem => {
               return (
-                <div className='test' key={userItem.id}>
+                <div className='item-card' key={userItem.id}>
                   <h1>{userItem.name}</h1>
                   <Link to={`/item/${userItem.id}`}>{userItem.name}</Link>
-                  <p>okay.</p>
                 </div>
               );
             })}
