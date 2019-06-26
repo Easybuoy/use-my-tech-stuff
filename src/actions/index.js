@@ -212,23 +212,23 @@ export const updateItem = item => dispatch => {
 
 export const updateUser = user => dispatch => {
   console.log(`id from updateuser`, user);
+  console.log(`user id from updateuser`, user.id);
   dispatch({ type: UPDATE_USER_START });
   return axiosWithAuth()
     .put(
       `https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/users/${
         user.id
-      }`,
-      user
+      }`
     )
     .then(res => {
       console.log(`updateuser res`, res);
-      dispatch({ type: UPDATE_USER_SUCCESS, payload: res.data });
+      dispatch({ type: UPDATE_USER_SUCCESS, payload: res });
     })
     .catch(err => {
       console.log(`updateuser err`, err);
       dispatch({
         type: UPDATE_USER_FAILURE,
-        payload: err.response.data.error
+        payload: err
       });
     });
 };
