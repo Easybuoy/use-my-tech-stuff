@@ -26,7 +26,7 @@ import {
   DELETE_ITEM_START,
   DELETE_ITEM_SUCCESS,
   DELETE_ITEM_FAILURE
-} from '../actions';
+} from "../actions";
 
 const initialState = {
   error: "",
@@ -79,7 +79,8 @@ export const reducer = (state = initialState, action) => {
         ...state,
         error: "",
         isRegistering: false,
-        users: action.payload
+        isLoggingIn: true,
+        users: action.payload,
       };
     case REGISTERING_USER_FAILURE:
       return {
@@ -98,7 +99,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: "",
-        isLoggingIn: false
+        isLoggingIn: true
       };
     case USER_LOGIN_FAILURE:
       return {
@@ -182,13 +183,13 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isDeletingItem: true,
-        error: '',
+        error: "",
         items: []
       };
     case DELETE_ITEM_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isDeletingItem: false,
         items: [...state.items]
       };
