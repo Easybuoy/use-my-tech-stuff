@@ -9,6 +9,7 @@ import './Dashboard.scss';
 
 class Dashboard extends React.Component {
   state = {
+    items: [],
     userId: 0
   };
 
@@ -21,17 +22,16 @@ class Dashboard extends React.Component {
   }
 
   deleteItem = e => {
-    console.log(e);
-    alert('Delete an item, huh?');
+    e.preventDefault();
+    this.props.deleteItem(e.target.id);
   };
 
-  logoutUser = e => {
+  logoutUser = () => {
     localStorage.removeItem('token');
     this.props.history.push('/');
   };
 
   render() {
-    console.log(`users props`, this.props.users);
     return (
       <div className='dashboard-container'>
         <div className='user-info'>
@@ -63,13 +63,15 @@ class Dashboard extends React.Component {
               return (
                 <div className='item-card' key={userItem.id}>
                   <img
-                    src='https://i.imgur.com/u8rs06a.jpg'
+                    src={userItem.image_url}
                     className='item-img'
                     alt='check this out'
                   />
                   <h1>{userItem.name}</h1>
                   <Link to={`/item/${userItem.id}`}>{userItem.name}</Link>
-                  <button onClick={this.deleteItem}>Delete Item</button>
+                  <button onClick={this.deleteItem} id={userItem.id}>
+                    Delete {userItem.name}
+                  </button>
                 </div>
               );
             })}
@@ -86,7 +88,8 @@ const mapStateToProps = state => ({
   users: state.users,
   error: state.error,
   userId: state.userId,
-  items: state.items
+  items: state.items,
+  isDeletingItem: state.isDeletingItem
 });
 
 export default connect(
