@@ -108,7 +108,6 @@ export const getItemsByCategories = categoryName => dispatch => {
       `https://usemytechstuffbe.herokuapp.com/api/items/category/${categoryName}`
     )
     .then(res => {
-      console.log(res.data);
       dispatch({ type: FETCHING_CATEGORY_SUCCESS, payload: res.data });
     })
     .catch(() =>
