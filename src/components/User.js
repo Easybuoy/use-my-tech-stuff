@@ -1,6 +1,7 @@
 // dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { updateUser } from '../actions/index';
 import decode from 'jwt-decode';
 
@@ -64,7 +65,7 @@ class User extends Component {
               placeholder='town will be here'
             />
             <button>Update Information</button>
-            <button>Return to Dashboard</button>
+            <Link to='/dashboard'>Return to Dashboard</Link>
           </form>
         </div>
       </div>

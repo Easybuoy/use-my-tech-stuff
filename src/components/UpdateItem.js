@@ -41,12 +41,18 @@ class UpdateItem extends Component {
               onChange={this.handleChange}
               placeholder='item name'
             />
-            <select type='text' name='category'>
-              <option value='camera'>Camera</option>
-              <option value='hats'>Hats</option>
-              <option value='bikes'>Bikes</option>
-              <option value='camera'>Camera</option>
-              <option value='camera'>Camera</option>
+            <select
+              type='text'
+              name='category'
+              onChange={this.handleChange}
+              value={this.state.category}
+            >
+              <option value='cameras'>Cameras</option>
+              <option value='monitors'>Monitors</option>
+              <option value='lights'>Lights</option>
+              <option value='cdjs'>CDJS</option>
+              <option value='video'>Video</option>
+              <option value='events'>Events</option>
             </select>
             <input
               type='number'
