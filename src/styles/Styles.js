@@ -70,12 +70,15 @@ const CategoryDetail = styled.div`
   font-family: "Ubuntu", sans-serif;
   .card,
   .card .view img {
-    border-radius: 0;
+    /* border-radius: 0; */
   }
 
   .category-detail {
     height: 250px;
     width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
     &:hover {
       .category-detail-content {
@@ -272,6 +275,7 @@ const Location = styled.div`
     select {
       color: #c015e9;
       background-color: white;
+      font-weight: bold;
       outline: none;
       border: none;
       font-size: 1.2rem;

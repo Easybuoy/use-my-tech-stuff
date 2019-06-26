@@ -5,14 +5,15 @@ import { CategoryDetail as StyledCategoryDetail } from "../../styles/Styles";
 
 export default function CategoryDetail(props) {
   const { name, image_url, price } = props.item;
-  let image = "https://mdbootstrap.com/img/Photos/Others/images/16.jpg";
+  console.log(image_url);
+  // let image = "https://mdbootstrap.com/img/Photos/Others/images/16.jpg";
   return (
     <StyledCategoryDetail className="col-lg-4 col-md-4 col-sm-12 p-0">
       <div className="card mb-4">
         <div
           className="view overlay category-detail"
           style={{
-            backgroundImage: `url(${image})`
+            backgroundImage: `url(${image_url})`
           }}
         >
           <a href="#!">

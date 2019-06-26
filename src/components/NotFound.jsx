@@ -9,7 +9,6 @@ export default function NotFound() {
     <StyledNotFound>
       <img src={NotFoundImg} alt="Not found" />
       <Link to="/">
-
         <Button className="text-center btn">Back To Home</Button>
       </Link>
     </StyledNotFound>
