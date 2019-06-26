@@ -23,6 +23,14 @@ export const FETCHING_CATEGORY_START = "FETCHING_CATEGORY_START";
 export const FETCHING_CATEGORY_SUCCESS = "FETCHING_CATEGORY_SUCCESS";
 export const FETCHING_CATEGORY_FAILURE = "FETCHING_CATEGORY_FAILURE";
 
+export const ADDING_ITEMS_START = 'ADDING_ITEMS_START';
+export const ADDING_ITEMS_SUCCESS = 'ADDING_ITEMS_SUCCESS';
+export const ADDING_ITEMS_FAILURE = 'ADDING_ITEMS_FAILURE';
+
+// export const FILTER_ITEMS_START = 'FILTER_ITEMS_START';
+// export const FILTER_ITEMS_SUCCESS = 'FILTER_ITEMS_SUCCESS';
+// export const FILTER_ITEMS_FAILURE = 'FILTER_ITEMS_FAILURE';
+
 // export functions
 export const getItems = () => dispatch => {
   dispatch({ type: FETCHING_ITEMS_START });
@@ -118,3 +126,6 @@ export const getItemsByCategories = categoryName => dispatch => {
     )
     .finally(() => dispatch({ type: FETCHING_CATEGORY_START }));
 };
+// export const filterItems = id => dispatch => {
+//   dispatch({ type: FILTER_ITEMS_START });
+// };

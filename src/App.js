@@ -1,7 +1,6 @@
 // dependencies
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { MDBContainer } from 'mdbreact';
 
 // components
 import Dashboard from './components/Dashboard';
@@ -11,7 +10,8 @@ import Register from './components/Register';
 import Login from './components/Login';
 import CategoriesList from './components/Category/CategoriesList';
 import PrivateRoute from './components/PrivateRoute';
-
+import Items from './components/Items';
+import Item from './components/Item';
 // styles
 import './App.scss';
 
@@ -24,6 +24,8 @@ class App extends Component {
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
         <Route exact path="/category/:category_id" component={CategoriesList} />
+        <Route path='/items' component={Items} />
+        <PrivateRoute path='/item/:id' component={Item} />
         <PrivateRoute path='/dashboard' component={Dashboard} />;
       </Router>
     );

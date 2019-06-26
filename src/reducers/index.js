@@ -13,14 +13,16 @@ import {
   FETCHING_USERS_FAILURE,
   FETCHING_CATEGORY_START,
   FETCHING_CATEGORY_SUCCESS,
-  FETCHING_CATEGORY_FAILURE
+  FETCHING_CATEGORY_FAILURE,
+  ADDING_ITEMS_START,
+  ADDING_ITEMS_SUCCESS,
+  ADDING_ITEMS_FAILURE
 } from "../actions";
 
 const initialState = {
   error: "",
   items: [],
   users: [],
-  userId: 0,
   isFetchingItems: false,
   isFetchingUsers: false,
   isLoggingIn: false,
@@ -94,14 +96,14 @@ export const reducer = (state = initialState, action) => {
         ...state,
         error: "",
         isFetchingUsers: true,
-        users: state.users
+        users: []
       };
     case FETCHING_USERS_SUCCESS:
       return {
         ...state,
         error: "",
         isFetchingUsers: false,
-        users: [state.users, ...action.payload]
+        users: [...state.users, ...action.payload]
       };
     case FETCHING_USERS_FAILURE:
       return {
