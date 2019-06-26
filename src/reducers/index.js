@@ -17,7 +17,6 @@ const initialState = {
   error: '',
   items: [],
   users: [],
-  userId: 0,
   isFetchingItems: false,
   isFetchingUsers: false,
   isLoggingIn: false,
