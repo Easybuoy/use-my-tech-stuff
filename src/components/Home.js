@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Items from "./Items";
 import CategoriesList from "./Category/CategoriesList";
 
-function Home() {
+function Home(props) {
   return (
     <div className="container-fluid">
       <CategoriesList />

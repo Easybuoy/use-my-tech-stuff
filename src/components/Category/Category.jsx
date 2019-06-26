@@ -20,7 +20,7 @@ export default function Category(props) {
             </Link>
             <div className="content">
               <p className="text-center">{name}</p>
-            <i class={favicon}></i>
+            <i className={favicon}></i>
             </div>
           </StyledCategory>
         </div>
