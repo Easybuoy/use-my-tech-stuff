@@ -9,7 +9,9 @@ import decode from 'jwt-decode';
 import { getUsers, getItems } from '../actions/index';
 
 class Dashboard extends React.Component {
-  state = {};
+  state = {
+    userId: 0
+  };
 
   componentDidMount() {
     this.props.getUsers();
@@ -19,6 +21,11 @@ class Dashboard extends React.Component {
     });
   }
 
+  logoutUser = e => {
+    localStorage.removeItem('token');
+    this.props.history.push('/');
+  };
+
   render() {
     return (
       <div className='dashboard-container'>
@@ -26,7 +33,7 @@ class Dashboard extends React.Component {
         {this.state.userId}
         <div className='item'>
           {this.props.items
-            .filter(item => item.users_id === 1)
+            .filter(item => item.users_id === this.state.userId)
             .map(userItem => {
               return (
                 <div className='test' key={userItem.id}>
@@ -37,6 +44,7 @@ class Dashboard extends React.Component {
               );
             })}
         </div>
+        <button onClick={this.logoutUser}>Log Out</button>
       </div>
     );
   }

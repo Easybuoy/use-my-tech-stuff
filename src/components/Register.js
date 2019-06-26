@@ -6,26 +6,24 @@ import { registerUser } from '../actions';
 
 class Register extends Component {
   state = {
-    user: {
-      username: '',
-      password: '',
-      email: '',
-      state: '',
-      town: ''
-    }
+    username: '',
+    email: '',
+    state: '',
+    town: '',
+    password: ''
   };
 
   handleChange = e => {
     this.setState({
-      ...this.state.user,
+      ...this.state,
       [e.target.name]: e.target.value
     });
   };
 
   registerUser = e => {
     e.preventDefault();
-    this.props.registerUser(this.state.user).then(() => {
-      this.props.history.push('/dashboard');
+    this.props.registerUser(this.state).then(() => {
+      this.props.history.push('/');
     });
   };
 
@@ -38,35 +36,35 @@ class Register extends Component {
           <input
             type='text'
             name='email'
-            value={this.state.user.email}
+            value={this.state.email}
             onChange={this.handleChange}
             placeholder='email address'
           />
           <input
             type='text'
             name='username'
-            value={this.state.user.username}
+            value={this.state.username}
             onChange={this.handleChange}
             placeholder='username'
           />
           <input
             type='text'
             name='state'
-            value={this.state.user.state}
+            value={this.state.state}
             onChange={this.handleChange}
             placeholder='state'
           />
           <input
             type='text'
             name='town'
-            value={this.state.user.town}
+            value={this.state.town}
             onChange={this.handleChange}
             placeholder='town'
           />
           <input
             type='password'
             name='password'
-            value={this.state.user.password}
+            value={this.state.password}
             onChange={this.handleChange}
             placeholder='password'
           />

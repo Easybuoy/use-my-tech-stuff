@@ -26,7 +26,7 @@ const initialState = {
   error: '',
   items: [],
   users: [],
-  user: {},
+  user: [],
   isFetchingItems: false,
   isFetchingUsers: false,
   isLoggingIn: false,
