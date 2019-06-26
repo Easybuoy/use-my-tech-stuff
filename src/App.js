@@ -1,6 +1,7 @@
 // dependencies
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 // components
 import Dashboard from "./components/Dashboard";
@@ -14,6 +15,7 @@ import Items from "./components/Items";
 import Item from "./components/Item";
 // styles
 import "./App.scss";
+import "react-toastify/dist/ReactToastify.min.css";
 
 class App extends Component {
   render() {
@@ -28,6 +30,11 @@ class App extends Component {
         <Route path="/items" component={Items} />
         <PrivateRoute path="/item/:id" component={Item} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
+        <ToastContainer
+          autoClose={3000}
+          position="top-right"
+          hideProgressBar={true}
+        />
       </Router>
     );
   }

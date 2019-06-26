@@ -23,9 +23,9 @@ export const FETCHING_CATEGORY_START = "FETCHING_CATEGORY_START";
 export const FETCHING_CATEGORY_SUCCESS = "FETCHING_CATEGORY_SUCCESS";
 export const FETCHING_CATEGORY_FAILURE = "FETCHING_CATEGORY_FAILURE";
 
-export const ADDING_ITEMS_START = 'ADDING_ITEMS_START';
-export const ADDING_ITEMS_SUCCESS = 'ADDING_ITEMS_SUCCESS';
-export const ADDING_ITEMS_FAILURE = 'ADDING_ITEMS_FAILURE';
+export const ADDING_ITEMS_START = "ADDING_ITEMS_START";
+export const ADDING_ITEMS_SUCCESS = "ADDING_ITEMS_SUCCESS";
+export const ADDING_ITEMS_FAILURE = "ADDING_ITEMS_FAILURE";
 
 // export const FILTER_ITEMS_START = 'FILTER_ITEMS_START';
 // export const FILTER_ITEMS_SUCCESS = 'FILTER_ITEMS_SUCCESS';
@@ -116,6 +116,10 @@ export const getItemsByCategories = categoryName => dispatch => {
       `https://usemytechstuffbe.herokuapp.com/api/items/category/${categoryName}`
     )
     .then(res => {
+      dispatch({
+        type: FETCHING_CATEGORY_FAILURE,
+        payload: ""
+      });
       dispatch({ type: FETCHING_CATEGORY_SUCCESS, payload: res.data });
     })
     .catch(() =>

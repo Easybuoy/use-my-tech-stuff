@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Triple } from "react-preloading-component";
+import { toast } from "react-toastify";
 
 import { capitalizeFistCharacter } from "../../util";
 import { getItemsByCategories } from "../../actions";
@@ -31,7 +32,19 @@ class CategoriesList extends Component {
         </PreLoader>
       );
     }
+
+    if (this.props.error) {
+      toast.error("Unable to fetch category items, Please try again.");
+    }
+
     if (this.state.category_id) {
+      if (this.props.categoryItems.length === 0) {
+        return (
+          <div className="text-center mt-5 font-weight-bold">
+            No Category Items Found for {this.state.category_id} category.
+          </div>
+        );
+      }
       return (
         <div className="container-fluid">
           <h4
@@ -111,7 +124,8 @@ class CategoriesList extends Component {
 
 const mapStateToProps = state => ({
   categoryItems: state.categoryItems,
-  loading: state.isFetchingCategory
+  loading: state.isFetchingCategory,
+  error: state.error
 });
 
 export default connect(
