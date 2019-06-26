@@ -49,9 +49,22 @@ const Category = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: #1486e8;
-  border: none;
+  background-color: #c015e9;
+  color: #ffffff;
+
+  &:hover {
+    color: #ffffff;
+  }
+
+  &:focus {
+    background-color: #7b1fa2;
+  }
 `;
+
+// const Button = styled.button`
+//   background-color: #1486e8;
+//   border: none;
+// `;
 
 const CategoryDetail = styled.div`
   font-family: "Ubuntu", sans-serif;
@@ -159,6 +172,24 @@ const Navbar = styled.div`
     }
     @media (max-width: 990px) {
       flex-direction: column;
+    }
+  }
+
+  .nav-unauthenticated {
+    @media (min-width: 990px) {
+      width: 25%;
+    }
+
+    button {
+      margin: 0 0.5rem;
+      @media (max-width: 990px) {
+        margin: 0.5rem 0;
+      }
+    }
+
+    .nav-unauthenticated-link {
+      display: flex;
+      text-decoration: none;
     }
   }
 
