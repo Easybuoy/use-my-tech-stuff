@@ -70,12 +70,15 @@ const CategoryDetail = styled.div`
   font-family: "Ubuntu", sans-serif;
   .card,
   .card .view img {
-    border-radius: 0;
+    /* border-radius: 0; */
   }
 
   .category-detail {
     height: 250px;
     width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
     &:hover {
       .category-detail-content {
@@ -272,6 +275,7 @@ const Location = styled.div`
     select {
       color: #c015e9;
       background-color: white;
+      font-weight: bold;
       outline: none;
       border: none;
       font-size: 1.2rem;
@@ -322,6 +326,24 @@ const NotFound = styled.div`
   }
 `;
 
+const Item = styled.div`
+  img {
+    width: 100%;
+    height: 80vh;
+    /* background-image: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    url("https://images.unsplash.com/photo-1534949532948-7c512aa3921b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"); */
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 3rem;
+  }
+`;
+
 export {
   Category,
   CategoryHeader,
@@ -330,5 +352,6 @@ export {
   Navbar,
   PreLoader,
   Location,
-  NotFound
+  NotFound,
+  Item
 };
