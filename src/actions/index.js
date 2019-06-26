@@ -23,9 +23,17 @@ export const FETCHING_CATEGORY_START = 'FETCHING_CATEGORY_START';
 export const FETCHING_CATEGORY_SUCCESS = 'FETCHING_CATEGORY_SUCCESS';
 export const FETCHING_CATEGORY_FAILURE = 'FETCHING_CATEGORY_FAILURE';
 
-export const ADD_ITEM_START = 'ADDING_ITEMS_START';
-export const ADD_ITEM_SUCCESS = 'ADDING_ITEMS_SUCCESS';
-export const ADD_ITEM_FAILURE = 'ADDING_ITEMS_FAILURE';
+export const ADD_ITEM_START = 'ADD_ITEMS_START';
+export const ADD_ITEM_SUCCESS = 'ADD_ITEMS_SUCCESS';
+export const ADD_ITEM_FAILURE = 'ADD_ITEMS_FAILURE';
+
+export const DELETE_ITEM_START = 'DELETE_ITEMS_START';
+export const DELETE_ITEM_SUCCESS = 'DELETE_ITEMS_SUCCESS';
+export const DELETE_ITEM_FAILURE = 'DELETE_ITEMS_FAILURE';
+
+export const UPDATE_USER_START = 'UPDATE_USER_START';
+export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
+export const UPDATE_USER_FAILURE = 'UPDATE_USER_FAILURE';
 
 // export const FILTER_ITEMS_START = 'FILTER_ITEMS_START';
 // export const FILTER_ITEMS_SUCCESS = 'FILTER_ITEMS_SUCCESS';
@@ -147,6 +155,48 @@ export const addItem = item => dispatch => {
       console.log(`addItem`, err);
       dispatch({
         type: ADD_ITEM_FAILURE,
+        payload: err.response.data.error
+      });
+    });
+};
+
+export const deleteItem = item => dispatch => {
+  console.log(item);
+  dispatch({ type: ADD_ITEM_START });
+  return axiosWithAuth()
+    .post(
+      'https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/items',
+      item
+    )
+    .then(res => {
+      console.log(`addItem asddddddddddddd`, res);
+      dispatch({ type: ADD_ITEM_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      console.log(`addItem`, err);
+      dispatch({
+        type: ADD_ITEM_FAILURE,
+        payload: err.response.data.error
+      });
+    });
+};
+
+export const updateUser = user => dispatch => {
+  console.log(user);
+  dispatch({ type: UPDATE_USER_START });
+  return axiosWithAuth()
+    .put(
+      'https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/users',
+      user
+    )
+    .then(res => {
+      console.log(`updateuser asddddddddddddd`, res);
+      dispatch({ type: UPDATE_USER_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      console.log(`addItem`, err);
+      dispatch({
+        type: UPDATE_USER_FAILURE,
         payload: err.response.data.error
       });
     });

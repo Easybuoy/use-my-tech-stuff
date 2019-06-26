@@ -33,6 +33,7 @@ const initialState = {
   isRegistering: false,
   isAddingItem: false,
   isUpdatingItem: false,
+  isUpdatingUser: false,
   isFetchingCategory: false,
   categoryItems: []
 };
