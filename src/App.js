@@ -10,9 +10,18 @@ import Navbar from './components/Navbar';
 import Register from './components/Register';
 import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
-
+import Items from './components/Items';
 // styles
 import './App.scss';
+
+const Item = props => {
+  console.log(`item props`, props);
+  return (
+    <div className='test-div'>
+      <h1>aasdasd</h1>
+    </div>
+  );
+};
 
 class App extends Component {
   render() {
@@ -22,6 +31,7 @@ class App extends Component {
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
+        <PrivateRoute path='/item/:id' component={Item} />
         <PrivateRoute path='/dashboard' component={Dashboard} />;
       </Router>
     );

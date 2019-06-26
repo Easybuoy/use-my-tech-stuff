@@ -4,20 +4,12 @@ import { connect } from 'react-redux';
 import PrivateRoute from './PrivateRoute';
 import { login } from '../actions';
 import Items from './Items';
+import { Link } from 'react-router-dom';
 import decode from 'jwt-decode';
 import { getUsers, getItems } from '../actions/index';
 
 class Dashboard extends React.Component {
-  state = {
-    userId: 0
-  };
-
-  // getToken = () => {
-  //   // let banana = ;
-  //   // let decoded = decode(banana);
-  //   // console.log(decoded.subject);
-  //   // console.log(banana);
-  // };
+  state = {};
 
   componentDidMount() {
     this.props.getUsers();
@@ -28,7 +20,6 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    // console.log('dashboard props', this.props);
     return (
       <div className='dashboard-container'>
         <h1>private dashboard</h1>
@@ -38,8 +29,10 @@ class Dashboard extends React.Component {
             .filter(item => item.users_id === 1)
             .map(userItem => {
               return (
-                <div className='test'>
+                <div className='test' key={userItem.id}>
                   <h1>{userItem.name}</h1>
+                  <Link to={`/items/${userItem.id}`}>Test</Link>
+                  <p>okay.</p>
                 </div>
               );
             })}
