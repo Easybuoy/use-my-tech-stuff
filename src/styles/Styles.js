@@ -229,4 +229,13 @@ const PreLoader = styled.div`
   margin: 15rem 0;
 `;
 
-export { Category, CategoryHeader, Button, CategoryDetail, Navbar, PreLoader };
+const Location = styled.div``;
+export {
+  Category,
+  CategoryHeader,
+  Button,
+  CategoryDetail,
+  Navbar,
+  PreLoader,
+  Location
+};

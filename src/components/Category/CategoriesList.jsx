@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Triple } from "react-preloading-component";
 import { toast } from "react-toastify";
 
+import Location from "./Location";
 import { capitalizeFistCharacter } from "../../util";
 import { getItemsByCategories } from "../../actions";
 import { CategoryHeader, PreLoader } from "../../styles/Styles";
@@ -77,6 +78,10 @@ class CategoriesList extends Component {
           </div>
         </CategoryHeader>
 
+        {/* Location */}
+        <Location />
+
+        {/* Category */}
         <div className="container-fluid">
           <div className="card-deck mb-5">
             <Category
