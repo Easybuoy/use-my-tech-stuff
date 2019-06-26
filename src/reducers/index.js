@@ -19,14 +19,18 @@ import {
   ADD_ITEM_FAILURE,
   UPDATE_ITEM_START,
   UPDATE_ITEM_SUCCESS,
-  UPDATE_ITEM_FAILURE
-} from '../actions';
+  UPDATE_ITEM_FAILURE,
+  FETCHING_ITEM_BY_ID_FAILURE,
+  FETCHING_ITEM_BY_ID_START,
+  FETCHING_ITEM_BY_ID_SUCCESS
+} from "../actions";
 
 const initialState = {
-  error: '',
+  error: "",
   items: [],
   users: [],
   user: [],
+  itemsById: [],
   isFetchingItems: false,
   isFetchingUsers: false,
   isLoggingIn: false,
@@ -35,7 +39,8 @@ const initialState = {
   isUpdatingItem: false,
   isUpdatingUser: false,
   isFetchingCategory: false,
-  categoryItems: []
+  categoryItems: [],
+  isFetchingItemsById: false
 };
 
 export const reducer = (state = initialState, action) => {
@@ -43,13 +48,13 @@ export const reducer = (state = initialState, action) => {
     case FETCHING_ITEMS_START:
       return {
         ...state,
-        error: '',
+        error: "",
         isFetchingItems: true
       };
     case FETCHING_ITEMS_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isFetchingItems: false,
         items: action.payload
       };
@@ -63,13 +68,13 @@ export const reducer = (state = initialState, action) => {
     case REGISTERING_USER_START:
       return {
         ...state,
-        error: '',
+        error: "",
         isRegistering: true
       };
     case REGISTERING_USER_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isRegistering: false,
         users: action.payload
       };
@@ -83,13 +88,13 @@ export const reducer = (state = initialState, action) => {
     case USER_LOGIN_START:
       return {
         ...state,
-        error: '',
+        error: "",
         isLoggingIn: true
       };
     case USER_LOGIN_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isLoggingIn: false
       };
     case USER_LOGIN_FAILURE:
@@ -102,14 +107,14 @@ export const reducer = (state = initialState, action) => {
     case FETCHING_USERS_START:
       return {
         ...state,
-        error: '',
+        error: "",
         isFetchingUsers: true,
         users: []
       };
     case FETCHING_USERS_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isFetchingUsers: false,
         users: [...state.users, ...action.payload]
       };
@@ -139,13 +144,13 @@ export const reducer = (state = initialState, action) => {
     case ADD_ITEM_START:
       return {
         ...state,
-        error: '',
+        error: "",
         isAddingItem: true
       };
     case ADD_ITEM_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isAddingItem: false,
         items: [...state.items, ...action.payload]
       };
@@ -154,6 +159,21 @@ export const reducer = (state = initialState, action) => {
         ...state,
         isAddingItem: false,
         error: action.payload
+      };
+    case FETCHING_ITEM_BY_ID_START:
+      return {
+        ...state,
+        isFetchingItemsById: !state.isFetchingItemsById
+      };
+    case FETCHING_ITEM_BY_ID_FAILURE:
+      return {
+        ...state,
+        error: action.payload
+      };
+    case FETCHING_ITEM_BY_ID_SUCCESS:
+      return {
+        ...state,
+        itemsById: action.payload
       };
     default:
       return state;

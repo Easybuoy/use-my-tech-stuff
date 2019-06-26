@@ -35,6 +35,11 @@ export const UPDATE_USER_START = 'UPDATE_USER_START';
 export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
 export const UPDATE_USER_FAILURE = 'UPDATE_USER_FAILURE';
 
+
+export const FETCHING_ITEM_BY_ID_START = 'FETCHING_ITEM_BY_ID_START';
+export const FETCHING_ITEM_BY_ID_SUCCESS = 'FETCHING_ITEM_BY_ID_SUCCESS';
+export const FETCHING_ITEM_BY_ID_FAILURE = 'FETCHING_ITEM_BY_ID_FAILURE';
+
 // export const FILTER_ITEMS_START = 'FILTER_ITEMS_START';
 // export const FILTER_ITEMS_SUCCESS = 'FILTER_ITEMS_SUCCESS';
 // export const FILTER_ITEMS_FAILURE = 'FILTER_ITEMS_FAILURE';
@@ -205,3 +210,25 @@ export const updateUser = user => dispatch => {
 // export const filterItems = id => dispatch => {
 //   dispatch({ type: FILTER_ITEMS_START });
 // };
+
+export const getItemById = id => dispatch => {
+  dispatch({ type: FETCHING_ITEM_BY_ID_START });
+  axios
+    .get(
+      `https://usemytechstuffbe.herokuapp.com/api/items/${id}`
+    )
+    .then(res => {
+      dispatch({
+        type: FETCHING_ITEM_BY_ID_FAILURE,
+        payload: ''
+      });
+      dispatch({ type: FETCHING_ITEM_BY_ID_SUCCESS, payload: res.data });
+    })
+    .catch(() =>
+      dispatch({
+        type: FETCHING_ITEM_BY_ID_FAILURE,
+        payload: 'Unable to get category items'
+      })
+    )
+    .finally(() => dispatch({ type: FETCHING_ITEM_BY_ID_START }));
+}

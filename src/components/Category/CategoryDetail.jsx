@@ -1,12 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { capitalizeFistCharacter } from "../../util";
 import { CategoryDetail as StyledCategoryDetail } from "../../styles/Styles";
 
 export default function CategoryDetail(props) {
-  const { name, image_url, price } = props.item;
-  console.log(image_url);
-  // let image = "https://mdbootstrap.com/img/Photos/Others/images/16.jpg";
+  const { id, name, image_url, price } = props.item;
+
   return (
     <StyledCategoryDetail className="col-lg-4 col-md-4 col-sm-12 p-0">
       <div className="card mb-4">
@@ -16,7 +16,7 @@ export default function CategoryDetail(props) {
             backgroundImage: `url(${image_url})`
           }}
         >
-          <a href="#!">
+          <Link to={`/item/${id}`}>
             <div className="category-detail-content">
               <div className="message">
                 <i className="far fa-envelope fa-3x pr-2 mt-2 message" />
@@ -30,7 +30,7 @@ export default function CategoryDetail(props) {
                 <i className="far fa-star fa-2x" />
               </div>
             </div>
-          </a>
+          </Link>
         </div>
 
         <div className="card-body">
