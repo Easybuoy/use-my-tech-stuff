@@ -326,6 +326,24 @@ const NotFound = styled.div`
   }
 `;
 
+const Item = styled.div`
+  img {
+    width: 100%;
+    height: 80vh;
+    /* background-image: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    url("https://images.unsplash.com/photo-1534949532948-7c512aa3921b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"); */
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 3rem;
+  }
+`;
+
 export {
   Category,
   CategoryHeader,
@@ -334,5 +352,6 @@ export {
   Navbar,
   PreLoader,
   Location,
-  NotFound
+  NotFound,
+  Item
 };
