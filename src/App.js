@@ -1,6 +1,6 @@
 // dependencies
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 // components
@@ -24,14 +24,20 @@ class App extends Component {
       <Router>
         <Navbar />
 
-        <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route exact path="/category/:category_id" component={CategoriesList} />
-        <Route path="/items" component={Items} />
-        <PrivateRoute path="/item/:id" component={Item} />
-        <PrivateRoute path="/dashboard" component={Dashboard} />
-        <Route path="*" component={NotFound} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route
+            exact
+            path="/category/:category_id"
+            component={CategoriesList}
+          />
+          <Route path="/items" component={Items} />
+          <PrivateRoute path="/item/:id" component={Item} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <Route path="*" component={NotFound} />
+        </Switch>
 
         <ToastContainer
           autoClose={3000}
