@@ -188,7 +188,7 @@ export const deleteItem = item => dispatch => {
 };
 
 export const updateItem = item => dispatch => {
-  console.log(`id from updateItem`, item);
+  console.log(`item from updateItem`, item);
   dispatch({ type: UPDATE_ITEM_START });
   return axiosWithAuth()
     .put(

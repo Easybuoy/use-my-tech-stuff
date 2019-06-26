@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateItem } from '../actions/index';
-import decode from 'jwt-decode';
 
 import './AddItem.scss';
 
@@ -59,18 +58,17 @@ class UpdateItem extends Component {
             <input
               type='text'
               name='image_url'
-              value={this.state.town}
+              value={this.state.image_url}
               onChange={this.handleChange}
               placeholder='image link'
             />
             <textarea
-              type='password'
               name='description'
-              value={this.state.password}
+              value={this.state.description}
               onChange={this.handleChange}
               placeholder='description of your rental'
             />
-            <button>Add Item</button>
+            <button>Update Item</button>
           </form>
         </div>
       </div>
