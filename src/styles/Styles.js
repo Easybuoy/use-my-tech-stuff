@@ -359,6 +359,8 @@ const Item = styled.div`
           height: 70px;
           width: 70px;
           border-radius: 50%;
+          border: 5px solid #c015e9;
+          /* background-image: linear-gradient(to right top, #c015e9, #9550f6, #686af9, #3b7af4, #1285e7); */
         }
       }
     }

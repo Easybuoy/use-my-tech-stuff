@@ -39,19 +39,30 @@ class Item extends Component {
       );
     }
 
-    const { id, name, price, image_url, users_username } = this.props.items[0];
+    const {
+      id,
+      name,
+      price,
+      description,
+      image_url,
+      users_username
+    } = this.props.items[0];
     console.log(name);
     return (
       <StyledItem className="container-fluid">
         <img src={image_url} alt="Tech" className="img-fluid item-caption" />
 
-        <h4>{name}</h4>
+        <h4 className="pt-3">{name}</h4>
         <div className="item-content">
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="item-detail">
               <div className="item-detail-header">
                 <i className="fas fa-map-marker-alt fa-2x" />
                 <h6 className="text-muted">Downtown LA, 90017</h6>
+                  <div className="item-detail-description">
+                {description}
+
+                  </div>
               </div>
 
               <div className="item-detail-image">
