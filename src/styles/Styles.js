@@ -229,7 +229,36 @@ const PreLoader = styled.div`
   margin: 15rem 0;
 `;
 
-const Location = styled.div``;
+const Location = styled.div`
+  display: flex;
+  width: 40%;
+  margin: 0 auto;
+  flex-direction: column;
+
+  .location-input {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .md-form {
+      width: 95%;
+      input {
+        width: 100%;
+        border-bottom: 4px dashed #4dd0e1;
+        font-family: "Ubuntu", sans-serif;
+        font-size: 1.5rem;
+
+        &:focus {
+          border-bottom: 4px dashed #4dd0e1;
+        }
+      }
+    }
+    img {
+      height: 30px;
+      padding-right: 3rem;
+    }
+  }
+`;
 export {
   Category,
   CategoryHeader,
