@@ -83,7 +83,7 @@ class CategoriesList extends Component {
               image="https://images.unsplash.com/photo-1495512046360-dad6e8b83667?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
               name="Cameras"
               favicon="fas fa-camera fa-2x"
-              path="/category/camera"
+              path="/category/cameras"
             />
             <Category
               image="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"

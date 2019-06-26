@@ -6,7 +6,8 @@ import logo from "../assets/img/logo.png";
 import { Navbar as StyledNavbar, Button } from "../styles/Styles";
 
 function Navbar(props) {
-  const { isLoggingIn } = props;
+  // const { isLoggingIn } = props;
+  let isLoggingIn = true
   let navbar = (
     <StyledNavbar>
       <nav className="mb-1 navbar navbar-expand-lg navbar-dark lighten-1 mb-3">
@@ -91,7 +92,7 @@ function Navbar(props) {
             <div className="search-div">
               <div className="search">
                 <input
-                  class=""
+                  className=""
                   type="text"
                   placeholder="Search"
                   aria-label="Search"

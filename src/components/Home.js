@@ -6,10 +6,9 @@ import Items from "./Items";
 import CategoriesList from "./Category/CategoriesList";
 
 function Home(props) {
-  console.log(props);
   return (
     <div className="container-fluid">
-      <CategoriesList/>
+      <CategoriesList />
 
       <Route path="/items" component={Items} />
     </div>
