@@ -1,6 +1,7 @@
 // dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import { registerUser } from '../actions';
 
@@ -29,7 +30,7 @@ class Register extends Component {
 
   render() {
     console.log('Props in Register.js', this.props);
-    return (
+    return !localStorage.getItem('token') ? (
       <div className='register-container'>
         <h1>Register an Account</h1>
         <form onSubmit={this.registerUser}>
@@ -71,6 +72,8 @@ class Register extends Component {
           <button>Register</button>
         </form>
       </div>
+    ) : (
+      <Redirect to='/dashboard' />
     );
   }
 }

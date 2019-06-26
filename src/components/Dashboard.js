@@ -49,7 +49,7 @@ class Dashboard extends React.Component {
         </div>
         <div className='item-cards-container'>
           <div className='add-item-container'>
-            <h1>Add An Item</h1>
+            <Link to='/dashboard/add'>Add An Item</Link>
           </div>
           {this.props.items
             .filter(item => item.users_id === this.state.userId)
