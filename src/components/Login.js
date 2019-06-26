@@ -1,6 +1,7 @@
 // dependencies
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 // components
 
@@ -33,7 +34,7 @@ class Login extends React.Component {
   };
 
   render() {
-    return (
+    return !localStorage.getItem('token') ? (
       <div className='login-container'>
         <div className='login-form-container'>
           <h1>Login</h1>
@@ -56,6 +57,8 @@ class Login extends React.Component {
           </form>
         </div>
       </div>
+    ) : (
+      <Redirect to='/dashboard' />
     );
   }
 }
