@@ -26,12 +26,15 @@ export default function Location() {
             <option value="2">45</option>
           </select>
         </div>
+
+        <div className="rule"></div>
+        
         <div className="location-popularity">
           <p>Sort By:</p>
           <select className="">
-            <option defaultValue>15</option>
-            <option value="1">30</option>
-            <option value="2">45</option>
+            <option defaultValue>Popularity</option>
+            <option value="1">Favourites</option>
+            <option value="2">Recently Added</option>
           </select>
         </div>
       </div>

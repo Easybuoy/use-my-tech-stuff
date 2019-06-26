@@ -273,10 +273,18 @@ const Location = styled.div`
       color: #c015e9;
       background-color: white;
       outline: none;
+      border: none;
+      font-size: 1.2rem;
 
       option {
         background-color: white;
       }
+    }
+
+    p {
+      font-size: 1.5rem;
+      padding: 0 0.2rem;
+      margin: 0;
     }
 
     .location-miles {
@@ -286,16 +294,16 @@ const Location = styled.div`
       justify-content: baseline;
     }
 
+    .rule {
+      border-left: 2px solid black;
+      width: 50px;
+    }
+
     .location-popularity {
       width: 50%;
       display: flex;
       flex-direction: row;
       justify-content: baseline;
-
-      p {
-        padding: 0;
-        margin: 0;
-      }
     }
   }
 `;
