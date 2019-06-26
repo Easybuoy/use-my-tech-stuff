@@ -167,13 +167,13 @@ export const deleteItem = item => dispatch => {
     .delete(`items/${item}`)
     .then(res => {
       console.log(`deleteItem ----------------`, res);
-      dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data });
+      dispatch({ type: DELETE_ITEM_SUCCESS, payload: res });
     })
     .catch(err => {
       console.log(`deleteItem`, err);
       dispatch({
         type: DELETE_ITEM_FAILURE,
-        payload: err.response.data
+        payload: err.response
       });
     });
 };
