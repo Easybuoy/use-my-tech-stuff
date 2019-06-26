@@ -195,7 +195,6 @@ const Navbar = styled.div`
 
   .search-div {
     text-align: center;
-    /* margin: 0 auto; */
     width: 70%;
     .search {
       display: flex;
@@ -224,4 +223,8 @@ const Navbar = styled.div`
   }
 `;
 
-export { Category, CategoryHeader, Button, CategoryDetail, Navbar };
+const PreLoader = styled.div`
+  margin: 15rem 0;
+`;
+
+export { Category, CategoryHeader, Button, CategoryDetail, Navbar, PreLoader };

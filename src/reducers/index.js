@@ -119,13 +119,11 @@ export const reducer = (state = initialState, action) => {
     case FETCHING_CATEGORY_FAILURE:
       return {
         ...state,
-        isFetchingCategory: false,
         error: action.payload
       };
     case FETCHING_CATEGORY_SUCCESS:
       return {
         ...state,
-        isFetchingCategory: false,
         categoryItems: action.payload
       };
     default:

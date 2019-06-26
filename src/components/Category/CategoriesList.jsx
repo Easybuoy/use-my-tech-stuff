@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Triple } from "react-preloading-component";
 
 import { capitalizeFistCharacter } from "../../util";
 import { getItemsByCategories } from "../../actions";
-import { CategoryHeader } from "../../styles/Styles";
+import { CategoryHeader, PreLoader } from "../../styles/Styles";
 import Category from "./Category";
 import CategoryDetail from "./CategoryDetail";
 
@@ -23,6 +24,13 @@ class CategoriesList extends Component {
   }
 
   render() {
+    if (this.props.loading) {
+      return (
+        <PreLoader>
+          <Triple color="#c015e9" size={80} />
+        </PreLoader>
+      );
+    }
     if (this.state.category_id) {
       return (
         <div className="container-fluid">
@@ -102,7 +110,8 @@ class CategoriesList extends Component {
 }
 
 const mapStateToProps = state => ({
-  categoryItems: state.categoryItems
+  categoryItems: state.categoryItems,
+  loading: state.isFetchingCategory
 });
 
 export default connect(
