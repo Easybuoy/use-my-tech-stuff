@@ -22,8 +22,11 @@ import {
   UPDATE_ITEM_FAILURE,
   FETCHING_ITEM_BY_ID_FAILURE,
   FETCHING_ITEM_BY_ID_START,
-  FETCHING_ITEM_BY_ID_SUCCESS
-} from "../actions";
+  FETCHING_ITEM_BY_ID_SUCCESS,
+  DELETE_ITEM_START,
+  DELETE_ITEM_SUCCESS,
+  DELETE_ITEM_FAILURE
+} from '../actions';
 
 const initialState = {
   error: "",
@@ -174,6 +177,26 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         itemsById: action.payload
+      };
+    case DELETE_ITEM_START:
+      return {
+        ...state,
+        isDeletingItem: true,
+        error: '',
+        items: []
+      };
+    case DELETE_ITEM_SUCCESS:
+      return {
+        ...state,
+        error: '',
+        isDeletingItem: false,
+        items: [...state.items]
+      };
+    case DELETE_ITEM_FAILURE:
+      return {
+        ...state,
+        isDeletingItem: false,
+        error: action.payload
       };
     default:
       return state;

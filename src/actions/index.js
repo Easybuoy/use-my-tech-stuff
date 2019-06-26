@@ -27,9 +27,9 @@ export const ADD_ITEM_START = 'ADD_ITEMS_START';
 export const ADD_ITEM_SUCCESS = 'ADD_ITEMS_SUCCESS';
 export const ADD_ITEM_FAILURE = 'ADD_ITEMS_FAILURE';
 
-export const DELETE_ITEM_START = 'DELETE_ITEMS_START';
-export const DELETE_ITEM_SUCCESS = 'DELETE_ITEMS_SUCCESS';
-export const DELETE_ITEM_FAILURE = 'DELETE_ITEMS_FAILURE';
+export const DELETE_ITEM_START = 'DELETE_ITEM_START';
+export const DELETE_ITEM_SUCCESS = 'DELETE_ITEM_SUCCESS';
+export const DELETE_ITEM_FAILURE = 'DELETE_ITEM_FAILURE';
 
 export const UPDATE_USER_START = 'UPDATE_USER_START';
 export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
@@ -166,22 +166,19 @@ export const addItem = item => dispatch => {
 };
 
 export const deleteItem = item => dispatch => {
-  console.log(item);
+  console.log('whats my item id:', item);
   dispatch({ type: DELETE_ITEM_START });
   return axiosWithAuth()
-    .delete(
-      'https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/items',
-      item
-    )
+    .delete(`items/${item}`)
     .then(res => {
       console.log(`deleteItem ----------------`, res);
-      dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data });
+      dispatch({ type: DELETE_ITEM_SUCCESS, payload: res });
     })
     .catch(err => {
       console.log(`deleteItem`, err);
       dispatch({
         type: DELETE_ITEM_FAILURE,
-        payload: err.response.data.error
+        payload: err.response
       });
     });
 };
@@ -195,11 +192,11 @@ export const updateUser = user => dispatch => {
       user
     )
     .then(res => {
-      console.log(`updateuser asddddddddddddd`, res);
+      console.log(`updateuser res`, res);
       dispatch({ type: UPDATE_USER_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(`addItem`, err);
+      console.log(`updateuser err`, err);
       dispatch({
         type: UPDATE_USER_FAILURE,
         payload: err.response.data.error
