@@ -1,7 +1,7 @@
 // dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addItem } from '../actions/index';
+import { updateItem } from '../actions/index';
 import decode from 'jwt-decode';
 
 import './AddItem.scss';
@@ -12,8 +12,7 @@ class AddItem extends Component {
     category: '',
     price: '',
     image_url: '',
-    description: '',
-    users_id: decode(localStorage.getItem('token')).subject
+    description: ''
   };
 
   handleChange = e => {
@@ -25,17 +24,17 @@ class AddItem extends Component {
 
   addItem = e => {
     e.preventDefault();
-    this.props.addItem(this.state).then(() => {
+    this.props.updateItem(this.state).then(() => {
       this.props.history.push('/dashboard');
     });
   };
   render() {
-    console.log(`additem props?`, this.props);
+    console.log(`updateitem props?`, this.props);
     return (
       <div className='form-container'>
-        <h1>Add a Rental Item</h1>
+        <h1>Update Your Rental Listing</h1>
         <div className='form'>
-          <form onSubmit={this.addItem}>
+          <form onSubmit={this.updateItem}>
             <input
               type='text'
               name='name'

@@ -12,7 +12,7 @@ class User extends Component {
     email: '',
     state: '',
     town: '',
-    users_id: decode(localStorage.getItem('token')).subject
+    id: decode(localStorage.getItem('token')).subject
   };
 
   handleChange = e => {
@@ -28,6 +28,7 @@ class User extends Component {
       this.props.history.push('/dashboard');
     });
   };
+
   render() {
     return (
       <div className='form-container'>

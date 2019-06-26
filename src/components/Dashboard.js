@@ -46,6 +46,7 @@ class Dashboard extends React.Component {
                     alt='check it'
                   />
                   <p className='user-name'>
+                    {this.state.userId}
                     Hi, <span className='highlight'>{user.username}</span>
                   </p>
                   <Link to={`/user/${user.id}`}>Edit Your Profile</Link>
