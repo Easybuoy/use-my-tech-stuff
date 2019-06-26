@@ -52,17 +52,17 @@ class Item extends Component {
       <StyledItem className="container-fluid">
         <img src={image_url} alt="Tech" className="img-fluid item-caption" />
 
-        <h4 className="pt-3">{name}</h4>
+        <h4 className="pt-3 pl-3 font-weight-bold">{name}</h4>
         <div className="item-content">
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="item-detail">
               <div className="item-detail-header">
+                <div className="item-detail-location">
                 <i className="fas fa-map-marker-alt fa-2x" />
                 <h6 className="text-muted">Downtown LA, 90017</h6>
-                  <div className="item-detail-description">
-                {description}
-
-                  </div>
+                </div>
+                
+                <div className="item-detail-description">{description}</div>
               </div>
 
               <div className="item-detail-image">

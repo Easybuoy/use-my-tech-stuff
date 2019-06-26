@@ -335,20 +335,30 @@ const Item = styled.div`
   }
 
   .item-content {
-    border: 1px solid black;
     display: flex;
 
+    @media (max-width: 770px) {
+      flex-direction: column;
+    }
     .item-detail {
-      border: 1px solid red;
       display: flex;
       justify-content: space-between;
 
       .item-detail-header {
         display: flex;
+        flex-direction: column;
 
         h6 {
           font-size: 1.5rem;
           padding-left: 0.5rem;
+        }
+
+        .item-detail-location {
+          display: flex;
+        }
+
+        .item-detail-description {
+          width: 90%;
         }
       }
 
