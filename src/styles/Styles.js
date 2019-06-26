@@ -327,20 +327,55 @@ const NotFound = styled.div`
 `;
 
 const Item = styled.div`
-  img {
+  font-family: "Ubuntu", sans-serif;
+
+  .item-caption {
     width: 100%;
-    height: 80vh;
-    /* background-image: linear-gradient(
-      to right bottom,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0)
-    ),
-    url("https://images.unsplash.com/photo-1534949532948-7c512aa3921b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"); */
-    background-repeat: no-repeat;
     height: 100vh;
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 3rem;
+  }
+
+  .item-content {
+    border: 1px solid black;
+    display: flex;
+
+    .item-detail {
+      border: 1px solid red;
+      display: flex;
+      justify-content: space-between;
+
+      .item-detail-header {
+        display: flex;
+
+        h6 {
+          font-size: 1.5rem;
+          padding-left: 0.5rem;
+        }
+      }
+
+      .item-detail-image {
+        text-align: center;
+        color: #c015e9;
+        img {
+          height: 70px;
+          width: 70px;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .item-booking {
+      border: 1px solid blue;
+    }
+  }
+
+  .price {
+    display: flex;
+    p {
+      margin: 0 0.2rem;
+    }
+    .price-value {
+      color: #1cae9e;
+    }
   }
 `;
 
