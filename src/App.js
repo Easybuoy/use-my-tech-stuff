@@ -14,6 +14,8 @@ import PrivateRoute from './components/PrivateRoute';
 import Items from './components/Items';
 import Item from './components/Item';
 import NotFound from './components/NotFound';
+import AddItem from './components/AddItem';
+
 // styles
 import './App.scss';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -34,7 +36,8 @@ class App extends Component {
             component={CategoriesList}
           />
           <Route path='/items' component={Items} />
-          <PrivateRoute path='/item/:id' component={Item} />
+          <PrivateRoute exact path='/item/:id' component={Item} />
+          <PrivateRoute exact path='/dashboard/add' component={AddItem} />
           <PrivateRoute path='/dashboard' component={Dashboard} />
           <Route path='*' component={NotFound} />
         </Switch>
