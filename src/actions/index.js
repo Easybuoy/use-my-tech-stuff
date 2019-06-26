@@ -162,20 +162,20 @@ export const addItem = item => dispatch => {
 
 export const deleteItem = item => dispatch => {
   console.log(item);
-  dispatch({ type: ADD_ITEM_START });
+  dispatch({ type: DELETE_ITEM_START });
   return axiosWithAuth()
-    .post(
+    .delete(
       'https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/items',
       item
     )
     .then(res => {
-      console.log(`addItem asddddddddddddd`, res);
-      dispatch({ type: ADD_ITEM_SUCCESS, payload: res.data });
+      console.log(`deleteItem ----------------`, res);
+      dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(`addItem`, err);
+      console.log(`deleteItem`, err);
       dispatch({
-        type: ADD_ITEM_FAILURE,
+        type: DELETE_ITEM_FAILURE,
         payload: err.response.data.error
       });
     });

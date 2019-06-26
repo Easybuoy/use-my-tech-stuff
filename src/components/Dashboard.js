@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import decode from 'jwt-decode';
-import { getUsers, getItems } from '../actions/index';
+import { getUsers, getItems, deleteItem } from '../actions/index';
 
 import './Dashboard.scss';
 
@@ -19,6 +19,11 @@ class Dashboard extends React.Component {
       userId: decode(localStorage.getItem('token')).subject
     });
   }
+
+  deleteItem = e => {
+    console.log(e);
+    alert('Delete an item, huh?');
+  };
 
   logoutUser = e => {
     localStorage.removeItem('token');
@@ -64,6 +69,7 @@ class Dashboard extends React.Component {
                   />
                   <h1>{userItem.name}</h1>
                   <Link to={`/item/${userItem.id}`}>{userItem.name}</Link>
+                  <button onClick={this.deleteItem}>Delete Item</button>
                 </div>
               );
             })}
@@ -85,5 +91,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getUsers, getItems }
+  { getUsers, getItems, deleteItem }
 )(Dashboard);
