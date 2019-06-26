@@ -6,18 +6,19 @@ import { registerUser } from '../actions';
 
 class Register extends Component {
   state = {
-    user: [],
-    username: '',
-    password: '',
-    email: ''
+    user: {
+      username: '',
+      password: '',
+      email: '',
+      state: '',
+      town: ''
+    }
   };
 
   handleChange = e => {
     this.setState({
-      user: {
-        ...this.state.user,
-        [e.target.name]: e.target.value
-      }
+      ...this.state.user,
+      [e.target.name]: e.target.value
     });
   };
 
@@ -35,7 +36,7 @@ class Register extends Component {
         <h1>Register an Account</h1>
         <form onSubmit={this.registerUser}>
           <input
-            type='email'
+            type='text'
             name='email'
             value={this.state.user.email}
             onChange={this.handleChange}
@@ -47,6 +48,20 @@ class Register extends Component {
             value={this.state.user.username}
             onChange={this.handleChange}
             placeholder='username'
+          />
+          <input
+            type='text'
+            name='state'
+            value={this.state.user.state}
+            onChange={this.handleChange}
+            placeholder='state'
+          />
+          <input
+            type='text'
+            name='town'
+            value={this.state.user.town}
+            onChange={this.handleChange}
+            placeholder='town'
           />
           <input
             type='password'
