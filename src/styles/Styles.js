@@ -231,10 +231,15 @@ const PreLoader = styled.div`
 
 const Location = styled.div`
   display: flex;
+  font-family: "Ubuntu", sans-serif;
   width: 40%;
   margin: 0 auto;
   flex-direction: column;
+  padding-bottom: 2rem;
 
+  @media (max-width: 990px) {
+    width: 100%;
+  }
   .location-input {
     width: 100%;
     display: flex;
@@ -245,17 +250,52 @@ const Location = styled.div`
       input {
         width: 100%;
         border-bottom: 4px dashed #4dd0e1;
-        font-family: "Ubuntu", sans-serif;
         font-size: 1.5rem;
 
         &:focus {
           border-bottom: 4px dashed #4dd0e1;
+          border-right: none;
+          border-left: none;
         }
       }
     }
     img {
       height: 30px;
-      padding-right: 3rem;
+    }
+  }
+
+  .location-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    select {
+      color: #c015e9;
+      background-color: white;
+      outline: none;
+
+      option {
+        background-color: white;
+      }
+    }
+
+    .location-miles {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: baseline;
+    }
+
+    .location-popularity {
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: baseline;
+
+      p {
+        padding: 0;
+        margin: 0;
+      }
     }
   }
 `;

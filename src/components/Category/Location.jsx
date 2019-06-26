@@ -18,12 +18,22 @@ export default function Location() {
         <img src={locationImage} alt="Location" />
       </div>
       <div className="location-options">
-          <div className="location-miles">
-             <p>Miles From:</p> 
-          </div>
-          <div className="location-popularity">
-              <p>Sort By:</p>
-          </div>
+        <div className="location-miles">
+          <p>Miles From:</p>
+          <select className="">
+            <option defaultValue>15</option>
+            <option value="1">30</option>
+            <option value="2">45</option>
+          </select>
+        </div>
+        <div className="location-popularity">
+          <p>Sort By:</p>
+          <select className="">
+            <option defaultValue>15</option>
+            <option value="1">30</option>
+            <option value="2">45</option>
+          </select>
+        </div>
       </div>
     </StyledLocation>
   );
