@@ -6,7 +6,7 @@ import decode from 'jwt-decode';
 
 import './AddItem.scss';
 
-class AddItem extends Component {
+class UpdateItem extends Component {
   state = {
     name: '',
     category: '',
@@ -22,7 +22,7 @@ class AddItem extends Component {
     });
   };
 
-  addItem = e => {
+  updateItem = e => {
     e.preventDefault();
     this.props.updateItem(this.state).then(() => {
       this.props.history.push('/dashboard');
@@ -42,7 +42,11 @@ class AddItem extends Component {
               onChange={this.handleChange}
               placeholder='item name'
             />
-            <select type='text' name='category' value='camera'>
+            <select type='text' name='category'>
+              <option value='camera'>Camera</option>
+              <option value='hats'>Hats</option>
+              <option value='bikes'>Bikes</option>
+              <option value='camera'>Camera</option>
               <option value='camera'>Camera</option>
             </select>
             <input
@@ -76,12 +80,11 @@ class AddItem extends Component {
 
 const mapStateToProps = state => ({
   items: [],
-  user: state.user,
-  isRegistering: state.isRegistering,
+  isUpdatingItem: state.isRegistering,
   error: state.error
 });
 
 export default connect(
   mapStateToProps,
-  { addItem }
-)(AddItem);
+  { updateItem }
+)(UpdateItem);

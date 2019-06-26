@@ -168,6 +168,26 @@ export const reducer = (state = initialState, action) => {
         error: action.payload
       };
 
+    case UPDATE_ITEM_START:
+      return {
+        ...state,
+        error: '',
+        isUpdatingItem: true
+      };
+    case UPDATE_ITEM_SUCCESS:
+      return {
+        ...state,
+        error: '',
+        isUpdatingItem: false,
+        items: [...state.items, action.payload]
+      };
+    case UPDATE_ITEM_FAILURE:
+      return {
+        ...state,
+        isUpdatingItem: false,
+        error: action.payload
+      };
+
     case FETCHING_ITEM_BY_ID_START:
       return {
         ...state,

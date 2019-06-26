@@ -73,6 +73,9 @@ class Dashboard extends React.Component {
                   <button onClick={this.deleteItem} id={userItem.id}>
                     Delete {userItem.name}
                   </button>
+                  <Link to={`/dashboard/update/${userItem.id}`}>
+                    Update this item
+                  </Link>
                 </div>
               );
             })}
