@@ -132,6 +132,7 @@ export const getItemsByCategories = categoryName => dispatch => {
 };
 
 export const addItem = item => dispatch => {
+  console.log(item);
   dispatch({ type: ADD_ITEM_START });
   return axiosWithAuth()
     .post(
@@ -139,10 +140,11 @@ export const addItem = item => dispatch => {
       item
     )
     .then(res => {
-      console.log(`addItem`, res);
+      console.log(`addItem asddddddddddddd`, res);
       dispatch({ type: ADD_ITEM_SUCCESS, payload: res.data });
     })
     .catch(err => {
+      console.log(`addItem`, err);
       dispatch({
         type: ADD_ITEM_FAILURE,
         payload: err.response.data.error

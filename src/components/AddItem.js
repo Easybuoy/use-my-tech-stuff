@@ -2,18 +2,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/index';
+import decode from 'jwt-decode';
 
 import './AddItem.scss';
 
 class AddItem extends Component {
   state = {
-    items: [],
     name: '',
-    type: '',
+    category: '',
     price: '',
     image_url: '',
     description: '',
-    userId: this.props.userId
+    users_id: decode(localStorage.getItem('token')).subject
   };
 
   handleChange = e => {
@@ -43,7 +43,7 @@ class AddItem extends Component {
               placeholder='item name'
             />
             <select type='text' name='category' value='camera'>
-              <option>Camera</option>
+              <option value='camera'>Camera</option>
             </select>
             <input
               type='number'

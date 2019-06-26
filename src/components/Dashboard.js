@@ -38,6 +38,7 @@ class Dashboard extends React.Component {
                   <img
                     src='https://www.lensrentals.com/blog/media/2016/02/Cinematic-Headshots-1.jpg'
                     className='user-profile-img'
+                    alt='check it'
                   />
                   <p className='user-name'>
                     Hi, <span className='highlight'>{user.username}</span>
@@ -59,6 +60,7 @@ class Dashboard extends React.Component {
                   <img
                     src='https://i.imgur.com/u8rs06a.jpg'
                     className='item-img'
+                    alt='check this out'
                   />
                   <h1>{userItem.name}</h1>
                   <Link to={`/item/${userItem.id}`}>{userItem.name}</Link>

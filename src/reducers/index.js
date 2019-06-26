@@ -14,9 +14,9 @@ import {
   FETCHING_CATEGORY_START,
   FETCHING_CATEGORY_SUCCESS,
   FETCHING_CATEGORY_FAILURE,
-  ADDING_ITEMS_START,
-  ADDING_ITEMS_SUCCESS,
-  ADDING_ITEMS_FAILURE,
+  ADD_ITEM_START,
+  ADD_ITEM_SUCCESS,
+  ADD_ITEM_FAILURE,
   UPDATE_ITEM_START,
   UPDATE_ITEM_SUCCESS,
   UPDATE_ITEM_FAILURE
@@ -31,6 +31,7 @@ const initialState = {
   isFetchingUsers: false,
   isLoggingIn: false,
   isRegistering: false,
+  isAddingItem: false,
   isUpdatingItem: false,
   isFetchingCategory: false,
   categoryItems: []
@@ -77,6 +78,7 @@ export const reducer = (state = initialState, action) => {
         isRegistering: false,
         error: action.payload
       };
+
     case USER_LOGIN_START:
       return {
         ...state,
@@ -95,6 +97,7 @@ export const reducer = (state = initialState, action) => {
         isLoggingIn: false,
         error: action.payload
       };
+
     case FETCHING_USERS_START:
       return {
         ...state,
@@ -115,6 +118,7 @@ export const reducer = (state = initialState, action) => {
         isFetchingUsers: false,
         error: action.payload
       };
+
     case FETCHING_CATEGORY_START:
       return {
         ...state,
@@ -129,6 +133,26 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         categoryItems: action.payload
+      };
+
+    case ADD_ITEM_START:
+      return {
+        ...state,
+        error: '',
+        isAddingItem: true
+      };
+    case ADD_ITEM_SUCCESS:
+      return {
+        ...state,
+        error: '',
+        isAddingItem: false,
+        items: [...state.items, ...action.payload]
+      };
+    case ADD_ITEM_FAILURE:
+      return {
+        ...state,
+        isAddingItem: false,
+        error: action.payload
       };
     default:
       return state;
