@@ -19,7 +19,10 @@ import {
   ADD_ITEM_FAILURE,
   UPDATE_ITEM_START,
   UPDATE_ITEM_SUCCESS,
-  UPDATE_ITEM_FAILURE
+  UPDATE_ITEM_FAILURE,
+  DELETE_ITEM_START,
+  DELETE_ITEM_SUCCESS,
+  DELETE_ITEM_FAILURE
 } from '../actions';
 
 const initialState = {
@@ -153,6 +156,26 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isAddingItem: false,
+        error: action.payload
+      };
+    case DELETE_ITEM_START:
+      return {
+        ...state,
+        isDeletingItem: true,
+        error: '',
+        items: []
+      };
+    case DELETE_ITEM_SUCCESS:
+      return {
+        ...state,
+        error: '',
+        isDeletingItem: false,
+        items: [...state.items]
+      };
+    case DELETE_ITEM_FAILURE:
+      return {
+        ...state,
+        isDeletingItem: false,
         error: action.payload
       };
     default:
