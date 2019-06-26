@@ -1,0 +1,32 @@
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      input,
+      select,
+      option,
+      textarea {
+        padding: 1rem;
+        width: 100%;
+        margin: 1rem;
+        border-radius: 7px;
+        border: 3px solid black;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
