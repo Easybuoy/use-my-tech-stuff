@@ -307,6 +307,21 @@ const Location = styled.div`
     }
   }
 `;
+
+const NotFound = styled.div`
+  margin-bottom: 5rem;
+
+  img {
+    width: 100%;
+    height: 70vh;
+  }
+
+  button {
+    display: flex;
+    margin: 0 auto;
+  }
+`;
+
 export {
   Category,
   CategoryHeader,
@@ -314,5 +329,6 @@ export {
   CategoryDetail,
   Navbar,
   PreLoader,
-  Location
+  Location,
+  NotFound
 };

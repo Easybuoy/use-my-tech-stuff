@@ -13,6 +13,7 @@ import CategoriesList from "./components/Category/CategoriesList";
 import PrivateRoute from "./components/PrivateRoute";
 import Items from "./components/Items";
 import Item from "./components/Item";
+import NotFound from "./components/NotFound";
 // styles
 import "./App.scss";
 import "react-toastify/dist/ReactToastify.min.css";
@@ -30,6 +31,8 @@ class App extends Component {
         <Route path="/items" component={Items} />
         <PrivateRoute path="/item/:id" component={Item} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
+        <Route path="*" component={NotFound} />
+
         <ToastContainer
           autoClose={3000}
           position="top-right"
