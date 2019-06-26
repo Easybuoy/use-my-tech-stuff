@@ -6,8 +6,8 @@ import logo from "../assets/img/logo.png";
 import { Navbar as StyledNavbar, Button } from "../styles/Styles";
 
 function Navbar(props) {
-  // const { isLoggingIn } = props;
-  let isLoggingIn = true
+  const { isLoggingIn } = props;
+
   let navbar = (
     <StyledNavbar>
       <nav className="mb-1 navbar navbar-expand-lg navbar-dark lighten-1 mb-3">

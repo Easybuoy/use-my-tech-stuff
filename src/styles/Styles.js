@@ -98,7 +98,9 @@ const CategoryDetail = styled.div`
         width: 100%;
         padding-bottom: 2rem;
       }
-
+      @media (max-width: 990px) {
+        opacity: 1;
+      }
       .ratings {
         display: flex;
         width: 100%;
