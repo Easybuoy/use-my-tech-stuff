@@ -79,16 +79,7 @@ class AddItem extends Component {
               onChange={this.handleChange}
               placeholder='description of your rental'
             />
-            <input
-              type='hidden'
-              value={this.props.users_state}
-              name='users_state'
-            />
-            <input
-              type='hidden'
-              value={this.props.users_city}
-              name='users_state'
-            />
+
             <button>Add Item</button>
           </form>
         </div>

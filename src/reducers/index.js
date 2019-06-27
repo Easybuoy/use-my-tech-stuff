@@ -30,10 +30,10 @@ import {
   UPDATE_USER_SUCCESS,
   UPDATE_USER_FAILURE,
   SIGN_OUT_USER
-} from "../actions";
+} from '../actions';
 
 const initialState = {
-  error: "",
+  error: '',
   items: [],
   users: [],
   user: [],
@@ -57,13 +57,13 @@ export const reducer = (state = initialState, action) => {
     case FETCHING_ITEMS_START:
       return {
         ...state,
-        error: "",
+        error: '',
         isFetchingItems: true
       };
     case FETCHING_ITEMS_SUCCESS:
       return {
         ...state,
-        error: "",
+        error: '',
         isFetchingItems: false,
         items: action.payload
       };
@@ -77,13 +77,13 @@ export const reducer = (state = initialState, action) => {
     case REGISTERING_USER_START:
       return {
         ...state,
-        error: "",
+        error: '',
         isRegistering: true
       };
     case REGISTERING_USER_SUCCESS:
       return {
         ...state,
-        error: "",
+        error: '',
         isRegistering: false,
         isRegistered: true,
         users: action.payload
@@ -98,13 +98,13 @@ export const reducer = (state = initialState, action) => {
     case UPDATE_USER_START:
       return {
         ...state,
-        error: "",
+        error: '',
         isUpdatingUser: true
       };
     case UPDATE_USER_SUCCESS:
       return {
         ...state,
-        error: "",
+        error: '',
         isUpdatingUser: false,
         users: [...state.users, action.payload]
       };
@@ -118,13 +118,13 @@ export const reducer = (state = initialState, action) => {
     case USER_LOGIN_START:
       return {
         ...state,
-        error: "",
+        error: '',
         isLoggingIn: true
       };
     case USER_LOGIN_SUCCESS:
       return {
         ...state,
-        error: "",
+        error: '',
         isLoggingIn: false,
         isLoggedIn: true
       };
@@ -138,14 +138,14 @@ export const reducer = (state = initialState, action) => {
     case FETCHING_USERS_START:
       return {
         ...state,
-        error: "",
+        error: '',
         isFetchingUsers: true,
         users: []
       };
     case FETCHING_USERS_SUCCESS:
       return {
         ...state,
-        error: "",
+        error: '',
         isFetchingUsers: false,
         users: [...state.users, ...action.payload]
       };
@@ -175,13 +175,13 @@ export const reducer = (state = initialState, action) => {
     case ADD_ITEM_START:
       return {
         ...state,
-        error: "",
+        error: '',
         isAddingItem: true
       };
     case ADD_ITEM_SUCCESS:
       return {
         ...state,
-        error: "",
+        error: '',
         isAddingItem: false,
         items: [...state.items, ...action.payload]
       };
@@ -195,13 +195,13 @@ export const reducer = (state = initialState, action) => {
     case UPDATE_ITEM_START:
       return {
         ...state,
-        error: "",
+        error: '',
         isUpdatingItem: true
       };
     case UPDATE_ITEM_SUCCESS:
       return {
         ...state,
-        error: "",
+        error: '',
         isUpdatingItem: false,
         items: [...state.items, action.payload]
       };
@@ -232,13 +232,13 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isDeletingItem: true,
-        error: "",
+        error: '',
         items: []
       };
     case DELETE_ITEM_SUCCESS:
       return {
         ...state,
-        error: "",
+        error: '',
         isDeletingItem: false,
         items: action.payload
       };
