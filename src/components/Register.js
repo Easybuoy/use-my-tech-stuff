@@ -28,7 +28,7 @@ class Register extends Component {
   registerUser = e => {
     e.preventDefault();
     this.props.registerUser(this.state).then(() => {
-      this.props.history.push('/');
+      this.props.history.push('/profile');
     });
   };
 
@@ -77,7 +77,7 @@ class Register extends Component {
         </form>
       </div>
     ) : (
-      <Redirect to='/dashboard' />
+      <Redirect to='/profile' />
     );
   }
 }
