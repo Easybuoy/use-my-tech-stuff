@@ -36,7 +36,7 @@ class Register extends Component {
     console.log('Props in Register.js', this.props);
     return !localStorage.getItem('token') ? (
       <div className='register-container'>
-        <h1>Register an Account</h1>
+        <h3>Sign Up</h3>
         <form onSubmit={this.registerUser}>
           <input
             type='text'

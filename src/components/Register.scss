@@ -3,6 +3,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  h3 {
+    font-weight: 500;
+  }
   form {
     display: flex;
     flex-direction: column;
@@ -16,7 +19,11 @@
       border-top: 0;
       border-right: 0;
       border-left: 0;
-      border-bottom: 3px dashed blue;
+      border-bottom: 2px solid #1586e9;
+      color: silver;
+      font-weight: 500;
+      font-style: italic;
+      text-transform: capitalize;
       &:focus {
         outline: none;
       }
@@ -28,8 +35,10 @@
       padding: 0.5rem;
       border-radius: 7px;
       margin: 1rem;
-      background: none;
-      border: 2px solid blue;
+      border: 0;
+      background: #1586e9;
+      color: white;
+      font-weight: 500;
       width: 25%;
     }
   }
