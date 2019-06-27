@@ -31,10 +31,13 @@ export const DELETE_ITEM_START = 'DELETE_ITEM_START';
 export const DELETE_ITEM_SUCCESS = 'DELETE_ITEM_SUCCESS';
 export const DELETE_ITEM_FAILURE = 'DELETE_ITEM_FAILURE';
 
+export const UPDATE_ITEM_START = 'UPDATE_ITEM_START';
+export const UPDATE_ITEM_SUCCESS = 'UPDATE_ITEM_SUCCESS';
+export const UPDATE_ITEM_FAILURE = 'UPDATE_ITEM_FAILURE';
+
 export const UPDATE_USER_START = 'UPDATE_USER_START';
 export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
 export const UPDATE_USER_FAILURE = 'UPDATE_USER_FAILURE';
-
 
 export const FETCHING_ITEM_BY_ID_START = 'FETCHING_ITEM_BY_ID_START';
 export const FETCHING_ITEM_BY_ID_SUCCESS = 'FETCHING_ITEM_BY_ID_SUCCESS';
@@ -52,6 +55,7 @@ export const getItems = () => dispatch => {
       'https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/items'
     )
     .then(res => {
+      console.log('so uh.', res);
       dispatch({ type: FETCHING_ITEMS_SUCCESS, payload: res.data });
     })
     .catch(err => {
@@ -172,7 +176,7 @@ export const deleteItem = item => dispatch => {
     .delete(`items/${item}`)
     .then(res => {
       console.log(`deleteItem ----------------`, res);
-      dispatch({ type: DELETE_ITEM_SUCCESS, payload: res });
+      dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data });
     })
     .catch(err => {
       console.log(`deleteItem`, err);
@@ -183,23 +187,48 @@ export const deleteItem = item => dispatch => {
     });
 };
 
+export const updateItem = item => dispatch => {
+  console.log(`item from updateItem`, item);
+  dispatch({ type: UPDATE_ITEM_START });
+  return axiosWithAuth()
+    .put(
+      `https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/items/${
+        item.id
+      }`,
+      item
+    )
+    .then(res => {
+      console.log(`updateItem res`, res);
+      dispatch({ type: UPDATE_ITEM_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      console.log(`updateItem err`, err);
+      dispatch({
+        type: UPDATE_ITEM_FAILURE,
+        payload: err.response.data.error
+      });
+    });
+};
+
 export const updateUser = user => dispatch => {
-  console.log(user);
+  console.log(`id from updateuser`, user);
+  console.log(`user id from updateuser`, user.id);
   dispatch({ type: UPDATE_USER_START });
   return axiosWithAuth()
     .put(
-      'https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/users',
-      user
+      `https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/users/${
+        user.id
+      }`
     )
     .then(res => {
       console.log(`updateuser res`, res);
-      dispatch({ type: UPDATE_USER_SUCCESS, payload: res.data });
+      dispatch({ type: UPDATE_USER_SUCCESS, payload: res });
     })
     .catch(err => {
       console.log(`updateuser err`, err);
       dispatch({
         type: UPDATE_USER_FAILURE,
-        payload: err.response.data.error
+        payload: err
       });
     });
 };
@@ -211,9 +240,7 @@ export const updateUser = user => dispatch => {
 export const getItemById = id => dispatch => {
   dispatch({ type: FETCHING_ITEM_BY_ID_START });
   axios
-    .get(
-      `https://usemytechstuffbe.herokuapp.com/api/items/${id}`
-    )
+    .get(`https://usemytechstuffbe.herokuapp.com/api/items/${id}`)
     .then(res => {
       dispatch({
         type: FETCHING_ITEM_BY_ID_FAILURE,
@@ -228,4 +255,4 @@ export const getItemById = id => dispatch => {
       })
     )
     .finally(() => dispatch({ type: FETCHING_ITEM_BY_ID_START }));
-}
+};
