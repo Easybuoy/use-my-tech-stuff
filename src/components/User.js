@@ -31,9 +31,10 @@ class User extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className='form-container'>
-        <h1>Update Your Profile</h1>
+        <h1>View Your Profile</h1>
         <div className='form'>
           <form onSubmit={this.updateUser}>
             <input
@@ -64,8 +65,7 @@ class User extends Component {
               onChange={this.handleChange}
               placeholder='town will be here'
             />
-            <button>Update Information</button>
-            <Link to='/dashboard'>Return to Dashboard</Link>
+            <Link to='/profile'>Return to Profile</Link>
           </form>
         </div>
       </div>
@@ -76,7 +76,8 @@ class User extends Component {
 const mapStateToProps = state => ({
   user: state.user,
   isUpdatingUser: state.isUpdatingUser,
-  error: state.error
+  error: state.error,
+  users: state.users
 });
 
 export default connect(

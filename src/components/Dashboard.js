@@ -92,7 +92,7 @@ class Dashboard extends React.Component {
                     {this.state.userId}
                     Hi, <span className='highlight'>{user.username}</span>
                   </p>
-                  <Link to={`/user/${user.id}`}>Edit Your Profile</Link>
+                  <Link to={`/user/${user.id}`}>View Your Profile</Link>
                 </div>
               );
             })}
