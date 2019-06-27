@@ -27,7 +27,6 @@ class AddItem extends Component {
     e.preventDefault();
     this.props.addItem(this.state).then(() => {
       this.props.history.push('/profile');
-      this.props.history.push('/');
     });
   };
   render() {
