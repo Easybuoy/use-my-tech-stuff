@@ -1,7 +1,6 @@
 // dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { updateUser } from '../actions/index';
 import decode from 'jwt-decode';
 
@@ -9,10 +8,7 @@ import './User.scss';
 
 class User extends Component {
   state = {
-    username: '',
-    email: '',
-    state: '',
-    town: '',
+    users: [],
     id: decode(localStorage.getItem('token')).subject
   };
 
@@ -31,42 +27,20 @@ class User extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className='form-container'>
-        <h1>Update Your Profile</h1>
+        <h1>View Your Profile</h1>
         <div className='form'>
-          <form onSubmit={this.updateUser}>
-            <input
-              type='text'
-              name='username'
-              value={this.state.username}
-              onChange={this.handleChange}
-              placeholder='username will be here'
-            />
-            <input
-              type='email'
-              name='email'
-              value={this.state.email}
-              onChange={this.handleChange}
-              placeholder='email will be here'
-            />
-            <input
-              type='text'
-              name='state'
-              value={this.state.state}
-              onChange={this.handleChange}
-              placeholder='state will be here'
-            />
-            <input
-              type='text'
-              name='town'
-              value={this.state.town}
-              onChange={this.handleChange}
-              placeholder='town will be here'
-            />
-            <button>Update Information</button>
-            <Link to='/dashboard'>Return to Dashboard</Link>
-          </form>
+          {this.props.users
+            .filter(user => user.id === this.props.params.id)
+            .map(user => {
+              return (
+                <div className='user-card' key={user.id} img={user.image_url}>
+                  {user.name}
+                </div>
+              );
+            })}
         </div>
       </div>
     );
@@ -74,9 +48,8 @@ class User extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
-  isUpdatingUser: state.isUpdatingUser,
-  error: state.error
+  error: state.error,
+  users: state.users
 });
 
 export default connect(

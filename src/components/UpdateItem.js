@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateItem } from '../actions/index';
-import decode from 'jwt-decode';
 import './AddItem.scss';
 
 class UpdateItem extends Component {
@@ -11,7 +10,8 @@ class UpdateItem extends Component {
     category: 'cameras',
     price: '',
     image_url: '',
-    description: ''
+    description: '',
+    id: this.props.match.params.id
   };
 
   handleChange = e => {
@@ -27,8 +27,8 @@ class UpdateItem extends Component {
       this.props.history.push('/profile');
     });
   };
+
   render() {
-    console.log(`updateitem props?`, this.props);
     return (
       <div className='form-container'>
         <h1>Update Your Rental Listing</h1>
@@ -45,7 +45,7 @@ class UpdateItem extends Component {
               type='text'
               name='category'
               onChange={this.handleChange}
-              value={this.state.value}
+              value={this.state.category}
             >
               <option value='cameras' name='cameras'>
                 Cameras
