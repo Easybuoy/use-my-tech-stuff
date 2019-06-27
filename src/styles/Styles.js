@@ -419,8 +419,6 @@ const BookItemForm = styled.form`
       width: 50%;
       font-size: 1.3rem;
 
-      p {
-      }
       .price-value {
         color: #1cae9e;
         font-weight: bold;

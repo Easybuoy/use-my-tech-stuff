@@ -9,9 +9,7 @@ import {
 
 export default function BookItemForm({ price }) {
   return (
-    <StyledBookItemForm className="text-center border border-light p-5 text-center m-auto">
-      {/* <p className="h4 mb-4">Per Day</p> */}
-
+    <StyledBookItemForm className="text-center border border-light p-5  m-auto">
       <div className="form-header d-flex flex-row">
         <div className="top-content">
           <div className="price">
@@ -29,14 +27,30 @@ export default function BookItemForm({ price }) {
         </div>
       </div>
 
-      <Input
-        type="password"
-        required
-        className="form-control mb-4"
-        placeholder="Enter Meetup Spot"
-      />
+      <div className="md-form ">
+        <Input
+          type="password"
+          required
+          className="form-control mb-4"
+          placeholder={`${price} x 0 Days`}
+        />
+      </div>
 
-      <div className="d-flex justify-content-around" />
+      <div className="d-flex flex-row justify-content-between font-weight-bold m-0 p-0">
+        <p>Total</p>
+        <p>$0</p>
+      </div>
+
+      <div className="md-form">
+        <Input
+          type="password"
+          required
+          className="form-control mb-4"
+          placeholder="Suggest Meetup Spot"
+        />
+      </div>
+
+      {/* <div className="d-flex justify-content-around" /> */}
 
       <Button className="btn btn-block my-4" type="submit">
         Book Item
