@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
+// styles
+import './Register.scss';
+
+// actions
 import { registerUser } from '../actions';
 
 class Register extends Component {
