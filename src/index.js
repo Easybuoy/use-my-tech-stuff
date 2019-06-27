@@ -24,11 +24,7 @@ import App from "./App";
 // whatever this is
 import * as serviceWorker from "./serviceWorker";
 
-
-const store = createStore(
-  reducer,
-  composeWithDevTools(applyMiddleware(thunk, logger))
-);
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 if (localStorage.token) {
   store.dispatch({

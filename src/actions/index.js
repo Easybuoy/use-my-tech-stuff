@@ -57,7 +57,6 @@ export const getItems = () => dispatch => {
       "https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/items"
     )
     .then(res => {
-      console.log("so uh.", res);
       dispatch({ type: FETCHING_ITEMS_SUCCESS, payload: res.data });
     })
     .catch(err => {
@@ -70,7 +69,6 @@ export const getItems = () => dispatch => {
 
 export const registerUser = user => dispatch => {
   dispatch({ type: REGISTERING_USER_START });
-  console.log(user);
   return axios
     .post(
       "https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/auth/register",
@@ -129,7 +127,6 @@ export const getUsers = () => dispatch => {
       "https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/users"
     )
     .then(res => {
-      console.log(`getUsers`, res);
       dispatch({ type: FETCHING_USERS_SUCCESS, payload: res.data });
     })
     .catch(err => {
@@ -170,11 +167,9 @@ export const addItem = item => dispatch => {
       item
     )
     .then(res => {
-      console.log(`addItem asddddddddddddd`, res);
       dispatch({ type: ADD_ITEM_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(`addItem`, err);
       dispatch({
         type: ADD_ITEM_FAILURE,
         payload: err.response.data.error
@@ -183,16 +178,13 @@ export const addItem = item => dispatch => {
 };
 
 export const deleteItem = item => dispatch => {
-  console.log("whats my item id:", item);
   dispatch({ type: DELETE_ITEM_START });
   return axiosWithAuth()
     .delete(`items/${item}`)
     .then(res => {
-      console.log(`deleteItem ----------------`, res);
       dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(`deleteItem`, err);
       dispatch({
         type: DELETE_ITEM_FAILURE,
         payload: err.response
@@ -201,7 +193,6 @@ export const deleteItem = item => dispatch => {
 };
 
 export const updateItem = item => dispatch => {
-  console.log(`item from updateItem`, item);
   dispatch({ type: UPDATE_ITEM_START });
   return axiosWithAuth()
     .put(
@@ -211,11 +202,9 @@ export const updateItem = item => dispatch => {
       item
     )
     .then(res => {
-      console.log(`updateItem res`, res);
       dispatch({ type: UPDATE_ITEM_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(`updateItem err`, err);
       dispatch({
         type: UPDATE_ITEM_FAILURE,
         payload: err.response.data.error
@@ -224,8 +213,6 @@ export const updateItem = item => dispatch => {
 };
 
 export const updateUser = user => dispatch => {
-  console.log(`id from updateuser`, user);
-  console.log(`user id from updateuser`, user.id);
   dispatch({ type: UPDATE_USER_START });
   return axiosWithAuth()
     .put(
@@ -234,11 +221,9 @@ export const updateUser = user => dispatch => {
       }`
     )
     .then(res => {
-      console.log(`updateuser res`, res);
       dispatch({ type: UPDATE_USER_SUCCESS, payload: res });
     })
     .catch(err => {
-      console.log(`updateuser err`, err);
       dispatch({
         type: UPDATE_USER_FAILURE,
         payload: err
