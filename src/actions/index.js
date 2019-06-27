@@ -196,6 +196,7 @@ export const deleteItem = item => dispatch => {
 
 export const updateItem = item => dispatch => {
   dispatch({ type: UPDATE_ITEM_START });
+  console.log(item, 'aaaaa')
   return axiosWithAuth()
     .put(
       `https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/items/${
@@ -203,7 +204,7 @@ export const updateItem = item => dispatch => {
       }`,
       item
     )
-    .then(res => {
+    .then(res => { console.log(res)
       dispatch({ type: UPDATE_ITEM_SUCCESS, payload: res.data });
     })
     .catch(err => {

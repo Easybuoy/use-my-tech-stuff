@@ -23,9 +23,10 @@ class UpdateItem extends Component {
 
   updateItem = e => {
     e.preventDefault();
-    this.props.updateItem(this.state).then(() => {
-      this.props.history.push('/profile');
-    });
+    this.props.updateItem(this.state)
+    // .then(() => {
+    //   this.props.history.push('/profile');
+    // });
   };
   render() {
     console.log(`updateitem props?`, this.props);
