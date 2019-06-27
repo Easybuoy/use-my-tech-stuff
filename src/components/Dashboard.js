@@ -1,13 +1,13 @@
 // dependencies
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import decode from "jwt-decode";
-import { getUsers, getItems, deleteItem, signOut } from "../actions/index";
-import styled from "styled-components";
-import { Triple } from "react-preloading-component";
-import { PreLoader } from "../styles/Styles";
-import "./Dashboard.scss";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import decode from 'jwt-decode';
+import { getUsers, getItems, deleteItem, signOut } from '../actions/index';
+import styled from 'styled-components';
+import { Triple } from 'react-preloading-component';
+import { PreLoader } from '../styles/Styles';
+import './Dashboard.scss';
 
 const ItemCard = styled.div`
   display: flex;
@@ -42,7 +42,7 @@ class Dashboard extends React.Component {
 
   async componentDidMount() {
     await this.setState({
-      userId: decode(localStorage.getItem("token")).subject
+      userId: decode(localStorage.getItem('token')).subject
     });
 
     this.props.getUsers();
@@ -62,7 +62,7 @@ class Dashboard extends React.Component {
     if (this.props.isFetchingUsers) {
       return (
         <PreLoader>
-          <Triple color="#c015e9" size={80} />
+          <Triple color='#c015e9' size={80} />
         </PreLoader>
       );
     }
@@ -70,36 +70,34 @@ class Dashboard extends React.Component {
     if (this.props.users.length === undefined) {
       return (
         <PreLoader>
-          <Triple color="#c015e9" size={80} />
+          <Triple color='#c015e9' size={80} />
         </PreLoader>
       );
     }
 
     return (
-      <div className="dashboard-container">
-        <div className="user-info">
+      <div className='dashboard-container'>
+        <div className='user-info'>
           {this.props.users
             .filter(user => user.id === this.state.userId)
             .map(user => {
               return (
-                <div className="user-card" key={user.id}>
+                <div className='user-card' key={user.id}>
                   <img
-                    src="https://www.lensrentals.com/blog/media/2016/02/Cinematic-Headshots-1.jpg"
-                    className="user-profile-img"
-                    alt="check it"
+                    src={user.image_url}
+                    className='user-profile-img'
+                    alt='check it'
                   />
-                  <p className="user-name">
-                    {this.state.userId}
-                    Hi, <span className="highlight">{user.username}</span>
+                  <p className='user-name'>
+                    Hi, <span className='highlight'>{user.username}</span>
                   </p>
-                  <Link to={`/user/${user.id}`}>Edit Your Profile</Link>
                 </div>
               );
             })}
         </div>
         <ItemCardsContainer>
-          <ItemCard className="empty">
-            <Link to="/profile/add">Add An Item</Link>
+          <ItemCard className='empty'>
+            <Link to='/profile/add'>Add An Item</Link>
           </ItemCard>
           {this.props.items
             .filter(item => item.users_id === this.state.userId)
@@ -107,6 +105,7 @@ class Dashboard extends React.Component {
               return (
                 <ItemCard key={userItem.id} img={userItem.image_url}>
                   <Link to={`/item/${userItem.id}`}>{userItem.name}</Link>
+                  <p>Price to Rent: {userItem.price}</p>
                   <button onClick={this.deleteItem} id={userItem.id}>
                     Delete {userItem.name}
                   </button>
@@ -117,7 +116,7 @@ class Dashboard extends React.Component {
               );
             })}
         </ItemCardsContainer>
-        <div className="button-container">
+        <div className='button-container'>
           <button onClick={this.logoutUser}>Log Out</button>
         </div>
       </div>
