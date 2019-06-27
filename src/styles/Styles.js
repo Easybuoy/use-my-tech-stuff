@@ -332,6 +332,10 @@ const Item = styled.div`
   .item-caption {
     width: 100%;
     height: 100vh;
+
+    @media (max-width: 770px) {
+      height: auto;
+    }
   }
 
   .item-content {
@@ -437,10 +441,21 @@ const BookItemForm = styled.form`
     border-bottom: 2px solid #a5a5a5;
     padding-bottom: 1rem;
 
+    @media (max-width: 770px) {
+      flex-direction: column;
+      width: 100%;
+    }
+
     .price {
       display: flex;
       width: 50%;
       font-size: 1.3rem;
+
+      @media (max-width: 770px) {
+        width: 100;
+        margin: 0 auto;
+        padding-bottom: 0.5rem;
+      }
 
       .price-value {
         color: #1cae9e;
@@ -456,6 +471,10 @@ const BookItemForm = styled.form`
       color: #1cae9e;
       padding-left: 0.5rem;
       justify-content: flex-end;
+
+      @media (max-width: 770px) {
+        justify-content: center;
+      }
     }
   }
 
@@ -463,6 +482,13 @@ const BookItemForm = styled.form`
     border-bottom: 2px solid #a5a5a5;
     font-size: 12px;
     color: #1cae9e;
+
+    .md-form {
+      @media (max-width: 770px) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
 `;
 
