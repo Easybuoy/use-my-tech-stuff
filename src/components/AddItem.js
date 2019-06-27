@@ -13,7 +13,7 @@ class AddItem extends Component {
     users_state: '',
     name: '',
     image_url: '',
-    price: 0,
+    price: null,
     category: 'cameras',
     description: '',
     users_id: decode(localStorage.getItem('token')).subject

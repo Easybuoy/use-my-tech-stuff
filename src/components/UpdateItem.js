@@ -8,7 +8,7 @@ class UpdateItem extends Component {
   state = {
     name: '',
     category: 'cameras',
-    price: '',
+    price: null,
     image_url: '',
     description: '',
     id: this.props.match.params.id
