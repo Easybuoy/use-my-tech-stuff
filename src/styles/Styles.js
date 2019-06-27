@@ -327,20 +327,121 @@ const NotFound = styled.div`
 `;
 
 const Item = styled.div`
-  img {
+  font-family: "Ubuntu", sans-serif;
+
+  .item-caption {
     width: 100%;
-    height: 80vh;
-    /* background-image: linear-gradient(
-      to right bottom,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0)
-    ),
-    url("https://images.unsplash.com/photo-1534949532948-7c512aa3921b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"); */
-    background-repeat: no-repeat;
     height: 100vh;
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 3rem;
+  }
+
+  .item-content {
+    display: flex;
+
+    @media (max-width: 770px) {
+      flex-direction: column;
+    }
+    .item-detail {
+      display: flex;
+      justify-content: space-between;
+
+      .item-detail-header {
+        display: flex;
+        flex-direction: column;
+
+        h6 {
+          font-size: 1.5rem;
+          padding-left: 0.5rem;
+        }
+
+        .item-detail-location {
+          display: flex;
+        }
+
+        .item-detail-description {
+          width: 90%;
+        }
+      }
+
+      .item-detail-image {
+        text-align: center;
+        color: #c015e9;
+        img {
+          height: 70px;
+          width: 70px;
+          border-radius: 50%;
+          border: 5px solid #c015e9;
+          /* background-image: linear-gradient(to right top, #c015e9, #9550f6, #686af9, #3b7af4, #1285e7); */
+        }
+      }
+    }
+
+    .item-booking {
+      /* border: 1px solid blue; */
+    }
+  }
+
+  .price {
+    display: flex;
+    p {
+      margin: 0 0.2rem;
+    }
+    .price-value {
+      color: #1cae9e;
+    }
+  }
+`;
+
+const Input = styled.input`
+  &:focus {
+    border-color: #c015e9;
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
+    box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
+    border-bottom: 2px solid #1cae9e !important;
+    outline: none;
+  }
+`;
+
+const BookItemForm = styled.form`
+  border: 5px solid red;
+
+  p {
+    font-family: "Ubuntu", sans-serif;
+  }
+
+  .top-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 2px solid #a5a5a5;
+    padding-bottom: 1rem;
+
+    .price {
+      display: flex;
+      width: 50%;
+      font-size: 1.3rem;
+
+      .price-value {
+        color: #1cae9e;
+        font-weight: bold;
+      }
+    }
+
+    .ratings {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      padding: 0;
+      color: #1cae9e;
+      padding-left: 0.5rem;
+      justify-content: flex-end;
+    }
+  }
+
+  .dates {
+    border-bottom: 2px solid #a5a5a5;
+    font-size: 12px;
+    color: #1cae9e;
   }
 `;
 
@@ -353,5 +454,7 @@ export {
   PreLoader,
   Location,
   NotFound,
-  Item
+  Item,
+  Input,
+  BookItemForm
 };
