@@ -48,7 +48,7 @@ class Item extends Component {
       image_url,
       users_username
     } = this.props.items[0];
-    console.log(name);
+
     return (
       <StyledItem className="container-fluid">
         <img src={image_url} alt="Tech" className="img-fluid item-caption" />
@@ -78,7 +78,7 @@ class Item extends Component {
 
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="item-booking">
-              <BookItemForm />
+              <BookItemForm price={price} />
             </div>
           </div>
         </div>

@@ -402,8 +402,40 @@ const Input = styled.input`
 
 const BookItemForm = styled.form`
   border: 5px solid red;
+
   p {
     font-family: "Ubuntu", sans-serif;
+  }
+
+  .top-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 2px solid #a5a5a5;
+    padding-bottom: 1rem;
+
+    .price {
+      display: flex;
+      width: 50%;
+      font-size: 1.3rem;
+
+      p {
+      }
+      .price-value {
+        color: #1cae9e;
+        font-weight: bold;
+      }
+    }
+
+    .ratings {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      padding: 0;
+      color: #1cae9e;
+      padding-left: 0.5rem;
+      justify-content: flex-end;
+    }
   }
 `;
 
