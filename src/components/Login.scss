@@ -1,0 +1,31 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  .login-form-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+}
+
+.form-container {
+  form {
+    display: flex;
+    flex-direction: column;
+    input {
+      margin: 1rem;
+      padding: 0.5rem;
+      border-top: 0;
+      border-right: 0;
+      border-left: 0;
+      border-bottom: 3px dashed blue;
+    }
+    button {
+      padding: 0.5rem;
+      border-radius: 7px;
+      margin: 1rem;
+      background: none;
+      border: 2px solid blue;
+    }
+  }
+}

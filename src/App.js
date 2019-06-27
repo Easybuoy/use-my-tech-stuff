@@ -38,12 +38,12 @@ class App extends Component {
             component={CategoriesList}
           />
           <Route path='/items' component={Items} />
-          <PrivateRoute exact path='/dashboard' component={Dashboard} />
-          <PrivateRoute exact path='/dashboard/add' component={AddItem} />
+          <PrivateRoute exact path='/profile' component={Dashboard} />
+          <PrivateRoute exact path='/profile/add' component={AddItem} />
           <Route exact path='/item/:id' component={Item} />
           <PrivateRoute
             exact
-            path='/dashboard/update/:id'
+            path='/profile/update/:id'
             component={UpdateItem}
           />
           <PrivateRoute exact path='/user/:id' component={User} />

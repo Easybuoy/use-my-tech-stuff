@@ -53,7 +53,7 @@ class Dashboard extends React.Component {
 
   logoutUser = () => {
     localStorage.removeItem('token');
-    this.props.history.push('/');
+    this.props.history.replace('/');
   };
 
   render() {
@@ -81,7 +81,7 @@ class Dashboard extends React.Component {
         </div>
         <ItemCardsContainer>
           <ItemCard className='empty'>
-            <Link to='/dashboard/add'>Add An Item</Link>
+            <Link to='/profile/add'>Add An Item</Link>
           </ItemCard>
           {this.props.items
             .filter(item => item.users_id === this.state.userId)
@@ -92,7 +92,7 @@ class Dashboard extends React.Component {
                   <button onClick={this.deleteItem} id={userItem.id}>
                     Delete {userItem.name}
                   </button>
-                  <Link to={`/dashboard/update/${userItem.id}`}>
+                  <Link to={`/profile/update/${userItem.id}`}>
                     Update this item
                   </Link>
                 </ItemCard>

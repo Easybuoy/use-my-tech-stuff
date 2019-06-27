@@ -5,6 +5,9 @@ import { Redirect } from 'react-router-dom';
 
 // components
 
+// styles
+import './Login.scss';
+
 // actions
 import { userLogin } from '../actions';
 
@@ -29,7 +32,7 @@ class Login extends React.Component {
     e.preventDefault();
     console.log(`login props`, this.props);
     this.props.userLogin(this.state.credentials).then(() => {
-      this.props.history.push('/dashboard');
+      this.props.history.push('/profile');
     });
   };
 
@@ -37,28 +40,66 @@ class Login extends React.Component {
     return !localStorage.getItem('token') ? (
       <div className='login-container'>
         <div className='login-form-container'>
-          <h1>Login</h1>
-          <form onSubmit={this.login}>
-            <input
-              type='text'
-              name='username'
-              value={this.state.credentials.username}
-              onChange={this.handleChange}
-              placeholder='username'
-            />
-            <input
-              type='password'
-              name='password'
-              value={this.state.credentials.password}
-              onChange={this.handleChange}
-              placeholder='password'
-            />
-            <button>Login</button>
-          </form>
+          <button
+            type='button'
+            className='btn btn-primary'
+            data-toggle='modal'
+            data-target='#basicExampleModal'
+          >
+            Move This to the Main Login in Nav
+          </button>
+
+          <div
+            className='modal fade'
+            id='basicExampleModal'
+            tabindex='-1'
+            role='dialog'
+            aria-labelledby='exampleModalLabel'
+            aria-hidden='true'
+          >
+            <div className='modal-dialog' role='document'>
+              <div className='modal-content'>
+                <div className='modal-header'>
+                  <h5 className='modal-title' id='exampleModalLabel'>
+                    Log In
+                  </h5>
+                  <button
+                    type='button'
+                    className='close'
+                    data-dismiss='modal'
+                    aria-label='Close'
+                  >
+                    <span aria-hidden='true'>&times;</span>
+                  </button>
+                </div>
+                <div className='modal-body'>
+                  <div className='form-container'>
+                    <form onSubmit={this.login}>
+                      <input
+                        type='text'
+                        name='username'
+                        value={this.state.credentials.username}
+                        onChange={this.handleChange}
+                        placeholder='username'
+                      />
+                      <input
+                        type='password'
+                        name='password'
+                        value={this.state.credentials.password}
+                        onChange={this.handleChange}
+                        placeholder='password'
+                      />
+                      <button>Login</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     ) : (
-      <Redirect to='/dashboard' />
+      <Redirect to='/profile' />
     );
   }
 }
