@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const CategoryHeader = styled.header`
   background-image: linear-gradient(
@@ -6,7 +6,7 @@ const CategoryHeader = styled.header`
       rgba(255, 255, 255, 0),
       rgba(255, 255, 255, 0)
     ),
-    url("https://images.unsplash.com/photo-1534949532948-7c512aa3921b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+    url('https://images.unsplash.com/photo-1534949532948-7c512aa3921b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
   width: 100%;
   background-repeat: no-repeat;
   height: 100vh;
@@ -22,7 +22,7 @@ const CategoryHeader = styled.header`
     height: 100vh;
     align-items: center;
     color: white;
-    font-family: "Ubuntu", sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 
     h3 {
       font-size: 3rem;
@@ -43,7 +43,7 @@ const Category = styled.div`
     justify-content: center;
     opacity: 1;
     font-size: 3rem;
-    font-family: "Ubuntu", sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     height: 100%;
   }
 `;
@@ -67,7 +67,7 @@ const Button = styled.button`
 // `;
 
 const CategoryDetail = styled.div`
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   .card,
   .card .view img {
     /* border-radius: 0; */
@@ -145,7 +145,7 @@ const Navbar = styled.div`
       .nav-item {
         .nav-text {
           font-weight: bold;
-          font-family: "Ubuntu", sans-serif;
+          font-family: 'Ubuntu', sans-serif;
           color: #c015e9;
 
           &:hover {
@@ -234,7 +234,7 @@ const PreLoader = styled.div`
 
 const Location = styled.div`
   display: flex;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   width: 40%;
   margin: 0 auto;
   flex-direction: column;
@@ -327,7 +327,7 @@ const NotFound = styled.div`
 `;
 
 const Item = styled.div`
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   width: 100%;
   .item-caption {
     width: 100%;
@@ -431,7 +431,7 @@ const BookItemForm = styled.form`
   border: 5px solid red;
 
   p {
-    font-family: "Ubuntu", sans-serif;
+    font-family: 'Ubuntu', sans-serif;
   }
 
   .top-content {
@@ -493,7 +493,7 @@ const BookItemForm = styled.form`
 `;
 
 const Review = styled.div`
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   border-bottom: 2px solid #a5a5a5;
   margin: 1rem 0;
 
@@ -538,7 +538,7 @@ const NewReview = styled.div`
 
 const Form = styled.form`
   p {
-    font-family: "Ubuntu", sans-serif;
+    font-family: 'Ubuntu', sans-serif;
   }
 `;
 
