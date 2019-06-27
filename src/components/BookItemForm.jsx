@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import ReviewList from "./Review/ReviewList";
+import { toast } from "react-toastify";
 
 import {
   BookItemForm as StyledBookItemForm,
@@ -8,9 +7,47 @@ import {
   Button
 } from "../styles/Styles";
 
-export default function BookItemForm({ price }) {
+export default function BookItemForm({ price, users_username }) {
+  const startDate = React.createRef();
+  const endDate = React.createRef();
+  const meetupSpot = React.createRef();
+
+  const handleBooking = e => {
+    e.preventDefault();
+    console.log(startDate.current.value);
+    console.log(endDate.current.value);
+    console.log(meetupSpot.current.value);
+    if (!startDate.current.value) {
+      toast.error("Kindly Fill in Start Date");
+    }
+
+    if (!endDate.current.value) {
+      toast.error("Kindly Fill in End Date");
+    }
+
+    if (!meetupSpot.current.value) {
+      toast.error("Kindly Fill in Meetup Spot");
+    }
+
+    if (
+      meetupSpot.current.value &&
+      startDate.current.value &&
+      endDate.current.value
+    ) {
+      toast.success(
+        `Item booked successfully, Kindly lookout for an email from ${users_username}`
+      );
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    }
+  };
   return (
-    <StyledBookItemForm className="text-center border border-light p-5  m-auto">
+    <StyledBookItemForm
+      className="text-center border border-light p-5  m-auto"
+      onSubmit={handleBooking}
+    >
       <div className="form-header d-flex flex-row">
         <div className="top-content">
           <div className="price">
@@ -31,31 +68,21 @@ export default function BookItemForm({ price }) {
       <div className="d-flex flex-row justify-content-between dates">
         <div className="md-form">
           <p>Start Date</p>
-          <Input
-            type="date"
-            required
-            className="form-control mb-4"
-            placeholder={`${price} x 0 Days`}
-          />
+          <Input type="date" className="form-control mb-4" ref={startDate} />
         </div>
 
         <div className="md-form">
           <p>End Date</p>
-          <Input
-            type="date"
-            required
-            className="form-control mb-4"
-            placeholder={`${price} x 0 Days`}
-          />
+          <Input type="date" className="form-control mb-4" ref={endDate} />
         </div>
       </div>
 
       <div className="md-form ">
         <Input
           type="text"
-          required
           className="form-control mb-4"
           placeholder={`${price} x 0 Days`}
+          disabled
         />
       </div>
 
@@ -66,19 +93,16 @@ export default function BookItemForm({ price }) {
 
       <div className="md-form">
         <Input
-          type="password"
-          required
+          type="text"
           className="form-control mb-4"
           placeholder="Suggest Meetup Spot"
+          ref={meetupSpot}
         />
       </div>
-
-      {/* <div className="d-flex justify-content-around" /> */}
 
       <Button className="btn btn-block my-4" type="submit">
         Book Item
       </Button>
     </StyledBookItemForm>
-    // </div>
   );
 }

@@ -15,7 +15,6 @@ class Item extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    console.log(this.props.match.params);
     this.setState({ item_id: id });
     this.props.getItemById(id);
   }
@@ -47,7 +46,8 @@ class Item extends Component {
       price,
       description,
       image_url,
-      users_username
+      users_username,
+      users_town
     } = this.props.items[0];
 
     return (
@@ -60,8 +60,8 @@ class Item extends Component {
             <div className="item-detail">
               <div className="item-detail-header">
                 <div className="item-detail-location">
-                  <i className="fas fa-map-marker-alt fa-2x" />
-                  <h6 className="text-muted">Downtown LA, 90017</h6>
+                  <i className="fas fa-map-marker-alt fa-2x text-muted" />
+                  <h6 className="text-muted">{users_town}</h6>
                 </div>
 
                 <div className="item-detail-description">{description}</div>
@@ -83,7 +83,7 @@ class Item extends Component {
 
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="item-booking">
-              <BookItemForm price={price} />
+              <BookItemForm price={price} users_username={users_username} />
             </div>
           </div>
         </div>

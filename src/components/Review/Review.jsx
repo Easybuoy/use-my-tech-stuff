@@ -2,7 +2,6 @@ import React from "react";
 import { Review as StyledReview } from "../../styles/Styles";
 
 export default function Review({ review }) {
-  console.log(review);
   return (
     <StyledReview>
       <div className="top-section">
