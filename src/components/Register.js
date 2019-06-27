@@ -112,23 +112,57 @@ function Register(props) {
   const { isSignedIn, isRegistered } = props.auth;
   const handleRegister = e => {
     e.preventDefault();
-
-    const payload = {
-      username: username.current.value,
-      email: email.current.value,
-      password: password.current.value
-    };
-
-    props.registerUser(payload);
+    this.props.registerUser(this.state).then(() => {
+      this.props.history.push('/profile');
+    });
   };
 
-  if (isSignedIn) {
-    props.history.push("/");
-  }
-
-  if (isRegistered) {
-    toast.success("Registration Succesfull, Kindly Login", successOption());
-    props.history.push("/login");
+  render() {
+    return !localStorage.getItem('token') ? (
+      <div className='register-container'>
+        <h3>Sign Up</h3>
+        <form onSubmit={this.registerUser}>
+          <input
+            type='text'
+            name='email'
+            value={this.state.email}
+            onChange={this.handleChange}
+            placeholder='email address'
+          />
+          <input
+            type='text'
+            name='username'
+            value={this.state.username}
+            onChange={this.handleChange}
+            placeholder='username'
+          />
+          <input
+            type='text'
+            name='state'
+            value={this.state.state}
+            onChange={this.handleChange}
+            placeholder='state'
+          />
+          <input
+            type='text'
+            name='town'
+            value={this.state.town}
+            onChange={this.handleChange}
+            placeholder='town'
+          />
+          <input
+            type='password'
+            name='password'
+            value={this.state.password}
+            onChange={this.handleChange}
+            placeholder='password'
+          />
+          <button>Register</button>
+        </form>
+      </div>
+    ) : (
+      <Redirect to='/profile' />
+    );
   }
 
   if (error) {
