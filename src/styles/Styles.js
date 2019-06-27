@@ -607,6 +607,9 @@ const Profile = styled.div`
 
       margin: 1rem 0;
 
+      img {
+        height: 250px;
+      }
       .price {
         display: flex;
         font-size: 1rem;
@@ -623,6 +626,11 @@ const Profile = styled.div`
       .buttons {
         display: flex;
         margin: 0 0.3rem;
+
+        a {
+          text-decoration: none;
+          color: white;
+        }
       }
     }
   }

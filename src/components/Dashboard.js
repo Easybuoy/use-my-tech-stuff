@@ -69,9 +69,11 @@ class Dashboard extends React.Component {
     this.props.getItems();
   }
 
-  deleteItem = e => {
-    e.preventDefault();
-    this.props.deleteItem(e.target.id);
+  deleteItem = id => {
+    // e.preventDefault();
+    if (window.confirm("Are you sure you want to delete this item?")) {
+      this.props.deleteItem(id);
+    }
   };
 
   logoutUser = () => {
@@ -184,19 +186,19 @@ class Dashboard extends React.Component {
                         </div>
 
                         <div className="buttons">
-                          <Link to={`/item/${userItem.id}`}>
-                            <Button
-                              type="button"
-                              className="btn btn-block my-4 w-50"
-                            >
-                              Edit
-                            </Button>
-                          </Link>
+                          <Button
+                            type="button"
+                            className="btn btn-block my-4 w-50"
+                          >
+                            <Link to={`/item/${userItem.id}`}>Edit</Link>
+                          </Button>
 
                           <Button
                             type="button"
                             className="btn btn-block my-4 w-50"
-                            onClick={this.deleteItem}
+                            onClick={() => {
+                              this.deleteItem(userItem.id);
+                            }}
                           >
                             Delete
                           </Button>
