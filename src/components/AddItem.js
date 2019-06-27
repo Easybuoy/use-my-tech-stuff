@@ -50,7 +50,7 @@ class AddItem extends Component {
               type='text'
               name='category'
               onChange={this.handleChange}
-              value={this.state.category}
+              value={this.state.value}
             >
               <option value='cameras'>Cameras</option>
               <option value='monitors'>Monitors</option>
