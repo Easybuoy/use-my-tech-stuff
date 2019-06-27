@@ -42,16 +42,17 @@ class Item extends Component {
     }
 
     const {
-      id,
       name,
       price,
       description,
       image_url,
       users_username,
-      users_town
+      users_town,
+      location,
+      image_url_user
     } = this.props.items[0];
 
-    const userImage = defaultAvatar;
+    const userImage = image_url_user || defaultAvatar;
 
     return (
       <StyledItem className="container-fluid">
@@ -72,7 +73,7 @@ class Item extends Component {
                 <div className="item-detail-location">
                   <i className="fas fa-map-marker-alt fa-2x text-muted" />
                   <h6 className="text-muted">
-                    {users_town || "Unknown Location"}
+                    {location || users_town || "Unknown Location"}
                   </h6>
                 </div>
 
