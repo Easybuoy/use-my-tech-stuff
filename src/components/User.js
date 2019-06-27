@@ -26,7 +26,7 @@ class User extends Component {
   updateUser = e => {
     e.preventDefault();
     this.props.updateUser(this.state).then(() => {
-      this.props.history.push('/dashboard');
+      this.props.history.push('/profile');
     });
   };
 

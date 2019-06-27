@@ -2,13 +2,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateItem } from '../actions/index';
-
+import decode from 'jwt-decode';
 import './AddItem.scss';
 
 class UpdateItem extends Component {
   state = {
     name: '',
-    category: '',
+    category: 'cameras',
     price: '',
     image_url: '',
     description: ''
@@ -24,7 +24,7 @@ class UpdateItem extends Component {
   updateItem = e => {
     e.preventDefault();
     this.props.updateItem(this.state).then(() => {
-      this.props.history.push('/dashboard');
+      this.props.history.push('/profile');
     });
   };
   render() {
@@ -45,9 +45,11 @@ class UpdateItem extends Component {
               type='text'
               name='category'
               onChange={this.handleChange}
-              value={this.state.category}
+              value={this.state.value}
             >
-              <option value='cameras'>Cameras</option>
+              <option value='cameras' name='cameras'>
+                Cameras
+              </option>
               <option value='monitors'>Monitors</option>
               <option value='lights'>Lights</option>
               <option value='cdjs'>CDJS</option>
@@ -84,7 +86,9 @@ class UpdateItem extends Component {
 
 const mapStateToProps = state => ({
   items: [],
-  isUpdatingItem: state.isRegistering,
+  user: state.user,
+  users: state.users,
+  isUpdatingItem: state.isUpdatingItem,
   error: state.error
 });
 

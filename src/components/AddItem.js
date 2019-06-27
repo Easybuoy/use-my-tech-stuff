@@ -13,6 +13,8 @@ class AddItem extends Component {
     price: '',
     image_url: '',
     description: '',
+    users_town: '',
+    users_state: '',
     users_id: decode(localStorage.getItem('token')).subject
   };
 
@@ -27,7 +29,6 @@ class AddItem extends Component {
     e.preventDefault();
     this.props.addItem(this.state).then(() => {
       this.props.history.push('/profile');
-      this.props.history.push('/');
     });
   };
   render() {
@@ -74,10 +75,11 @@ class AddItem extends Component {
             <textarea
               type='password'
               name='description'
-              value={this.state.password}
+              value={this.state.description}
               onChange={this.handleChange}
               placeholder='description of your rental'
             />
+
             <button>Add Item</button>
           </form>
         </div>
@@ -90,7 +92,8 @@ const mapStateToProps = state => ({
   items: [],
   user: state.user,
   isRegistering: state.isRegistering,
-  error: state.error
+  error: state.error,
+  users: state.users
 });
 
 export default connect(
