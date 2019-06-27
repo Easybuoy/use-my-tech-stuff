@@ -1,21 +1,23 @@
-.register-container {
+.login-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  h3 {
-    font-weight: 500;
+  .login-form-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
   }
+}
+
+.form-container {
   form {
     display: flex;
     flex-direction: column;
-    width: 80%;
     justify-content: center;
     align-items: center;
     input {
       margin: 1rem;
       padding: 0.5rem;
-      width: 50%;
+      width: 100%;
       border-top: 0;
       border-right: 0;
       border-left: 0;
@@ -39,7 +41,25 @@
       background: #1586e9;
       color: white;
       font-weight: 500;
-      width: 25%;
+      width: 50%;
+    }
+  }
+}
+
+.modal-content {
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border: none !important;
+  .modal-header {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border: none !important;
+    padding-bottom: 0 !important;
+    h5 {
+      font-weight: 500 !important;
     }
   }
 }

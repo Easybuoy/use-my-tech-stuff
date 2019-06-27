@@ -92,6 +92,26 @@ export const reducer = (state = initialState, action) => {
         error: action.payload
       };
 
+    case UPDATE_USER_START:
+      return {
+        ...state,
+        error: '',
+        isUpdatingUser: true
+      };
+    case UPDATE_USER_SUCCESS:
+      return {
+        ...state,
+        error: '',
+        isUpdatingUser: false,
+        users: [...state.users, action.payload]
+      };
+    case UPDATE_USER_FAILURE:
+      return {
+        ...state,
+        isUpdatingUser: false,
+        error: action.payload
+      };
+
     case USER_LOGIN_START:
       return {
         ...state,
