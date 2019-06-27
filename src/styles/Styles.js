@@ -562,6 +562,10 @@ const Form = styled.form`
   p {
     font-family: "Ubuntu", sans-serif;
   }
+
+  @media (max-width: 770px) {
+    width: 90% !important;
+  }
 `;
 
 const Profile = styled.div`

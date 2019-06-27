@@ -18,7 +18,8 @@ class Register extends Component {
     email: "",
     state: "",
     town: "",
-    password: ""
+    password: "",
+    location: ""
   };
 
   handleChange = e => {
@@ -85,7 +86,7 @@ class Register extends Component {
             required
           />
 
-          {/* <Input
+          <Input
             type="text"
             name="location"
             value={this.state.location}
@@ -93,7 +94,7 @@ class Register extends Component {
             placeholder="Location"
             className="form-control mb-4"
             required
-          /> */}
+          />
 
           <Input
             type="text"
