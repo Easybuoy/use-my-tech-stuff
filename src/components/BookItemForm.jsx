@@ -27,6 +27,15 @@ export default function BookItemForm({ price }) {
         </div>
       </div>
 
+      <div className="md-form">
+        <Input
+          type="date"
+          required
+          className="form-control mb-4"
+          placeholder={`${price} x 0 Days`}
+        />
+      </div>
+
       <div className="md-form ">
         <Input
           type="password"

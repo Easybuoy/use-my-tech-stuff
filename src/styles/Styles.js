@@ -397,6 +397,8 @@ const Input = styled.input`
     -webkit-box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
     -moz-box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
     box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
+    border-bottom: 2px solid #1cae9e !important;
+    outline: none;
   }
 `;
 
