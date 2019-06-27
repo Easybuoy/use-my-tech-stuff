@@ -576,6 +576,8 @@ const Profile = styled.div`
       img {
         border: 5px solid #c015e9;
         border-radius: 50%;
+        height: 300px;
+        width: 300px;
       }
 
       .user-name {
@@ -602,11 +604,25 @@ const Profile = styled.div`
     .profile-items-list {
       width: 30%;
       justify-content: space-around;
-      /* padding: 0 1rem; */
+
       margin: 1rem 0;
-      .card {
-        img {
+
+      .price {
+        display: flex;
+        font-size: 1rem;
+        font-weight: bold;
+
+        p {
+          margin: 0 0.2rem;
         }
+        .price-value {
+          color: #1cae9e;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        margin: 0 0.3rem;
       }
     }
   }

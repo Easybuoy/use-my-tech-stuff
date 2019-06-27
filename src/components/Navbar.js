@@ -3,16 +3,17 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import decode from "jwt-decode";
 
+import defaultAvatar from "../assets/img/default_avatar.png";
+
 import logo from "../assets/img/logo.png";
 import { Navbar as StyledNavbar, Button } from "../styles/Styles";
 
 function Navbar(props) {
   const { isLoggedIn } = props;
-  let image_url =
-    "https://pvsmt99345.i.lithium.com/t5/image/serverpage/image-id/10546i3DAC5A5993C8BC8C?v=1.0";
+  let image_url = defaultAvatar;
 
   if (localStorage.token) {
-    image_url = decode(localStorage.getItem("token")).image_url;
+    image_url = decode(localStorage.getItem("token")).image_url_user;
   }
   let navbar = (
     <StyledNavbar>

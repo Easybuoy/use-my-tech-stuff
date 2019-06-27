@@ -9,6 +9,8 @@ import { Triple } from "react-preloading-component";
 import { PreLoader, Button, Profile, Category } from "../styles/Styles";
 import "./Dashboard.scss";
 
+import defaultAvatar from "../assets/img/default_avatar.png";
+
 // const ItemCard = styled.div`
 //   display: flex;
 //   justify-content: center;
@@ -92,6 +94,8 @@ class Dashboard extends React.Component {
         </PreLoader>
       );
     }
+    console.log(this.props.users);
+    console.log(this.state.userId);
 
     return (
       <Profile className="card-deck mb-5">
@@ -103,7 +107,7 @@ class Dashboard extends React.Component {
                 return (
                   <div className="user-card" key={user.id}>
                     <img
-                      src={user.image_url}
+                      src={user.image_url || defaultAvatar}
                       className="user-profile-img"
                       alt="check it"
                     />
@@ -172,19 +176,31 @@ class Dashboard extends React.Component {
                       </div>
 
                       <div className="card-body">
-                        <h4 className="card-title">Card title</h4>
+                        <h4 className="card-title">{userItem.name}</h4>
 
-                        <p className="card-text">
-                          Some quick example text to build on the card title and
-                          make up the bulk of the card's content.
-                        </p>
+                        <div className="price">
+                          <p className="price-value">${userItem.price}</p>
+                          <p className="text-muted">Per Day </p>
+                        </div>
 
-                        <button
-                          type="button"
-                          className="btn btn-light-blue btn-md"
-                        >
-                          Read more
-                        </button>
+                        <div className="buttons">
+                          <Link to={`/item/${userItem.id}`}>
+                            <Button
+                              type="button"
+                              className="btn btn-block my-4 w-50"
+                            >
+                              Edit
+                            </Button>
+                          </Link>
+
+                          <Button
+                            type="button"
+                            className="btn btn-block my-4 w-50"
+                            onClick={this.deleteItem}
+                          >
+                            Delete
+                          </Button>
+                        </div>
                       </div>
                     </div>
                   </div>
