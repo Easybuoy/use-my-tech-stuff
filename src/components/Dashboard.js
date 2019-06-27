@@ -84,7 +84,7 @@ class Dashboard extends React.Component {
               return (
                 <div className='user-card' key={user.id}>
                   <img
-                    src='https://www.lensrentals.com/blog/media/2016/02/Cinematic-Headshots-1.jpg'
+                    src={user.image_url}
                     className='user-profile-img'
                     alt='check it'
                   />
