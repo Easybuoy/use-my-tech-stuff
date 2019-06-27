@@ -489,6 +489,10 @@ const ReviewList = styled.div`
   border-top: 2px solid #a5a5a5;
 `;
 
+const Footer = styled.div`
+  border-top: 5px solid #c015e9;
+`;
+
 export {
   Category,
   CategoryHeader,
@@ -502,5 +506,6 @@ export {
   Input,
   BookItemForm,
   Review,
-  ReviewList
+  ReviewList,
+  Footer
 };
