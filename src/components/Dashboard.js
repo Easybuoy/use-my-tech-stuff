@@ -101,7 +101,7 @@ class Dashboard extends React.Component {
 
     return (
       <Profile className="card-deck mb-5">
-        <div className="col-lg-4 col-md-12 col-sm-12 p-0">
+        <div className="col-lg-4 col-md-6 col-sm-12 p-0">
           <div className="profile-detail">
             {this.props.users
               .filter(user => user.id === this.state.userId)
@@ -190,7 +190,7 @@ class Dashboard extends React.Component {
                             type="button"
                             className="btn btn-block my-4 w-50"
                           >
-                            <Link to={`/profile/update/${userItem.id}`}>Edit</Link>
+                            <Link to={`/item/${userItem.id}`}>Edit</Link>
                           </Button>
 
                           <Button
