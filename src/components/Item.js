@@ -7,6 +7,7 @@ import { PreLoader, Item as StyledItem } from "../styles/Styles";
 import { getItemById } from "../actions/";
 import BookItemForm from "./BookItemForm";
 import ReviewList from "./Review/ReviewList";
+import defaultAvatar from "../assets/img/default_avatar.png";
 
 class Item extends Component {
   state = {
@@ -50,9 +51,18 @@ class Item extends Component {
       users_town
     } = this.props.items[0];
 
+    const userImage = defaultAvatar;
+
     return (
       <StyledItem className="container-fluid">
-        <img src={image_url} alt="Tech" className="img-fluid item-caption" />
+        <img
+          src={
+            image_url ||
+            "https://pvsmt99345.i.lithium.com/t5/image/serverpage/image-id/10546i3DAC5A5993C8BC8C?v=1.0"
+          }
+          alt="Tech"
+          className="img-fluid item-caption"
+        />
 
         <h4 className="pt-3 pl-3 font-weight-bold">{name}</h4>
         <div className="item-content">
@@ -61,7 +71,9 @@ class Item extends Component {
               <div className="item-detail-header">
                 <div className="item-detail-location">
                   <i className="fas fa-map-marker-alt fa-2x text-muted" />
-                  <h6 className="text-muted">{users_town}</h6>
+                  <h6 className="text-muted">
+                    {users_town || "Unknown Location"}
+                  </h6>
                 </div>
 
                 <div className="item-detail-description">{description}</div>
@@ -75,10 +87,7 @@ class Item extends Component {
               </div>
 
               <div className="item-detail-image">
-                <img
-                  src="https://ca.slack-edge.com/T4JUEB3ME-UHQMX3CLS-8aca137aa115-72"
-                  alt="user logo"
-                />
+                <img src={userImage} alt="user logo" />
                 <p>{users_username}</p>
               </div>
             </div>
