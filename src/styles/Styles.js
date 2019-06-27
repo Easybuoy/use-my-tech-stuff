@@ -328,7 +328,7 @@ const NotFound = styled.div`
 
 const Item = styled.div`
   font-family: "Ubuntu", sans-serif;
-
+  width: 100%;
   .item-caption {
     width: 100%;
     height: 100vh;
@@ -336,6 +336,8 @@ const Item = styled.div`
 
   .item-content {
     display: flex;
+    margin-bottom: 3rem;
+
     @media (max-width: 770px) {
       flex-direction: column;
     }
@@ -344,6 +346,10 @@ const Item = styled.div`
       display: flex;
       @media (max-width: 770px) {
         margin-top: 3rem;
+        flex-direction: column-reverse;
+        width: 100%;
+        padding: 0;
+        margin: 0;
       }
 
       justify-content: space-between;
@@ -383,6 +389,9 @@ const Item = styled.div`
 
     .review {
       width: 90%;
+      @media (max-width: 770px) {
+        /* width: 100%; */
+      }
     }
 
     .item-booking {
