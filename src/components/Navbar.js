@@ -6,7 +6,7 @@ import logo from "../assets/img/logo.png";
 import { Navbar as StyledNavbar, Button } from "../styles/Styles";
 
 function Navbar(props) {
-  const { isLoggingIn } = props;
+  const { isLoggedIn } = props;
 
   let navbar = (
     <StyledNavbar>
@@ -62,7 +62,7 @@ function Navbar(props) {
     </StyledNavbar>
   );
 
-  if (isLoggingIn === true) {
+  if (isLoggedIn === true) {
     navbar = (
       <StyledNavbar>
         <nav className="mb-1 navbar navbar-expand-lg navbar-dark lighten-1 mb-3">
@@ -127,6 +127,6 @@ function Navbar(props) {
 }
 
 const mapStateToProps = state => ({
-  isLoggingIn: state.isLoggingIn
+  isLoggedIn: state.isLoggedIn
 });
 export default connect(mapStateToProps)(Navbar);

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import decode from "jwt-decode";
 import { getUsers, getItems, deleteItem, signOut } from "../actions/index";
 import styled from "styled-components";
+import { Triple } from "react-preloading-component";
+import { PreLoader } from "../styles/Styles";
 import "./Dashboard.scss";
 
 const ItemCard = styled.div`
@@ -56,6 +58,15 @@ class Dashboard extends React.Component {
   };
 
   render() {
+    console.log(this.props);
+    if (this.props.isFetchingUsers) {
+      return (
+        <PreLoader>
+          <Triple color="#c015e9" size={80} />
+        </PreLoader>
+      );
+    }
+
     return (
       <div className="dashboard-container">
         <div className="user-info">
@@ -111,7 +122,8 @@ const mapStateToProps = state => ({
   error: state.error,
   userId: state.userId,
   items: state.items,
-  isDeletingItem: state.isDeletingItem
+  isDeletingItem: state.isDeletingItem,
+  isFetchingUsers: state.isFetchingUsers
 });
 
 export default connect(
