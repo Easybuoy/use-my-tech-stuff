@@ -568,8 +568,6 @@ const Profile = styled.div`
   font-family: "Ubuntu", sans-serif;
 
   .profile-detail {
-    border: 1px solid red;
-
     .user-card {
       width: 100%;
       text-align: center;
@@ -592,13 +590,16 @@ const Profile = styled.div`
   }
 
   .profile-items {
-    border: 1px solid blue;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
     .new-item {
-      width: 30%;
+      min-width: 30%;
+
+      @media (max-width: 992px) {
+        width: 90%;
+      }
     }
 
     .profile-items-list {
@@ -609,6 +610,9 @@ const Profile = styled.div`
 
       img {
         height: 250px;
+        @media (max-width: 992px) {
+          height: 400px;
+        }
       }
       .price {
         display: flex;

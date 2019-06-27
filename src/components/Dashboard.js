@@ -162,7 +162,7 @@ class Dashboard extends React.Component {
                   // </div>
 
                   <div
-                    className="card-deck profile-items-list"
+                    className="card-deck profile-items-list col-md-6 col-sm-12"
                     key={userItem.id}
                   >
                     <div className="card mb-4">
