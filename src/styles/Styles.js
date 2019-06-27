@@ -382,7 +382,6 @@ const Item = styled.div`
     }
 
     .review {
-      border-bottom: 2px solid #a5a5a5;
       width: 90%;
     }
 
