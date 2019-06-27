@@ -66,8 +66,11 @@ class Item extends Component {
 
                 <div className="item-detail-description">{description}</div>
                 <div className="review">
-                  <h4 className="font-weight-bold mt-3 pb-3"> Reviews for {name}</h4>
-                  <ReviewList />
+                  <h4 className="font-weight-bold mt-3 pb-3">
+                    {" "}
+                    Reviews for {name}
+                  </h4>
+                  <ReviewList name="name" />
                 </div>
               </div>
 

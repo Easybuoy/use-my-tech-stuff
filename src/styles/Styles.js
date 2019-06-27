@@ -487,6 +487,8 @@ const Review = styled.div`
 
 const ReviewList = styled.div`
   border-top: 2px solid #a5a5a5;
+  overflow-y: scroll;
+  height: 400px;
 `;
 
 const Footer = styled.div`

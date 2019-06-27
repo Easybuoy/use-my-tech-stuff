@@ -28,11 +28,12 @@ import {
   DELETE_ITEM_FAILURE,
   UPDATE_USER_START,
   UPDATE_USER_SUCCESS,
-  UPDATE_USER_FAILURE
-} from '../actions';
+  UPDATE_USER_FAILURE,
+  SIGN_OUT_USER
+} from "../actions";
 
 const initialState = {
-  error: '',
+  error: "",
   items: [],
   users: [],
   user: [],
@@ -46,7 +47,7 @@ const initialState = {
   isUpdatingUser: false,
   isFetchingCategory: false,
   categoryItems: [],
-  isFetchingItemsById: false
+  isFetchingItemsById: false,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -54,13 +55,13 @@ export const reducer = (state = initialState, action) => {
     case FETCHING_ITEMS_START:
       return {
         ...state,
-        error: '',
+        error: "",
         isFetchingItems: true
       };
     case FETCHING_ITEMS_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isFetchingItems: false,
         items: action.payload
       };
@@ -74,13 +75,13 @@ export const reducer = (state = initialState, action) => {
     case REGISTERING_USER_START:
       return {
         ...state,
-        error: '',
+        error: "",
         isRegistering: true
       };
     case REGISTERING_USER_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isRegistering: false,
         isLoggingIn: true,
         users: action.payload
@@ -95,13 +96,13 @@ export const reducer = (state = initialState, action) => {
     case UPDATE_USER_START:
       return {
         ...state,
-        error: '',
+        error: "",
         isUpdatingUser: true
       };
     case UPDATE_USER_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isUpdatingUser: false,
         users: [...state.users, action.payload]
       };
@@ -115,13 +116,13 @@ export const reducer = (state = initialState, action) => {
     case USER_LOGIN_START:
       return {
         ...state,
-        error: '',
+        error: "",
         isLoggingIn: true
       };
     case USER_LOGIN_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isLoggingIn: true
       };
     case USER_LOGIN_FAILURE:
@@ -134,14 +135,14 @@ export const reducer = (state = initialState, action) => {
     case FETCHING_USERS_START:
       return {
         ...state,
-        error: '',
+        error: "",
         isFetchingUsers: true,
         users: []
       };
     case FETCHING_USERS_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isFetchingUsers: false,
         users: [...state.users, ...action.payload]
       };
@@ -171,13 +172,13 @@ export const reducer = (state = initialState, action) => {
     case ADD_ITEM_START:
       return {
         ...state,
-        error: '',
+        error: "",
         isAddingItem: true
       };
     case ADD_ITEM_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isAddingItem: false,
         items: [...state.items, ...action.payload]
       };
@@ -191,13 +192,13 @@ export const reducer = (state = initialState, action) => {
     case UPDATE_ITEM_START:
       return {
         ...state,
-        error: '',
+        error: "",
         isUpdatingItem: true
       };
     case UPDATE_ITEM_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isUpdatingItem: false,
         items: [...state.items, action.payload]
       };
@@ -228,13 +229,13 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isDeletingItem: true,
-        error: '',
+        error: "",
         items: []
       };
     case DELETE_ITEM_SUCCESS:
       return {
         ...state,
-        error: '',
+        error: "",
         isDeletingItem: false,
         items: action.payload
       };
@@ -244,7 +245,12 @@ export const reducer = (state = initialState, action) => {
         isDeletingItem: false,
         error: action.payload
       };
-
+    case SIGN_OUT_USER:
+      return {
+        ...state,
+        isLoggingIn: false,
+        isRegistering: false
+      };
     default:
       return state;
   }
