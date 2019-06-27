@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { toast} from 'react-toastify';
 import { axiosWithAuth } from '../util/axiosWithAuth';
 
 // export actions
@@ -42,6 +42,8 @@ export const UPDATE_USER_FAILURE = 'UPDATE_USER_FAILURE';
 export const FETCHING_ITEM_BY_ID_START = 'FETCHING_ITEM_BY_ID_START';
 export const FETCHING_ITEM_BY_ID_SUCCESS = 'FETCHING_ITEM_BY_ID_SUCCESS';
 export const FETCHING_ITEM_BY_ID_FAILURE = 'FETCHING_ITEM_BY_ID_FAILURE';
+
+export const SIGN_OUT_USER = 'SIGN_OUT_USER';
 
 // export const FILTER_ITEMS_START = 'FILTER_ITEMS_START';
 // export const FILTER_ITEMS_SUCCESS = 'FILTER_ITEMS_SUCCESS';
@@ -255,4 +257,14 @@ export const getItemById = id => dispatch => {
       })
     )
     .finally(() => dispatch({ type: FETCHING_ITEM_BY_ID_START }));
+};
+
+
+export const signOut = () => {
+  localStorage.removeItem("token");
+  toast.success("Signed Out Successfully");
+
+  return {
+    type: SIGN_OUT_USER
+  };
 };

@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 import { PreLoader, Item as StyledItem } from "../styles/Styles";
 import { getItemById } from "../actions/";
 import BookItemForm from "./BookItemForm";
+import ReviewList from "./Review/ReviewList";
+import defaultAvatar from "../assets/img/default_avatar.png";
 
 class Item extends Component {
   state = {
@@ -14,7 +16,6 @@ class Item extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    console.log(this.props.match.params);
     this.setState({ item_id: id });
     this.props.getItemById(id);
   }
@@ -46,12 +47,22 @@ class Item extends Component {
       price,
       description,
       image_url,
-      users_username
+      users_username,
+      users_town
     } = this.props.items[0];
+
+    const userImage = defaultAvatar;
 
     return (
       <StyledItem className="container-fluid">
-        <img src={image_url} alt="Tech" className="img-fluid item-caption" />
+        <img
+          src={
+            image_url ||
+            "https://pvsmt99345.i.lithium.com/t5/image/serverpage/image-id/10546i3DAC5A5993C8BC8C?v=1.0"
+          }
+          alt="Tech"
+          className="img-fluid item-caption"
+        />
 
         <h4 className="pt-3 pl-3 font-weight-bold">{name}</h4>
         <div className="item-content">
@@ -59,18 +70,24 @@ class Item extends Component {
             <div className="item-detail">
               <div className="item-detail-header">
                 <div className="item-detail-location">
-                  <i className="fas fa-map-marker-alt fa-2x" />
-                  <h6 className="text-muted">Downtown LA, 90017</h6>
+                  <i className="fas fa-map-marker-alt fa-2x text-muted" />
+                  <h6 className="text-muted">
+                    {users_town || "Unknown Location"}
+                  </h6>
                 </div>
 
                 <div className="item-detail-description">{description}</div>
+                <div className="review">
+                  <h4 className="font-weight-bold mt-3 pb-3">
+                    {" "}
+                    Reviews for {name}
+                  </h4>
+                  <ReviewList name="name" />
+                </div>
               </div>
 
               <div className="item-detail-image">
-                <img
-                  src="https://ca.slack-edge.com/T4JUEB3ME-UHQMX3CLS-8aca137aa115-72"
-                  alt="user logo"
-                />
+                <img src={userImage} alt="user logo" />
                 <p>{users_username}</p>
               </div>
             </div>
@@ -78,7 +95,7 @@ class Item extends Component {
 
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="item-booking">
-              <BookItemForm price={price} />
+              <BookItemForm price={price} users_username={users_username} />
             </div>
           </div>
         </div>

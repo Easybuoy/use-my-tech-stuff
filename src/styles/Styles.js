@@ -328,20 +328,34 @@ const NotFound = styled.div`
 
 const Item = styled.div`
   font-family: "Ubuntu", sans-serif;
-
+  width: 100%;
   .item-caption {
     width: 100%;
     height: 100vh;
+
+    @media (max-width: 770px) {
+      height: auto;
+    }
   }
 
   .item-content {
     display: flex;
+    margin-bottom: 3rem;
 
     @media (max-width: 770px) {
       flex-direction: column;
     }
+
     .item-detail {
       display: flex;
+      @media (max-width: 770px) {
+        margin-top: 3rem;
+        flex-direction: column-reverse;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
       justify-content: space-between;
 
       .item-detail-header {
@@ -359,6 +373,8 @@ const Item = styled.div`
 
         .item-detail-description {
           width: 90%;
+          border-bottom: 2px solid #a5a5a5;
+          padding-bottom: 1rem;
         }
       }
 
@@ -375,8 +391,17 @@ const Item = styled.div`
       }
     }
 
+    .review {
+      width: 90%;
+      @media (max-width: 770px) {
+        /* width: 100%; */
+      }
+    }
+
     .item-booking {
-      /* border: 1px solid blue; */
+      @media (max-width: 770px) {
+        margin-top: 3rem;
+      }
     }
   }
 
@@ -416,10 +441,21 @@ const BookItemForm = styled.form`
     border-bottom: 2px solid #a5a5a5;
     padding-bottom: 1rem;
 
+    @media (max-width: 770px) {
+      flex-direction: column;
+      width: 100%;
+    }
+
     .price {
       display: flex;
       width: 50%;
       font-size: 1.3rem;
+
+      @media (max-width: 770px) {
+        width: 100;
+        margin: 0 auto;
+        padding-bottom: 0.5rem;
+      }
 
       .price-value {
         color: #1cae9e;
@@ -435,6 +471,10 @@ const BookItemForm = styled.form`
       color: #1cae9e;
       padding-left: 0.5rem;
       justify-content: flex-end;
+
+      @media (max-width: 770px) {
+        justify-content: center;
+      }
     }
   }
 
@@ -442,7 +482,52 @@ const BookItemForm = styled.form`
     border-bottom: 2px solid #a5a5a5;
     font-size: 12px;
     color: #1cae9e;
+
+    .md-form {
+      @media (max-width: 770px) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
+`;
+
+const Review = styled.div`
+  font-family: "Ubuntu", sans-serif;
+  border-bottom: 2px solid #a5a5a5;
+  margin: 1rem 0;
+
+  .top-section {
+    display: flex;
+    justify-content: baseline;
+
+    .ratings {
+      display: flex;
+      align-items: center;
+      padding: 0;
+      color: #1cae9e;
+    }
+
+    p {
+      font-size: 1.3rem;
+      padding: 0 0.5rem;
+      margin: 0;
+    }
+  }
+
+  .bottom-section {
+    padding: 0.3rem 0;
+  }
+`;
+
+const ReviewList = styled.div`
+  border-top: 2px solid #a5a5a5;
+  overflow-y: scroll;
+  height: 400px;
+`;
+
+const Footer = styled.div`
+  border-top: 5px solid #c015e9;
 `;
 
 export {
@@ -456,5 +541,8 @@ export {
   NotFound,
   Item,
   Input,
-  BookItemForm
+  BookItemForm,
+  Review,
+  ReviewList,
+  Footer
 };
