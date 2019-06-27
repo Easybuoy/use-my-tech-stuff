@@ -43,6 +43,7 @@ const initialState = {
   isLoggingIn: false,
   isRegistering: false,
   isRegistered: false,
+  isLoggedIn: false,
   isAddingItem: false,
   isUpdatingItem: false,
   isUpdatingUser: false,
@@ -124,7 +125,8 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: "",
-        isLoggingIn: true
+        isLoggingIn: false,
+        isLoggedIn: true
       };
     case USER_LOGIN_FAILURE:
       return {
@@ -249,7 +251,7 @@ export const reducer = (state = initialState, action) => {
     case SIGN_OUT_USER:
       return {
         ...state,
-        isLoggingIn: false,
+        isLoggedIn: false,
         isRegistering: false
       };
     default:

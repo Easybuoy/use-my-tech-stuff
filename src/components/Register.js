@@ -49,7 +49,7 @@ class Register extends Component {
     }
 
     return (
-      <div className="mt-5">
+      <div className="mt-5 mb-5">
         <Form
           className="text-center border border-light p-5 w-50 text-center m-auto"
           onSubmit={this.registerUser}

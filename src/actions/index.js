@@ -104,12 +104,20 @@ export const userLogin = creds => dispatch => {
     )
     .then(res => {
       localStorage.setItem("token", res.data.token);
+      dispatch({
+        type: USER_LOGIN_FAILURE,
+        payload: ""
+      });
       dispatch({ type: USER_LOGIN_SUCCESS, payload: res });
     })
     .catch(err => {
       dispatch({
         type: USER_LOGIN_FAILURE,
         payload: err.response.data.message
+      });
+      dispatch({
+        type: USER_LOGIN_FAILURE,
+        payload: ""
       });
     });
 };
