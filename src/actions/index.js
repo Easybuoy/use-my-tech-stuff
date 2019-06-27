@@ -195,6 +195,7 @@ export const deleteItem = item => dispatch => {
 };
 
 export const updateItem = item => dispatch => {
+  console.log(item);
   dispatch({ type: UPDATE_ITEM_START });
   return axiosWithAuth()
     .put(
@@ -223,7 +224,7 @@ export const updateUser = user => dispatch => {
       }`
     )
     .then(res => {
-      dispatch({ type: UPDATE_USER_SUCCESS, payload: res });
+      dispatch({ type: UPDATE_USER_SUCCESS, payload: res.data });
     })
     .catch(err => {
       dispatch({
