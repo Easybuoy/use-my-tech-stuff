@@ -363,6 +363,8 @@ const Item = styled.div`
 
         .item-detail-description {
           width: 90%;
+          border-bottom: 2px solid #a5a5a5;
+          padding-bottom: 1rem;
         }
       }
 
@@ -377,6 +379,13 @@ const Item = styled.div`
           /* background-image: linear-gradient(to right top, #c015e9, #9550f6, #686af9, #3b7af4, #1285e7); */
         }
       }
+    }
+
+    .review {
+      border-bottom: 2px solid #a5a5a5;
+      width: 90%;
+
+
     }
 
     .item-booking {

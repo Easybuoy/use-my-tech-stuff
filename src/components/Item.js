@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { PreLoader, Item as StyledItem } from "../styles/Styles";
 import { getItemById } from "../actions/";
 import BookItemForm from "./BookItemForm";
+import ReviewList from "./Review/ReviewList";
 
 class Item extends Component {
   state = {
@@ -64,6 +65,10 @@ class Item extends Component {
                 </div>
 
                 <div className="item-detail-description">{description}</div>
+                <div className="review">
+                  <h4 className="font-weight-bold mt-3 pb-3"> Reviews for {name}</h4>
+                  <ReviewList />
+                </div>
               </div>
 
               <div className="item-detail-image">
