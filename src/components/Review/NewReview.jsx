@@ -9,9 +9,7 @@ export default function NewReview({ handleNewReview, review, onChange }) {
           type="text"
           className="form-control mb-4"
           placeholder="Add New Review"
-          onKeyUp={e => {
-            handleNewReview(e, "Anonymous");
-          }}
+          onKeyUp={handleNewReview}
           value={review}
           onChange={onChange}
         />

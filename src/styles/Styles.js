@@ -536,6 +536,12 @@ const NewReview = styled.div`
   }
 `;
 
+const Form = styled.form`
+  p {
+    font-family: "Ubuntu", sans-serif;
+  }
+`;
+
 export {
   Category,
   CategoryHeader,
@@ -551,5 +557,6 @@ export {
   Review,
   ReviewList,
   Footer,
-  NewReview
+  NewReview,
+  Form
 };
