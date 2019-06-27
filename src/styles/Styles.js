@@ -336,12 +336,16 @@ const Item = styled.div`
 
   .item-content {
     display: flex;
-
     @media (max-width: 770px) {
       flex-direction: column;
     }
+
     .item-detail {
       display: flex;
+      @media (max-width: 770px) {
+        margin-top: 3rem;
+      }
+
       justify-content: space-between;
 
       .item-detail-header {
@@ -376,7 +380,9 @@ const Item = styled.div`
     }
 
     .item-booking {
-      /* border: 1px solid blue; */
+      @media (max-width: 770px) {
+        margin-top: 3rem;
+      }
     }
   }
 
