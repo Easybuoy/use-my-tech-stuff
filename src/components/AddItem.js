@@ -8,13 +8,14 @@ import './AddItem.scss';
 
 class AddItem extends Component {
   state = {
-    name: '',
-    category: '',
-    price: '',
-    image_url: '',
-    description: '',
+    users_username: '',
     users_town: '',
     users_state: '',
+    name: '',
+    image_url: '',
+    price: 0,
+    category: 'cameras',
+    description: '',
     users_id: decode(localStorage.getItem('token')).subject
   };
 
@@ -32,7 +33,7 @@ class AddItem extends Component {
     });
   };
   render() {
-    console.log(`additem props?`, this.props);
+    console.log(this.props);
     return (
       <div className='form-container'>
         <h1>Add a Rental Item</h1>
@@ -67,13 +68,26 @@ class AddItem extends Component {
             />
             <input
               type='text'
-              name='image_url'
+              name='state'
+              value={this.state.state}
+              onChange={this.handleChange}
+              placeholder='state'
+            />
+            <input
+              type='text'
+              name='town'
               value={this.state.town}
+              onChange={this.handleChange}
+              placeholder='town'
+            />
+            <input
+              type='text'
+              name='image_url'
+              value={this.state.image_url}
               onChange={this.handleChange}
               placeholder='image link'
             />
             <textarea
-              type='password'
               name='description'
               value={this.state.description}
               onChange={this.handleChange}
@@ -89,9 +103,6 @@ class AddItem extends Component {
 }
 
 const mapStateToProps = state => ({
-  items: [],
-  user: state.user,
-  isRegistering: state.isRegistering,
   error: state.error,
   users: state.users
 });

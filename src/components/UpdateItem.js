@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateItem } from '../actions/index';
-import decode from 'jwt-decode';
 import './AddItem.scss';
 
 class UpdateItem extends Component {
@@ -30,7 +29,6 @@ class UpdateItem extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className='form-container'>
         <h1>Update Your Rental Listing</h1>

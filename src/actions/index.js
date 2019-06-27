@@ -57,7 +57,6 @@ export const getItems = () => dispatch => {
       'https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/items'
     )
     .then(res => {
-      console.log('so uh.', res);
       dispatch({ type: FETCHING_ITEMS_SUCCESS, payload: res.data });
     })
     .catch(err => {
@@ -76,17 +75,9 @@ export const registerUser = user => dispatch => {
       user
     )
     .then(res => {
-      dispatch({
-        type: REGISTERING_USER_FAILURE,
-        payload: ''
-      });
       dispatch({ type: REGISTERING_USER_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({
-        type: REGISTERING_USER_FAILURE,
-        payload: err.response
-      });
       dispatch({
         type: REGISTERING_USER_FAILURE,
         payload: ''
@@ -103,17 +94,9 @@ export const userLogin = creds => dispatch => {
     )
     .then(res => {
       localStorage.setItem('token', res.data.token);
-      dispatch({
-        type: USER_LOGIN_FAILURE,
-        payload: ''
-      });
-      dispatch({ type: USER_LOGIN_SUCCESS, payload: res });
+      dispatch({ type: USER_LOGIN_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({
-        type: USER_LOGIN_FAILURE,
-        payload: err.response.data.message
-      });
       dispatch({
         type: USER_LOGIN_FAILURE,
         payload: ''
@@ -174,7 +157,7 @@ export const addItem = item => dispatch => {
     .catch(err => {
       dispatch({
         type: ADD_ITEM_FAILURE,
-        payload: err.response.data.error
+        payload: err
       });
     });
 };
