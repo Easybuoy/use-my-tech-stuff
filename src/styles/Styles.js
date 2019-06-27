@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const CategoryHeader = styled.header`
   background-image: linear-gradient(
@@ -6,7 +6,7 @@ const CategoryHeader = styled.header`
       rgba(255, 255, 255, 0),
       rgba(255, 255, 255, 0)
     ),
-    url('https://images.unsplash.com/photo-1534949532948-7c512aa3921b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+    url("https://images.unsplash.com/photo-1534949532948-7c512aa3921b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
   width: 100%;
   background-repeat: no-repeat;
   height: 100vh;
@@ -22,7 +22,7 @@ const CategoryHeader = styled.header`
     height: 100vh;
     align-items: center;
     color: white;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: "Ubuntu", sans-serif;
 
     h3 {
       font-size: 3rem;
@@ -43,7 +43,7 @@ const Category = styled.div`
     justify-content: center;
     opacity: 1;
     font-size: 3rem;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: "Ubuntu", sans-serif;
     height: 100%;
   }
 `;
@@ -67,7 +67,7 @@ const Button = styled.button`
 // `;
 
 const CategoryDetail = styled.div`
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   .card,
   .card .view img {
     /* border-radius: 0; */
@@ -145,7 +145,7 @@ const Navbar = styled.div`
       .nav-item {
         .nav-text {
           font-weight: bold;
-          font-family: 'Ubuntu', sans-serif;
+          font-family: "Ubuntu", sans-serif;
           color: #c015e9;
 
           &:hover {
@@ -234,7 +234,7 @@ const PreLoader = styled.div`
 
 const Location = styled.div`
   display: flex;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   width: 40%;
   margin: 0 auto;
   flex-direction: column;
@@ -327,7 +327,7 @@ const NotFound = styled.div`
 `;
 
 const Item = styled.div`
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   width: 100%;
   .item-caption {
     width: 100%;
@@ -427,11 +427,33 @@ const Input = styled.input`
   }
 `;
 
+const Select = styled.select`
+  &:focus {
+    border-color: #c015e9;
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
+    box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
+    border-bottom: 2px solid #1cae9e !important;
+    outline: none;
+  }
+`;
+
+const TextArea = styled.textarea`
+  &:focus {
+    border-color: #c015e9;
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
+    box-shadow: 0px 0px 3px 1px rgba(192, 21, 233, 1);
+    border-bottom: 2px solid #1cae9e !important;
+    outline: none;
+  }
+`;
+
 const BookItemForm = styled.form`
   border: 5px solid red;
 
   p {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: "Ubuntu", sans-serif;
   }
 
   .top-content {
@@ -493,7 +515,7 @@ const BookItemForm = styled.form`
 `;
 
 const Review = styled.div`
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   border-bottom: 2px solid #a5a5a5;
   margin: 1rem 0;
 
@@ -538,7 +560,83 @@ const NewReview = styled.div`
 
 const Form = styled.form`
   p {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: "Ubuntu", sans-serif;
+  }
+`;
+
+const Profile = styled.div`
+  font-family: "Ubuntu", sans-serif;
+
+  .profile-detail {
+    .user-card {
+      width: 100%;
+      text-align: center;
+      img {
+        border: 5px solid #c015e9;
+        border-radius: 50%;
+        height: 300px;
+        width: 300px;
+      }
+
+      .user-name {
+        margin: 0 auto;
+        font-size: 1.5rem;
+
+        .highlight {
+          color: #3fdbcf;
+        }
+      }
+    }
+  }
+
+  .profile-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    .new-item {
+      min-width: 30%;
+
+      @media (max-width: 992px) {
+        width: 90%;
+      }
+    }
+
+    .profile-items-list {
+      width: 30%;
+      justify-content: space-around;
+
+      margin: 1rem 0;
+
+      img {
+        height: 250px;
+        @media (max-width: 992px) {
+          height: 400px;
+        }
+      }
+      .price {
+        display: flex;
+        font-size: 1rem;
+        font-weight: bold;
+
+        p {
+          margin: 0 0.2rem;
+        }
+        .price-value {
+          color: #1cae9e;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        margin: 0 0.3rem;
+
+        a {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
   }
 `;
 
@@ -558,5 +656,8 @@ export {
   ReviewList,
   Footer,
   NewReview,
-  Form
+  Form,
+  TextArea,
+  Select,
+  Profile
 };
