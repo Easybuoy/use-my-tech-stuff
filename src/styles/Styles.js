@@ -530,6 +530,12 @@ const Footer = styled.div`
   border-top: 5px solid #c015e9;
 `;
 
+const NewReview = styled.div`
+  @media (max-width: 770px) {
+    display: none;
+  }
+`;
+
 export {
   Category,
   CategoryHeader,
@@ -544,5 +550,6 @@ export {
   BookItemForm,
   Review,
   ReviewList,
-  Footer
+  Footer,
+  NewReview
 };
