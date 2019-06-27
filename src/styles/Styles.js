@@ -384,8 +384,6 @@ const Item = styled.div`
     .review {
       border-bottom: 2px solid #a5a5a5;
       width: 90%;
-
-
     }
 
     .item-booking {
@@ -460,6 +458,38 @@ const BookItemForm = styled.form`
   }
 `;
 
+const Review = styled.div`
+  font-family: "Ubuntu", sans-serif;
+  border-bottom: 2px solid #a5a5a5;
+  margin: 1rem 0;
+
+  .top-section {
+    display: flex;
+    justify-content: baseline;
+
+    .ratings {
+      display: flex;
+      align-items: center;
+      padding: 0;
+      color: #1cae9e;
+    }
+
+    p {
+      font-size: 1.3rem;
+      padding: 0 0.5rem;
+      margin: 0;
+    }
+  }
+
+  .bottom-section {
+    padding: 0.3rem 0;
+  }
+`;
+
+const ReviewList = styled.div`
+  border-top: 2px solid #a5a5a5;
+`;
+
 export {
   Category,
   CategoryHeader,
@@ -471,5 +501,7 @@ export {
   NotFound,
   Item,
   Input,
-  BookItemForm
+  BookItemForm,
+  Review,
+  ReviewList
 };
