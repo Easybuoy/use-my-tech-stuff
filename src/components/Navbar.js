@@ -101,9 +101,9 @@ function Navbar(props) {
             </div>
             <ul className="navbar-nav ml-auto nav-flex-icons justify-content-center">
               <li className="nav-item active">
-                <a className="nav-link text-center nav-text" href="#2">
+                <Link className="nav-link text-center nav-text" to="/profile/add">
                   Post Equipment
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item avatar  text-center">

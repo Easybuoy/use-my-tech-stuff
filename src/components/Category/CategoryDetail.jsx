@@ -5,15 +5,16 @@ import { capitalizeFistCharacter } from "../../util";
 import { CategoryDetail as StyledCategoryDetail } from "../../styles/Styles";
 
 export default function CategoryDetail(props) {
-  const { id, name, image_url, price } = props.item;
+  const { id, name, image_url, price, users_town } = props.item;
 
   return (
-    <StyledCategoryDetail className="col-lg-4 col-md-4 col-sm-12 p-0">
+    <StyledCategoryDetail className="col-lg-4 col-md-6 col-sm-12 p-0">
       <div className="card mb-4">
         <div
           className="view overlay category-detail"
           style={{
-            backgroundImage: `url(${image_url})`
+            backgroundImage: `url(${image_url ||
+              "https://pvsmt99345.i.lithium.com/t5/image/serverpage/image-id/10546i3DAC5A5993C8BC8C?v=1.0"})`
           }}
         >
           <Link to={`/item/${id}`}>
@@ -38,7 +39,7 @@ export default function CategoryDetail(props) {
             {capitalizeFistCharacter(name)}
           </h4>
 
-          <h6 className="text-muted">Downtown LA, 90017</h6>
+          <h6 className="text-muted">{users_town || "Unknown Location"}</h6>
 
           <div className="price">
             <p>Daily Fee: </p>
