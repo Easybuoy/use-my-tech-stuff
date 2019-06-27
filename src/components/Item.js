@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 
 import { PreLoader, Item as StyledItem } from "../styles/Styles";
 import { getItemById } from "../actions/";
+import BookItemForm from "./BookItemForm";
 
 class Item extends Component {
   state = {
@@ -39,22 +40,53 @@ class Item extends Component {
       );
     }
 
-    const { id, name, price, image_url } = this.props.items[0];
+    const {
+      id,
+      name,
+      price,
+      description,
+      image_url,
+      users_username
+    } = this.props.items[0];
 
     return (
       <StyledItem className="container-fluid">
-        {/* <h4
-          className="font-weight-bold"
-          style={{ fontFamily: '"Ubuntu", sans-serif' }}
-        >§x
-          {capitalizeFistCharacter(this.state.category_id)}
-        </h4>
-        <div className="card-deck mb-5">
-          {this.props.categoryItems.map(item => (
-            <CategoryDetail key={item.id} item={item} />
-          ))}
-        </div> */}
-        <img src={image_url} alt="Tech" className="img-fluid" />
+        <img src={image_url} alt="Tech" className="img-fluid item-caption" />
+
+        <h4 className="pt-3 pl-3 font-weight-bold">{name}</h4>
+        <div className="item-content">
+          <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="item-detail">
+              <div className="item-detail-header">
+                <div className="item-detail-location">
+                  <i className="fas fa-map-marker-alt fa-2x" />
+                  <h6 className="text-muted">Downtown LA, 90017</h6>
+                </div>
+
+                <div className="item-detail-description">{description}</div>
+              </div>
+
+              <div className="item-detail-image">
+                <img
+                  src="https://ca.slack-edge.com/T4JUEB3ME-UHQMX3CLS-8aca137aa115-72"
+                  alt="user logo"
+                />
+                <p>{users_username}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="item-booking">
+              <BookItemForm price={price} />
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="price">
+              <p>Daily Fee: </p>
+              <p className="price-value">${price}</p>
+            </div> */}
       </StyledItem>
     );
   }
