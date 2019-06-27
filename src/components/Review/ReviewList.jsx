@@ -8,17 +8,23 @@ import { ReviewList as StyledReviewList } from "../../styles/Styles";
 import NewReview from "./NewReview";
 
 export default class ReviewList extends Component {
-  state = {
-    reviews: dummy,
-    review: ""
-  };
+  constructor() {
+    super();
+    this.state = {
+      reviews: dummy,
+      review: ""
+    };
+  }
 
   onChange = e => {
     this.setState({ review: e.target.value });
   };
 
   handleNewReview = e => {
-    const username = decode(localStorage.getItem("token")).username;
+    let username = "Anonnymous";
+    if (localStorage.token) {
+      username = decode(localStorage.getItem("token")).username;
+    }
 
     if (e.key === "Enter") {
       const newReviews = {

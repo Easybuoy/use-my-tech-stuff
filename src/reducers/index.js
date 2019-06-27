@@ -42,12 +42,14 @@ const initialState = {
   isFetchingUsers: false,
   isLoggingIn: false,
   isRegistering: false,
+  isRegistered: false,
+  isLoggedIn: false,
   isAddingItem: false,
   isUpdatingItem: false,
   isUpdatingUser: false,
   isFetchingCategory: false,
   categoryItems: [],
-  isFetchingItemsById: false,
+  isFetchingItemsById: false
 };
 
 export const reducer = (state = initialState, action) => {
@@ -83,7 +85,7 @@ export const reducer = (state = initialState, action) => {
         ...state,
         error: "",
         isRegistering: false,
-        isLoggingIn: true,
+        isRegistered: true,
         users: action.payload
       };
     case REGISTERING_USER_FAILURE:
@@ -123,7 +125,8 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: "",
-        isLoggingIn: true
+        isLoggingIn: false,
+        isLoggedIn: true
       };
     case USER_LOGIN_FAILURE:
       return {
@@ -248,7 +251,7 @@ export const reducer = (state = initialState, action) => {
     case SIGN_OUT_USER:
       return {
         ...state,
-        isLoggingIn: false,
+        isLoggedIn: false,
         isRegistering: false
       };
     default:
