@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import decode from "jwt-decode";
 import { getUsers, getItems, deleteItem, signOut } from "../actions/index";
-import styled from "styled-components";
+
 import { Triple } from "react-preloading-component";
-import { PreLoader, Button, Profile, Category } from "../styles/Styles";
+import { PreLoader, Button, Profile } from "../styles/Styles";
 import "./Dashboard.scss";
 
 import defaultAvatar from "../assets/img/default_avatar.png";
@@ -96,8 +96,6 @@ class Dashboard extends React.Component {
         </PreLoader>
       );
     }
-    console.log(this.props.users);
-    console.log(this.state.userId);
 
     return (
       <Profile className="card-deck mb-5">
@@ -146,21 +144,6 @@ class Dashboard extends React.Component {
               .filter(item => item.users_id === this.state.userId)
               .map(userItem => {
                 return (
-                  // <div
-                  //   key={userItem.id}
-                  //   img={userItem.image_url}
-                  //   style={{ border: "1px solid green" }}
-                  // >
-                  //   <Link to={`/item/${userItem.id}`}>{userItem.name}</Link>
-                  //   <p>Price to Rent: {userItem.price}</p>
-                  //   <button onClick={this.deleteItem} id={userItem.id}>
-                  //     Delete {userItem.name}
-                  //   </button>
-                  //   <Link to={`/profile/update/${userItem.id}`}>
-                  //     Update this item
-                  //   </Link>
-                  // </div>
-
                   <div
                     className="card-deck profile-items-list col-md-6 col-sm-12"
                     key={userItem.id}
@@ -190,7 +173,9 @@ class Dashboard extends React.Component {
                             type="button"
                             className="btn btn-block my-4 w-50"
                           >
-                            <Link to={`/profile/update/${userItem.id}`}>Edit</Link>
+                            <Link to={`/profile/update/${userItem.id}`}>
+                              Edit
+                            </Link>
                           </Button>
 
                           <Button

@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
-        <div style={{ minHeight: "100vh" }} className="">
+        <div style={{ minHeight: "90vh" }} className="">
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
