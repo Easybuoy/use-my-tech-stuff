@@ -13,6 +13,8 @@ class AddItem extends Component {
     price: '',
     image_url: '',
     description: '',
+    users_town: '',
+    users_state: '',
     users_id: decode(localStorage.getItem('token')).subject
   };
 
@@ -73,9 +75,19 @@ class AddItem extends Component {
             <textarea
               type='password'
               name='description'
-              value={this.state.password}
+              value={this.state.description}
               onChange={this.handleChange}
               placeholder='description of your rental'
+            />
+            <input
+              type='hidden'
+              value={this.props.users_state}
+              name='users_state'
+            />
+            <input
+              type='hidden'
+              value={this.props.users_city}
+              name='users_state'
             />
             <button>Add Item</button>
           </form>
@@ -89,7 +101,8 @@ const mapStateToProps = state => ({
   items: [],
   user: state.user,
   isRegistering: state.isRegistering,
-  error: state.error
+  error: state.error,
+  users: state.users
 });
 
 export default connect(
