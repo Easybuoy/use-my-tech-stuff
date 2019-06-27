@@ -21,6 +21,8 @@ class Item extends Component {
   }
 
   render() {
+    console.log(this.props, "===");
+    console.log("yaayy");
     if (this.props.loading) {
       return (
         <PreLoader>

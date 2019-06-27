@@ -155,49 +155,39 @@ class Dashboard extends React.Component {
                   //   </Link>
                   // </div>
 
-                  <div className="card-deck profile-items-list">
-                    <div class="card">
-                      <img
-                        class="card-img-top"
-                        src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                        alt="Card  cap"
-                      />
+                  <div
+                    className="card-deck profile-items-list"
+                    key={userItem.id}
+                  >
+                    <div className="card mb-4">
+                      <div className="view overlay">
+                        <img
+                          className="card-img-top"
+                          src={userItem.image_url}
+                          alt="Item"
+                        />
+                        <a href="#!">
+                          <div className="mask rgba-white-slight" />
+                        </a>
+                      </div>
 
-                      <div class="card-body">
-                        <h4 class="card-title">
-                          <a>Card title</a>
-                        </h4>
+                      <div className="card-body">
+                        <h4 className="card-title">Card title</h4>
 
-                        <p class="card-text">
+                        <p className="card-text">
                           Some quick example text to build on the card title and
                           make up the bulk of the card's content.
                         </p>
 
-                        <a href="#" class="btn btn-primary">
-                          Button
-                        </a>
+                        <button
+                          type="button"
+                          className="btn btn-light-blue btn-md"
+                        >
+                          Read more
+                        </button>
                       </div>
                     </div>
                   </div>
-
-                  // <div className="profile-items-list">
-                  //   <div
-                  //     className="view overlay"
-                  //     style={{
-                  //       backgroundImage: `linear-gradient(to right bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url(${
-                  //         userItem.image_url
-                  //       })`
-                  //     }}
-                  //   >
-                  //     <Link to={`/item/${userItem.id}`}>
-                  //       <div className="mask rgba-white-slight" />
-                  //     </Link>
-                  //     <div className="content">
-                  //       <p className="text-center">{userItem.name}</p>
-                  //       {/* <i className={favicon} /> */}
-                  //     </div>
-                  //   </div>
-                  // </div>
                 );
               })}
           </div>
