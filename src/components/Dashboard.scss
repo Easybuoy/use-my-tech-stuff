@@ -51,12 +51,14 @@
   // }
   .button-container {
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: flex-end;
     text-align: right;
     button {
       border: 1px solid blue;
+      border-radius: 7px;
       background: none;
       display: flex;
+      margin: 1rem;
     }
   }
 }
