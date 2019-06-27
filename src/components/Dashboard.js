@@ -4,8 +4,33 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import decode from 'jwt-decode';
 import { getUsers, getItems, deleteItem } from '../actions/index';
-
+import styled from 'styled-components';
 import './Dashboard.scss';
+
+const ItemCard = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 27%;
+  height: 250px;
+  border: none;
+  box-shadow: 1px 1px 5px silver;
+  margin: 1rem;
+  background-image: url(${props => props.img});
+  background-repeat: no-repeat;
+  height: 40vh;
+  background-size: cover;
+  background-position: center;
+`;
+
+const ItemCardsContainer = styled.div`
+  display: flex;
+  width: 85%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+`;
 
 class Dashboard extends React.Component {
   state = {
@@ -54,21 +79,15 @@ class Dashboard extends React.Component {
               );
             })}
         </div>
-        <div className='item-cards-container'>
-          <div className='add-item-container'>
+        <ItemCardsContainer>
+          <ItemCard className='empty'>
             <Link to='/dashboard/add'>Add An Item</Link>
-          </div>
+          </ItemCard>
           {this.props.items
             .filter(item => item.users_id === this.state.userId)
             .map(userItem => {
               return (
-                <div className='item-card' key={userItem.id}>
-                  <img
-                    src={userItem.image_url}
-                    className='item-img'
-                    alt='check this out'
-                  />
-                  <h1>{userItem.name}</h1>
+                <ItemCard key={userItem.id} img={userItem.image_url}>
                   <Link to={`/item/${userItem.id}`}>{userItem.name}</Link>
                   <button onClick={this.deleteItem} id={userItem.id}>
                     Delete {userItem.name}
@@ -76,10 +95,10 @@ class Dashboard extends React.Component {
                   <Link to={`/dashboard/update/${userItem.id}`}>
                     Update this item
                   </Link>
-                </div>
+                </ItemCard>
               );
             })}
-        </div>
+        </ItemCardsContainer>
         <div className='button-container'>
           <button onClick={this.logoutUser}>Log Out</button>
         </div>
