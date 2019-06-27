@@ -40,12 +40,13 @@ class Dashboard extends React.Component {
     userId: 0
   };
 
-  componentDidMount() {
-    this.props.getUsers();
-    this.props.getItems();
-    this.setState({
+  async componentDidMount() {
+    await this.setState({
       userId: decode(localStorage.getItem("token")).subject
     });
+
+    this.props.getUsers();
+    this.props.getItems();
   }
 
   deleteItem = e => {
@@ -58,8 +59,15 @@ class Dashboard extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     if (this.props.isFetchingUsers) {
+      return (
+        <PreLoader>
+          <Triple color="#c015e9" size={80} />
+        </PreLoader>
+      );
+    }
+
+    if (this.props.users.length === undefined) {
       return (
         <PreLoader>
           <Triple color="#c015e9" size={80} />
