@@ -68,14 +68,14 @@ class AddItem extends Component {
             />
             <input
               type='text'
-              name='state'
+              name='users_state'
               value={this.state.state}
               onChange={this.handleChange}
               placeholder='state'
             />
             <input
               type='text'
-              name='town'
+              name='users_town'
               value={this.state.town}
               onChange={this.handleChange}
               placeholder='town'
