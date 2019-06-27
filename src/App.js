@@ -15,6 +15,7 @@ import Items from './components/Items';
 import Item from './components/Item';
 import NotFound from './components/NotFound';
 import AddItem from './components/AddItem';
+import UpdateItem from './components/UpdateItem';
 import User from './components/User';
 
 // styles
@@ -37,8 +38,13 @@ class App extends Component {
             component={CategoriesList}
           />
           <Route path='/items' component={Items} />
-          <PrivateRoute path='/dashboard' component={Dashboard} />
+          <PrivateRoute exact path='/dashboard' component={Dashboard} />
           <PrivateRoute exact path='/dashboard/add' component={AddItem} />
+          <PrivateRoute
+            exact
+            path='/dashboard/update/:id'
+            component={UpdateItem}
+          />
           <PrivateRoute exact path='/item/:id' component={Item} />
           <PrivateRoute exact path='/user/:id' component={User} />
           <Route path='*' component={NotFound} />

@@ -46,6 +46,7 @@ class Dashboard extends React.Component {
                     alt='check it'
                   />
                   <p className='user-name'>
+                    {this.state.userId}
                     Hi, <span className='highlight'>{user.username}</span>
                   </p>
                   <Link to={`/user/${user.id}`}>Edit Your Profile</Link>
@@ -72,6 +73,9 @@ class Dashboard extends React.Component {
                   <button onClick={this.deleteItem} id={userItem.id}>
                     Delete {userItem.name}
                   </button>
+                  <Link to={`/dashboard/update/${userItem.id}`}>
+                    Update this item
+                  </Link>
                 </div>
               );
             })}
