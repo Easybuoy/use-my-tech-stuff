@@ -190,7 +190,7 @@ class Dashboard extends React.Component {
                             type="button"
                             className="btn btn-block my-4 w-50"
                           >
-                            <Link to={`/item/${userItem.id}`}>Edit</Link>
+                            <Link to={`/profile/update/${userItem.id}`}>Edit</Link>
                           </Button>
 
                           <Button
