@@ -27,18 +27,31 @@ export default function BookItemForm({ price }) {
         </div>
       </div>
 
-      <div className="md-form">
-        <Input
-          type="date"
-          required
-          className="form-control mb-4"
-          placeholder={`${price} x 0 Days`}
-        />
+      <div className="d-flex flex-row justify-content-between dates">
+        <div className="md-form">
+          <p>Start Date</p>
+          <Input
+            type="date"
+            required
+            className="form-control mb-4"
+            placeholder={`${price} x 0 Days`}
+          />
+        </div>
+
+        <div className="md-form">
+          <p>End Date</p>
+          <Input
+            type="date"
+            required
+            className="form-control mb-4"
+            placeholder={`${price} x 0 Days`}
+          />
+        </div>
       </div>
 
       <div className="md-form ">
         <Input
-          type="password"
+          type="text"
           required
           className="form-control mb-4"
           placeholder={`${price} x 0 Days`}

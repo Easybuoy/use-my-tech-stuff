@@ -437,6 +437,12 @@ const BookItemForm = styled.form`
       justify-content: flex-end;
     }
   }
+
+  .dates {
+    border-bottom: 2px solid #a5a5a5;
+    font-size: 12px;
+    color: #1cae9e;
+  }
 `;
 
 export {
