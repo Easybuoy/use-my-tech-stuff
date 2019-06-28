@@ -40,17 +40,6 @@ function Navbar(props) {
           className="collapse navbar-collapse"
           id="navbarSupportedContent-555"
         >
-          {/* Search */}
-          <div className="search-div">
-            <div className="search">
-              <input
-                className=""
-                type="text"
-                placeholder="Search"
-                aria-label="Search"
-              />
-            </div>
-          </div>
           <ul className="navbar-nav ml-auto nav-flex-icons justify-content-center nav-unauthenticated">
             <Link to="/register">
               <Button className="btn btn-block" type="submit">
@@ -106,6 +95,7 @@ function Navbar(props) {
                 />
               </div>
             </div>
+
             <ul className="navbar-nav ml-auto nav-flex-icons justify-content-center">
               <li className="nav-item active">
                 <Link
