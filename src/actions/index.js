@@ -218,7 +218,9 @@ export const updateItem = item => dispatch => {
         type: UPDATE_ITEM_FAILURE,
         payload: ""
       });
+
       dispatch({ type: UPDATE_ITEM_SUCCESS, payload: res.data });
+      dispatch({ type: RESET_UPDATE_ITEM_SUCCESS });
     })
     .catch(err => {
       dispatch({
