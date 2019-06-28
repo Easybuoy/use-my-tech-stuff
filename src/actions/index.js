@@ -204,9 +204,7 @@ export const deleteItem = item => dispatch => {
 };
 
 export const updateItem = item => dispatch => {
-  console.log(item);
   dispatch({ type: UPDATE_ITEM_START });
-  console.log(item, "aaaaa");
   return axiosWithAuth()
     .put(
       `https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/items/${

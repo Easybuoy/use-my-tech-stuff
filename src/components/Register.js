@@ -31,7 +31,6 @@ class Register extends Component {
 
   registerUser = e => {
     e.preventDefault();
-    console.log(this.state);
     this.props.registerUser(this.state);
   };
 
