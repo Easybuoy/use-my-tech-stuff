@@ -9,6 +9,13 @@ Use My Tech Stuff aims to provide a safe, guaranteed, and efficient way to effor
 <img src="./src/assets/img/app.gif"  />
 </div>
 
+<code><h3>Link to Marketing Page: https://naughty-feynman-cff292.netlify.com/</h3>
+<hr>
+<h3>Link to Application: https://ls-umts.netlify.com/</h3>
+<hr>
+<h3>Link to API: https://usemytechstuffbe.herokuapp.com/api/auth/</h3>
+<hr>
+</code>
 ### Table Of Contents
 
 - <a href="#built-with">Built With</a>
@@ -24,9 +31,6 @@ Use My Tech Stuff aims to provide a safe, guaranteed, and efficient way to effor
 <li><a href="https://mdbootstrap.com">Material Design Bootstrap</a></li>
 <li><a href="styled-components.com/">Styled Components</a></li>
 </ul>
-
-<h3>Link to application: https://ls-umts.netlify.com/</h3>
-<hr>
 
 ## Getting Started
 
