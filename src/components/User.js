@@ -27,7 +27,6 @@ class User extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className='form-container'>
         <h1>View Your Profile</h1>

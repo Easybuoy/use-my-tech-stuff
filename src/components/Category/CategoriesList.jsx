@@ -26,6 +26,25 @@ class CategoriesList extends Component {
   }
 
   render() {
+    let categoryHeader = (
+      <CategoryHeader>
+        <div className="header-text">
+          <h3>YOU CAN RENT</h3>
+          <p>PROFESSIONAL EQUIPMENTS</p>
+          <br />
+          <Link to="/register">
+            <button type="button" className="btn btn-primary">
+              Join Now
+            </button>
+          </Link>
+        </div>
+      </CategoryHeader>
+    );
+
+    if (this.props.isLoggedIn) {
+      categoryHeader = null;
+    }
+
     if (this.props.loading) {
       return (
         <PreLoader>
@@ -65,18 +84,7 @@ class CategoriesList extends Component {
 
     return (
       <>
-        <CategoryHeader>
-          <div className="header-text">
-            <h3>YOU CAN RENT</h3>
-            <p>PROFESSIONAL EQUIPMENTS</p>
-            <br />
-            <Link to="/register">
-              <button type="button" className="btn btn-primary">
-                Join Now
-              </button>
-            </Link>
-          </div>
-        </CategoryHeader>
+        {categoryHeader}
 
         {/* Location */}
         <Location />
@@ -130,7 +138,8 @@ class CategoriesList extends Component {
 const mapStateToProps = state => ({
   categoryItems: state.categoryItems,
   loading: state.isFetchingCategory,
-  error: state.error
+  error: state.error,
+  isLoggedIn: state.isLoggedIn
 });
 
 export default connect(

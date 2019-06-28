@@ -37,7 +37,7 @@ class UpdateItem extends Component {
         image_url: this.props.item[0].image_url,
         description: this.props.item[0].description
       });
-    }, 1000);
+    }, 1500);
   }
 
   handleChange = e => {

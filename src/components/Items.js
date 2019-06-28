@@ -11,7 +11,6 @@ class Items extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className='items-container'>
         <div className='cards'>

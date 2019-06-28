@@ -1,68 +1,126 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
-## Available Scripts
+# Use My Tech Stuff
 
-In the project directory, you can run:
+Use My Tech Stuff aims to provide a safe, guaranteed, and efficient way to effortlessly share professional tech equipment.
+<br>
 
-### `npm start`
+<div style="border: 2px solid #c015e9; width: 100%;">
+<img src="./src/assets/img/app.gif"  />
+</div>
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br >
+<code>
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+<h3>Link to Marketing Page: https://naughty-feynman-cff292.netlify.com/</h3>
 
-### `npm test`
+<h3>Link to Application: https://ls-umts.netlify.com/</h3>
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h3>Link to API: https://usemytechstuffbe.herokuapp.com/api/auth/ </h3>
 
-### `npm run build`
+</code>
+<br >
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Table Of Contents
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- <a href="#built-with">Built With</a>
+- <a href="#getting-started">Getting Started</a>
+- <a href="#contributors">Contributors</a>
+  <br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Built With
 
-### `npm run eject`
+<ul>
+<li><a href="https://reactjs.org">React</a></li>
+<li><a href="https://redux.js.org/">Redux</a></li>
+<li><a href="https://mdbootstrap.com">Material Design Bootstrap</a></li>
+<li><a href="styled-components.com/">Styled Components</a></li>
+</ul>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Getting Started
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<h3>Prerequisites</h3>
+You need Nodejs Installed to be able to run this project on your machine.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<h3>Installing<h3>
+<ul><li>Clone Repository</li></ul>
+<pre><code>git clone https://github.com/use-my-tech-6-24/useMyTech-FE</code> </pre>
+<br>
+<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<ul><li>Change Directory To Store Manager</li></ul>
+<pre><code>cd useMyTech-FE</code></pre>
+<br>
+<br>
 
-## Learn More
+<ul><li>Install Dependencies</li></ul>
+<pre><code>npm install</code></pre>
+<br>
+<br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<ul><li>Start Application</li></ul>
+<pre><code>npm run start</code></pre>
+<br>
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributors
 
-### Code Splitting
+<div style="display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap;">
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<div>
+<a href="https://github.com/hunterraffety">
+<img src="https://avatars3.githubusercontent.com/u/26361513?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a>
+<p>Frontend </p>
+</div>
 
-### Analyzing the Bundle Size
+<div>
+<a href="https://github.com/Easybuoy">
+<img src="https://avatars0.githubusercontent.com/u/24660100?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a>
+<p>Frontend </p>
+</div>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+<div>
+<a href="https://github.com/notdb">
+<img src="https://avatars3.githubusercontent.com/u/45773821?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a> 
+<p >Backend </p>
+</div>
 
-### Making a Progressive Web App
+<div>
+<a href="https://github.com/pj-wise">
+<img src="https://avatars1.githubusercontent.com/u/51010291?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a> 
+<p >User-Interface </p>
+</div>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+<div>
+<a href="https://github.com/timrcoder">
+<img src="https://avatars1.githubusercontent.com/u/24909454?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a> 
+<p >User-Interface </p>
+</div>
 
-### Advanced Configuration
+<div>
+<a href="https://github.com/tfaramar">
+<img src="https://avatars3.githubusercontent.com/u/43506923?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a> 
+<p >User-Interface </p>
+</div>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+<div>
+<a href="https://github.com/CSRSR">
+<img src="https://avatars2.githubusercontent.com/u/46799039?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a> 
+<p >UI/UX </p>
+</div>
 
-### Deployment
+<div>
+<a href="https://github.com/rmhennessey">
+<img src="https://avatars0.githubusercontent.com/u/46462787?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a> 
+<p >Team Lead </p>
+</div>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+</div>

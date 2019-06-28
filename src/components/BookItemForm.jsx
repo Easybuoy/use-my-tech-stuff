@@ -14,9 +14,6 @@ export default function BookItemForm({ price, users_username }) {
 
   const handleBooking = e => {
     e.preventDefault();
-    console.log(startDate.current.value);
-    console.log(endDate.current.value);
-    console.log(meetupSpot.current.value);
     if (!startDate.current.value) {
       toast.error('Kindly Fill in Start Date');
     }
