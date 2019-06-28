@@ -1,20 +1,44 @@
 // dependencies
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updateItem } from "../actions/index";
+import { updateItem, getItemById, getUsers } from "../actions/index";
+import { Triple } from "react-preloading-component";
+import { toast } from "react-toastify";
+
 import "./AddItem.scss";
 
-import { Form, Input, Select, TextArea, Button } from "../styles/Styles";
+import {
+  Form,
+  Input,
+  Select,
+  TextArea,
+  Button,
+  PreLoader
+} from "../styles/Styles";
 
 class UpdateItem extends Component {
   state = {
     name: "",
-    category: "cameras",
+    category: "",
     price: "",
     image_url: "",
     description: "",
     id: this.props.match.params.id
   };
+
+  componentDidMount() {
+    this.props.getItemById(this.props.match.params.id);
+
+    setTimeout(() => {
+      this.setState({
+        name: this.props.item[0].name,
+        category: this.props.item[0].category,
+        price: this.props.item[0].price,
+        image_url: this.props.item[0].image_url,
+        description: this.props.item[0].description
+      });
+    }, 1000);
+  }
 
   handleChange = e => {
     this.setState({
@@ -26,12 +50,26 @@ class UpdateItem extends Component {
   updateItem = e => {
     e.preventDefault();
     this.props.updateItem(this.state);
-    // .then(() => {
-    //   this.props.history.push('/profile');
-    // });
   };
 
   render() {
+    if (this.props.item.length === 0) {
+      return (
+        <PreLoader>
+          <Triple color="#c015e9" size={80} />
+        </PreLoader>
+      );
+    }
+
+    if (this.props.error) {
+      toast.error("Error Updating Item, Please Try Again");
+    }
+
+    if (this.props.itemUpdated) {
+      toast.success("Item Updated Successfully");
+      this.props.history.push("/profile");
+    }
+
     return (
       <div className="mt-5 mb-5">
         <Form
@@ -96,14 +134,15 @@ class UpdateItem extends Component {
 }
 
 const mapStateToProps = state => ({
-  items: [],
+  item: state.itemsById,
   user: state.user,
   users: state.users,
   isUpdatingItem: state.isUpdatingItem,
-  error: state.error
+  error: state.error,
+  itemUpdated: state.itemUpdated
 });
 
 export default connect(
   mapStateToProps,
-  { updateItem }
+  { updateItem, getItemById, getUsers }
 )(UpdateItem);

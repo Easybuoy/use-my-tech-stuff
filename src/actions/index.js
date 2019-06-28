@@ -45,6 +45,7 @@ export const FETCHING_ITEM_BY_ID_FAILURE = "FETCHING_ITEM_BY_ID_FAILURE";
 
 export const SIGN_OUT_USER = "SIGN_OUT_USER";
 export const RESET_ADD_ITEM_SUCCESS = "RESET_ADD_ITEM_SUCCESS";
+export const RESET_UPDATE_ITEM_SUCCESS = "RESET_UPDATE_ITEM_SUCCESS";
 
 // export const FILTER_ITEMS_START = 'FILTER_ITEMS_START';
 // export const FILTER_ITEMS_SUCCESS = 'FILTER_ITEMS_SUCCESS';
@@ -214,13 +215,21 @@ export const updateItem = item => dispatch => {
       item
     )
     .then(res => {
-      console.log(res);
+      dispatch({ type: RESET_UPDATE_ITEM_SUCCESS });
+      dispatch({
+        type: UPDATE_ITEM_FAILURE,
+        payload: ""
+      });
       dispatch({ type: UPDATE_ITEM_SUCCESS, payload: res.data });
     })
     .catch(err => {
       dispatch({
         type: UPDATE_ITEM_FAILURE,
         payload: err
+      });
+      dispatch({
+        type: UPDATE_ITEM_FAILURE,
+        payload: ""
       });
     });
 };

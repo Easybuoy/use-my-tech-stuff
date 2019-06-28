@@ -11,49 +11,6 @@ import "./Dashboard.scss";
 
 import defaultAvatar from "../assets/img/default_avatar.png";
 
-// const ItemCard = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-//   width: 27%;
-//   height: 250px;
-//   border: none;
-//   box-shadow: 1px 1px 5px silver;
-//   margin: 1rem;
-//   background-image: url(${props => props.img});
-//   background-repeat: no-repeat;
-//   height: 40vh;
-//   background-size: cover;
-//   background-position: center;
-//   font-size: 1.5rem;
-//   font-family: "Ubuntu", sans-serif;
-
-//   .empty {
-//     a {
-//       text-decoration: none;
-//       background-color: red;
-//       &:hover {
-//         color: #c015e9 !important;
-//       }
-//       /* color: #3fdbcf; */
-//       i {
-//         &:hover {
-//           color: #c015e9;
-//         }
-//       }
-//     }
-//   }
-// `;
-
-// const ItemCardsContainer = styled.div`
-//   display: flex;
-//   width: 85%;
-//   justify-content: center;
-//   align-items: center;
-//   flex-wrap: wrap;
-// `;
-
 class Dashboard extends React.Component {
   state = {
     items: [],
@@ -89,7 +46,11 @@ class Dashboard extends React.Component {
       );
     }
 
-    if (this.props.users.length === undefined) {
+    if (
+      this.props.users.length === undefined ||
+      this.props.items.length === 0 ||
+      this.state.userId === 0
+    ) {
       return (
         <PreLoader>
           <Triple color="#c015e9" size={80} />
@@ -141,7 +102,7 @@ class Dashboard extends React.Component {
             </div>
 
             {this.props.items
-              .filter(item => item.users_id === this.state.userId)
+              .filter((item = {}) => item.users_id === this.state.userId)
               .map(userItem => {
                 return (
                   <div
