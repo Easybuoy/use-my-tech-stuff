@@ -11,21 +11,14 @@ Use My Tech Stuff aims to provide a safe, guaranteed, and efficient way to effor
 
 <br >
 <code>
-Link to Marketing Page: https://naughty-feynman-cff292.netlify.com/
-</code>
-<br >
-<br >
 
-<code>
-Link to Application: https://ls-umts.netlify.com/
-</code>
-<br >
-<br >
+<h3>Link to Marketing Page: https://naughty-feynman-cff292.netlify.com/</h3>
 
-<code>
-Link to API: https://usemytechstuffbe.herokuapp.com/api/auth/
+<h3>Link to Application: https://ls-umts.netlify.com/</h3>
+
+<h3>Link to API: https://usemytechstuffbe.herokuapp.com/api/auth/ </h3>
+
 </code>
-<br >
 <br >
 
 ### Table Of Contents
