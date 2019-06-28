@@ -8,6 +8,7 @@ Use My Tech Stuff aims to provide a safe, guaranteed, and efficient way to effor
 <div style="border: 2px solid #c015e9; width: 100%;">
 <img src="./src/assets/img/app.gif"  />
 </div>
+
 ### Table Of Contents
 
 - <a href="#built-with">Built With</a>
