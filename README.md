@@ -23,7 +23,7 @@ Use My Tech Stuff aims to provide a safe, guaranteed, and efficient way to effor
 <li><a href="styled-components.com/">Styled Components</a></li>
 </ul>
 
-<h3>Link to application: <a href="https://ls-umts.netlify.com/">Store Manager Template</a> </h3>
+<h3>Link to application: https://ls-umts.netlify.com/</h3>
 <hr>
 
 ## Getting Started
