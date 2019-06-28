@@ -13,8 +13,8 @@ Use My Tech Stuff aims to provide a safe, guaranteed, and efficient way to effor
 
 - <a href="#built-with">Built With</a>
 - <a href="#getting-started">Getting Started</a>
+- <a href="#contributors">Contributors</a>
   <br>
-  <h1>Store Manager UI Template</h1>
 
 ## Built With
 
@@ -53,3 +53,65 @@ You need Nodejs Installed to be able to run this project on your machine.
 <pre><code>npm run start</code></pre>
 <br>
 <br>
+
+## Contributors
+
+<div style="display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap;">
+
+<div>
+<a href="https://github.com/hunterraffety">
+<img src="https://avatars3.githubusercontent.com/u/26361513?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a>
+<p>Frontend </p>
+</div>
+
+<div>
+<a href="https://github.com/Easybuoy">
+<img src="https://avatars0.githubusercontent.com/u/24660100?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a>
+<p>Frontend </p>
+</div>
+
+<div>
+<a href="https://github.com/notdb">
+<img src="https://avatars3.githubusercontent.com/u/45773821?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a> 
+<p >Backend </p>
+</div>
+
+<div>
+<a href="https://github.com/pj-wise">
+<img src="https://avatars1.githubusercontent.com/u/51010291?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a> 
+<p >User-Interface </p>
+</div>
+
+<div>
+<a href="https://github.com/timrcoder">
+<img src="https://avatars1.githubusercontent.com/u/24909454?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a> 
+<p >User-Interface </p>
+</div>
+
+<div>
+<a href="https://github.com/tfaramar">
+<img src="https://avatars3.githubusercontent.com/u/43506923?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a> 
+<p >User-Interface </p>
+</div>
+
+<div>
+<a href="https://github.com/CSRSR">
+<img src="https://avatars2.githubusercontent.com/u/46799039?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a> 
+<p >UI/UX </p>
+</div>
+
+<div>
+<a href="https://github.com/rmhennessey">
+<img src="https://avatars0.githubusercontent.com/u/46462787?s=460&v=4" style="height: 100px; width: 100px; border-radius: 50%" />
+</a> 
+<p >Team Lead </p>
+</div>
+
+</div>
