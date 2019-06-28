@@ -14,7 +14,7 @@ import { registerUser } from '../actions';
 class Register extends Component {
   state = {
     username: '',
-    image_url: '',
+    image_url_user: '',
     email: '',
     state: '',
     town: '',
@@ -97,8 +97,8 @@ class Register extends Component {
 
           <Input
             type='text'
-            name='image_url'
-            value={this.state.image_url}
+            name='image_url_user'
+            value={this.state.image_url_user}
             onChange={this.handleChange}
             placeholder='Profile Image URL'
             className='form-control mb-4'
