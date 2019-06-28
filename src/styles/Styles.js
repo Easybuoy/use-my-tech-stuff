@@ -571,8 +571,44 @@ const Form = styled.form`
 const Profile = styled.div`
   font-family: "Ubuntu", sans-serif;
 
+.top-section {
+width: 100%;
+padding-bottom: 2rem;
+border-bottom: 2px solid #a5a5a5;
+
+.profile-detail {
+
+  .user-card {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+
+    img {
+      height: 300px;
+      width: 300px;
+    }
+
+    .user-name {
+      margin: 0 auto;
+    }
+  }
+}
+
+.new-item {
+min-width: 100%;
+margin: 0 auto;
+height: 100%;
+font-size: 1.5rem;
+
+.card {
+  width: 70%;
+  margin: 0 auto;
+}
+}
+}
+
   .profile-detail {
-    .user-card {
+    /* .user-card {
       width: 100%;
       text-align: center;
       img {
@@ -590,11 +626,11 @@ const Profile = styled.div`
           color: #3fdbcf;
         }
       }
-    }
+    } */
   }
 
   .profile-items {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
@@ -603,14 +639,14 @@ const Profile = styled.div`
 
       @media (max-width: 992px) {
         width: 90%;
-      }
+      } */
     }
 
     .profile-items-list {
-      width: 30%;
+      /* width: 30%;
       justify-content: space-around;
 
-      margin: 1rem 0;
+      margin: 1rem 0; */
 
       img {
         height: 250px;

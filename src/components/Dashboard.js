@@ -59,54 +59,63 @@ class Dashboard extends React.Component {
     }
 
     return (
-      <Profile className="card-deck mb-5">
-        <div className="col-lg-4 col-md-6 col-sm-12 p-0">
-          <div className="profile-detail">
-            {this.props.users
-              .filter(user => user.id === this.state.userId)
-              .map(user => {
-                return (
-                  <div className="user-card" key={user.id}>
-                    <img
-                      src={user.image_url || defaultAvatar}
-                      className="user-profile-img"
-                      alt="check it"
-                    />
-                    <p className="user-name">
-                      Hi, <span className="highlight">{user.username}</span>
-                      <Button
-                        onClick={this.logoutUser}
-                        className="btn btn-block my-4 w-50"
-                        type="submit"
-                      >
-                        Log Out
-                      </Button>
-                    </p>
-                  </div>
-                );
-              })}
-          </div>
-        </div>
-
-        <div className="col-lg-8 col-md-12 col-sm-12 p-0">
-          <div className="profile-items">
-            <div className="new-item">
-              <div className="card text-center p-5">
-                <div className="card-body p-5">
-                  <Link to="/profile/add">
-                    <i className="fas fa-plus fa-7x cyan-text" />
-                    <p className="cyan-text"> Create New Item</p>
-                  </Link>
-                </div>
+      <Profile>
+        <div className="top-section">
+          <div className="card-deck">
+            <div className="col-lg-6 col-md-12 col-sm-12 p-0">
+              <div className="profile-detail">
+                {this.props.users
+                  .filter(user => user.id === this.state.userId)
+                  .map(user => {
+                    return (
+                      <div className="user-card" key={user.id}>
+                        <img
+                          src={user.image_url || defaultAvatar}
+                          className="user-profile-img"
+                          alt="check it"
+                        />
+                        <p className="user-name">
+                          Hi, <span className="highlight">{user.username}</span>
+                          <Button
+                            onClick={this.logoutUser}
+                            className="btn btn-block my-4 w-50"
+                            type="submit"
+                          >
+                            Log Out
+                          </Button>
+                        </p>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
 
+            <div className="col-lg-6 col-md-12 col-sm-12 p-0">
+              <div className="new-item">
+                <div className="card text-center p-5">
+                  <div className="card-body p-5">
+                    <Link to="/profile/add">
+                      <i className="fas fa-plus fa-7x cyan-text" />
+                      <p className="cyan-text"> Create New Item</p>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="profile-items"> */}
+
+        <div className="container-fluid">
+          <h3 className="text-center pt-3 pb-3">Posted Tech Items</h3>
+          <div className="card-deck">
             {this.props.items
               .filter((item = {}) => item.users_id === this.state.userId)
               .map(userItem => {
                 return (
                   <div
-                    className="card-deck profile-items-list col-md-6 col-sm-12"
+                    className="profile-items-list col-lg-4 col-md-6 col-sm-12"
                     key={userItem.id}
                   >
                     <div className="card mb-4">
@@ -156,6 +165,7 @@ class Dashboard extends React.Component {
               })}
           </div>
         </div>
+        {/* </div> */}
       </Profile>
     );
   }
