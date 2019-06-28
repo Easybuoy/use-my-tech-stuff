@@ -44,10 +44,11 @@ class Login extends React.Component {
     }
 
     if (error) {
-      toast.error(error);
+      toast.error("Error Login In, Please Try Again");
     }
 
     return (
+      
       <div className="mt-5 mb-5">
         <Form
           className="text-center border border-light p-5 w-50 text-center m-auto mb-5"
@@ -61,6 +62,7 @@ class Login extends React.Component {
             onChange={this.handleChange}
             className="form-control mb-4"
             placeholder="Enter Username"
+            required
           />
 
           <Input
@@ -70,6 +72,7 @@ class Login extends React.Component {
             onChange={this.handleChange}
             className="form-control mb-4"
             placeholder="Enter Password"
+            required
           />
 
           <div className="d-flex justify-content-around" />

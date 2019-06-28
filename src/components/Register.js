@@ -18,7 +18,8 @@ class Register extends Component {
     email: '',
     state: '',
     town: '',
-    password: ''
+    password: '',
+    location: ''
   };
 
   handleChange = e => {
@@ -41,7 +42,7 @@ class Register extends Component {
     }
 
     if (isRegistered) {
-      toast.success('Registration Succesfull, Kindly Login');
+      toast.success('Registration Successful, Kindly Login');
       this.props.history.push('/login');
     }
 
@@ -85,15 +86,15 @@ class Register extends Component {
             required
           />
 
-          {/* <Input
-            type="text"
-            name="location"
+          <Input
+            type='text'
+            name='location'
             value={this.state.location}
             onChange={this.handleChange}
-            placeholder="Location"
-            className="form-control mb-4"
+            placeholder='Location'
+            className='form-control mb-4'
             required
-          /> */}
+          />
 
           <Input
             type='text'
