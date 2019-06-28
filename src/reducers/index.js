@@ -30,7 +30,8 @@ import {
   UPDATE_USER_SUCCESS,
   UPDATE_USER_FAILURE,
   SIGN_OUT_USER,
-  RESET_ADD_ITEM_SUCCESS
+  RESET_ADD_ITEM_SUCCESS,
+  RESET_UPDATE_ITEM_SUCCESS
 } from "../actions";
 
 const initialState = {
@@ -51,7 +52,8 @@ const initialState = {
   isFetchingCategory: false,
   categoryItems: [],
   isFetchingItemsById: false,
-  itemAdded: false
+  itemAdded: false,
+  itemUpdated: false
 };
 
 export const reducer = (state = initialState, action) => {
@@ -214,6 +216,15 @@ export const reducer = (state = initialState, action) => {
         ...state,
         error: "",
         isUpdatingItem: false,
+        itemUpdated: true,
+        items: [...state.items, action.payload]
+      };
+      case RESET_UPDATE_ITEM_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        isUpdatingItem: false,
+        itemUpdated: false,
         items: [...state.items, action.payload]
       };
     case UPDATE_ITEM_FAILURE:

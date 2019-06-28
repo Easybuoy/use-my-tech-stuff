@@ -4,55 +4,12 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import decode from "jwt-decode";
 import { getUsers, getItems, deleteItem, signOut } from "../actions/index";
-import styled from "styled-components";
+
 import { Triple } from "react-preloading-component";
-import { PreLoader, Button, Profile, Category } from "../styles/Styles";
+import { PreLoader, Button, Profile } from "../styles/Styles";
 import "./Dashboard.scss";
 
 import defaultAvatar from "../assets/img/default_avatar.png";
-
-// const ItemCard = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-//   width: 27%;
-//   height: 250px;
-//   border: none;
-//   box-shadow: 1px 1px 5px silver;
-//   margin: 1rem;
-//   background-image: url(${props => props.img});
-//   background-repeat: no-repeat;
-//   height: 40vh;
-//   background-size: cover;
-//   background-position: center;
-//   font-size: 1.5rem;
-//   font-family: "Ubuntu", sans-serif;
-
-//   .empty {
-//     a {
-//       text-decoration: none;
-//       background-color: red;
-//       &:hover {
-//         color: #c015e9 !important;
-//       }
-//       /* color: #3fdbcf; */
-//       i {
-//         &:hover {
-//           color: #c015e9;
-//         }
-//       }
-//     }
-//   }
-// `;
-
-// const ItemCardsContainer = styled.div`
-//   display: flex;
-//   width: 85%;
-//   justify-content: center;
-//   align-items: center;
-//   flex-wrap: wrap;
-// `;
 
 class Dashboard extends React.Component {
   state = {
@@ -89,19 +46,21 @@ class Dashboard extends React.Component {
       );
     }
 
-    if (this.props.users.length === undefined) {
+    if (
+      this.props.users.length === undefined ||
+      this.props.items.length === 0 ||
+      this.state.userId === 0
+    ) {
       return (
         <PreLoader>
           <Triple color="#c015e9" size={80} />
         </PreLoader>
       );
     }
-    console.log(this.props.users);
-    console.log(this.state.userId);
 
     return (
       <Profile className="card-deck mb-5">
-        <div className="col-lg-4 col-md-12 col-sm-12 p-0">
+        <div className="col-lg-4 col-md-6 col-sm-12 p-0">
           <div className="profile-detail">
             {this.props.users
               .filter(user => user.id === this.state.userId)
@@ -143,24 +102,9 @@ class Dashboard extends React.Component {
             </div>
 
             {this.props.items
-              .filter(item => item.users_id === this.state.userId)
+              .filter((item = {}) => item.users_id === this.state.userId)
               .map(userItem => {
                 return (
-                  // <div
-                  //   key={userItem.id}
-                  //   img={userItem.image_url}
-                  //   style={{ border: "1px solid green" }}
-                  // >
-                  //   <Link to={`/item/${userItem.id}`}>{userItem.name}</Link>
-                  //   <p>Price to Rent: {userItem.price}</p>
-                  //   <button onClick={this.deleteItem} id={userItem.id}>
-                  //     Delete {userItem.name}
-                  //   </button>
-                  //   <Link to={`/profile/update/${userItem.id}`}>
-                  //     Update this item
-                  //   </Link>
-                  // </div>
-
                   <div
                     className="card-deck profile-items-list col-md-6 col-sm-12"
                     key={userItem.id}
@@ -172,9 +116,9 @@ class Dashboard extends React.Component {
                           src={userItem.image_url}
                           alt="Item"
                         />
-                        <a href="#!">
+                        <Link to={`/item/${userItem.id}`}>
                           <div className="mask rgba-white-slight" />
-                        </a>
+                        </Link>
                       </div>
 
                       <div className="card-body">
@@ -190,7 +134,9 @@ class Dashboard extends React.Component {
                             type="button"
                             className="btn btn-block my-4 w-50"
                           >
-                            <Link to={`/item/${userItem.id}`}>Edit</Link>
+                            <Link to={`/profile/update/${userItem.id}`}>
+                              Edit
+                            </Link>
                           </Button>
 
                           <Button
