@@ -5,7 +5,7 @@
 Use My Tech Stuff aims to provide a safe, guaranteed, and efficient way to effortlessly share professional tech equipment.
 <br>
 
-<img src="./src/assets/img/app.gif" />
+<img src="./src/assets/img/app.gif" style="border: 1px solid #c015e9; width: 100%;" />
 
 ### Table Of Contents
 
